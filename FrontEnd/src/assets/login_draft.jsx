@@ -1,16 +1,8 @@
-    // Import React modules
-    import React, { useState } from 'react';
-    import { useAuth0 } from '@auth0/auth0-react';
+// // Import React modules
+// import React, { useState } from 'react';
+// import { useAuth0 } from '@auth0/auth0-react';
 
-    export default function Login() {
-        return(
-            <>
-            This is the Login Page
-            </>
-        )
-    }
-
-// Define the Login component
+// // Define the Login component
 // const Login = () => {
 //   const { loginWithRedirect } = useAuth0();
 //   const [username, setUsername] = useState('');
@@ -80,3 +72,5 @@
 //     </div>
 //   );
 // };
+
+// export default Login;
