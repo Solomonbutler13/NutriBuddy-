@@ -9,14 +9,21 @@ import './index.css'
 import AboutNutriBuddy from './Components/aboutNutriBuddy.jsx';
 
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel.jsx'
+// Importing all the component pages here as we make them
+import Login from './assets/components/login.jsx'
+import SignUp from './assets/components/signup_page/signup.jsx'
+import PersonalPage from './assets/components/personal_page/personal_info.jsx';
 
 export default function App() {
 
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path='/mealplan' element={<MealPlanPanel meals={[{
+    <Router>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/personal_info' element={<PersonalPage />} />
+        <Route path='/mealplan' element={<MealPlanPanel meals={[{
             id: '1',
             title: 'meal title',
             imageUrl: 'https://placeholder.pics/svg/300',
@@ -46,8 +53,8 @@ export default function App() {
           },
           ]} />} />
           <Route path='/about' element = {<AboutNutriBuddy />} />
-        </Routes>
-      </Router>
+      </Routes>
+    </Router>
     </>
   )
 }
