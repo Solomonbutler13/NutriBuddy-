@@ -31,15 +31,16 @@ export default function MealCard( { meal }) {
   const [weeklyPlan, setWeeklyPlan] = useState([]);
 
   const addToFavorites = async (meal) => {
-    const response = await fetch ('favoritemealsAPI',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type' : 'application/json',
-      },
-      body: JSON.stringify({ meal }),
-    });
-    const newFave = await response.json();
+    // const response = await fetch ('favoritemealsAPI',
+    // {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type' : 'application/json',
+    //   },
+    //   body: JSON.stringify({ meal }),
+    // });
+    // const newFave = await response.json();
+    const newFave = {name: 'turkey meatloaf', id: ''}
     setFavorites((prevFavorites) => ([...prevFavorites, newFave]));
   }
 
