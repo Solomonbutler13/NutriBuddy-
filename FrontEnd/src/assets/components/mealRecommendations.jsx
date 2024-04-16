@@ -16,6 +16,7 @@ Display
      */}
 import { useState, useEffect } from 'react'
 
-function MealRecommendations(){
+export default function MealRecommendations( { userId }){
+    const [recipes, setRecipes ] = useState([]);
     
 }
