@@ -14,3 +14,8 @@ Display
     .map recipes to MealCards by recipe.id
 
      */}
+import { useState, useEffect } from 'react'
+
+function MealRecommendations(){
+    
+}

@@ -21,3 +21,38 @@
     Button "Favorite" onClick={addToFavorites}
     Button "Add to Plan" onClick={addToWeeklyPlan}
     Conditional rendering: full recipe description */}
+  
+import { useState, useEffect } from 'react'
+
+export default function MealCard( { meal }) {
+  const { title, imageUrl, description, calories } = meal
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [favorites, setFavorites] = useState([]);
+  const [weeklyPlan, setWeeklyPlan] = useState([]);
+
+  const addToFavorites = async (meal) => {
+    const response = await fetch ('favoritemealsAPI',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type' : 'application/json',
+      },
+      body: JSON.stringify({ meal }),
+    });
+    const newFave = await response.json();
+    setFavorites((prevFavorites) => ([...prevFavorites, newFave]));
+  }
+
+  const addToWeeklyPlan = async (meal) => {
+    const response = await fetch ('weeklyMealPlanAPI',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type' : 'application/json',
+      },
+      body: JSON.stringify({ meal }),
+    });
+    const newWeeklyMeal = await response.json();
+    setWeeklyPlan((prevWeeklies) => ([...prevWeeklies, newWeeklyMeal]));
+  }
+}
