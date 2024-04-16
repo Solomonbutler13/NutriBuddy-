@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom'
 import './index.css'
 
 // Importing all the component pages here as we make them
-import Login from './assets/components/login.jsx'
-import SignUp from './assets/components/signup.jsx'
+import Login from './pages/login.jsx'
+import SignUp from './pages/signup.jsx'
 
 export default function App() {
 
