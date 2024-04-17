@@ -128,5 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+<<<<<<< Updated upstream
 package-lock.json
+=======
+>>>>>>> Stashed changes
 FrontEnd/package-lock.json
