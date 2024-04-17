@@ -21,7 +21,7 @@ import Activity from './pages/activity_page/activity_info.jsx';
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel.jsx'
 import CallbackPage from './pages/callbackPage'
 
-export default function App () {
+export default function App() {
   const {
     isLoading,
     isAuthenticated,
@@ -35,6 +35,42 @@ export default function App () {
   // Loading State
   if (isLoading) {
     return <div>Loading...</div>
+  }
+
+  // Error State
+  if (error) {
+    return <div>Oops...wrong fridge {error.message}</div>
+  }
+
+  // Content to render based on authentication state
+  const renderContent = () => {
+    if (isAuthenticated) {
+      // User is authenticated
+      return (
+        <Router>
+          <Routes>
+            <Route path="/" element={<PersonalPage />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/personal_info" element={<PersonalPage />} />
+          </Routes>
+        </Router>
+      );
+    } else {
+      // User is not authenticated
+      return (
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/personal_info" element={<Login redirectUrl="/personal_info" />} />
+          </Routes>
+        </Router>
+      );
+    }
+  };
+
+  if (error) {
+    return <div>Oops...wrong fridge {error.message}</div>
   }
 
   return (
@@ -56,34 +92,34 @@ export default function App () {
         <Route path='/activity_info' element={<Activity />} />
         <Route path='/test' element={<Test />} />
         <Route path='/mealplan' element={<MealPlanPanel meals={[{
-            id: '1',
-            title: 'meal title',
-            imageUrl: 'https://placeholder.pics/svg/300',
-            description: 'this is turkey sandwich',
-            calories: '560'
-          },
-          {
-            id: '2',
-            title: 'meal title',
-            imageUrl: 'https://placeholder.pics/svg/500',
-            description: 'this is turkey sandwich',
-            calories: '560'
-          },
-          {
-            id: '3',
-            title: 'meal title',
-            imageUrl: 'https://placeholder.pics/svg/500',
-            description: 'this is turkey sandwich',
-            calories: '560'
-          },
-          {
-            id: '4',
-            title: 'meal title',
-            imageUrl: 'https://placeholder.pics/svg/500',
-            description: 'this is turkey sandwich',
-            calories: '560'
-          },
-          ]} />} />
+          id: '1',
+          title: 'meal title',
+          imageUrl: 'https://placeholder.pics/svg/300',
+          description: 'this is turkey sandwich',
+          calories: '560'
+        },
+        {
+          id: '2',
+          title: 'meal title',
+          imageUrl: 'https://placeholder.pics/svg/500',
+          description: 'this is turkey sandwich',
+          calories: '560'
+        },
+        {
+          id: '3',
+          title: 'meal title',
+          imageUrl: 'https://placeholder.pics/svg/500',
+          description: 'this is turkey sandwich',
+          calories: '560'
+        },
+        {
+          id: '4',
+          title: 'meal title',
+          imageUrl: 'https://placeholder.pics/svg/500',
+          description: 'this is turkey sandwich',
+          calories: '560'
+        },
+        ]} />} />
 
       </Routes>
     </Router>
