@@ -6,8 +6,8 @@ import './index.css'
 
 // Importing all the component pages here as we make them
 import Login from './components/login_page/login.jsx'
-// import SignUp from './pages/signup.jsx'
-// import PersonalPage missing
+// import SignUp from './assets/components/signup_page/signup.jsx';
+// import PersonalPage from './assets/components/personal_page/personal_info.jsx';
 
 export default function App() {
   const {
