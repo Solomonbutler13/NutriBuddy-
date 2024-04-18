@@ -10,7 +10,8 @@ export default function LoginPage() {
     const [password, setPassword] = useState('');
 
     // Function to handle login button click
-    const handleLogin = () => {
+    const handleLogin = event => {
+        event.preventDefault(); 
         loginWithRedirect();
     };
 
@@ -34,26 +35,21 @@ export default function LoginPage() {
         return enableLoginButton() ? 'disabled-button' : 'enabled-button';
     };
 
-    // Function to handle login button click
-    const clickLogin = (event) => {
-        event.preventDefault(); 
-    };
-
     // return = function runs and below is what we want to happen
     return (
         <div>
             <h1> Welcome to NutriBuddy</h1>
-            <form className="login-form">
+            <form className="login-form-form">
                 {/* Input field for username/email*/}
                 <input
-                    className="login-form"
+                    className="login-form-input"
                     onChange={handleIdInput}
                     type="text"
                     placeholder="username or email"
                 />
                 {/* Input field for password */}
                 <input
-                    className="login-info"
+                    className="login-form-input"
                     onChange={handlePwInput}
                     type="password"
                     placeholder="Password"
@@ -63,7 +59,7 @@ export default function LoginPage() {
                     className={changeLoginButtonStyle()}
                     disabled={enableLoginButton()}
                     type="submit"
-                    onClick={clickLogin}
+                    onClick={handleLogin}
                 >
                     Your tummy thanks you
                 </button>
