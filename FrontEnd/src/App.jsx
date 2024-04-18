@@ -25,23 +25,17 @@ export default function App() {
   const {
     isLoading,
     isAuthenticated,
-    logout
-  } = useAuth0()
-
-
+    error,
+    logout,
+  } = useAuth0();
+  
   const handleSignout = async () => await logout()
-
 
   // Loading State
   if (isLoading) {
     return <div>Loading...</div>
   }
-
-  // Error State
-  if (error) {
-    return <div>Oops...wrong fridge {error.message}</div>
-  }
-
+  
   // Content to render based on authentication state
   const renderContent = () => {
     if (isAuthenticated) {
