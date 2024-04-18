@@ -68,6 +68,7 @@ const GroceryList = ({ weeklyMealPlan }) => {
     }
   }, [weeklyMealPlan]);
 
+  
   // Function to calculate total cost based on the items in the list
   useEffect(() => {
     let cost = 0;
