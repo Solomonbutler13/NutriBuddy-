@@ -1,8 +1,9 @@
 // Import React modules
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Link } from 'react-router-dom';
 
-export default function Login() {
+export default function LoginPage() {
     // Define the Login component
     const { loginWithRedirect } = useAuth0();
     const [username, setUsername] = useState('');
@@ -35,10 +36,7 @@ export default function Login() {
 
     // Function to handle login button click
     const clickLogin = (event) => {
-        event.preventDefault(); // Prevent form submission/ clearing the whole page
-        // Make API call to authenticate user with username/email/phone and password
-        // Example: fetch('/api/login', { method: 'POST', body: { username, password }})
-        // Handle authentication response accordingly
+        event.preventDefault(); 
     };
 
     // return = function runs and below is what we want to happen
@@ -72,11 +70,11 @@ export default function Login() {
             </form>
             {/* Don't have an account? link */}
             <p>
-                <a href="/signup">Don't have an account? </a>
+                <Link to="/signup">Don't have an account? </Link>
             </p>
             {/* Forgot Password Link */}
             <p>
-                <a href="/forgot-password">Forgot Password?</a>
+                <Link to="/forgot-password">Forgot Password?</Link>
             </p>
         </div>
     );
