@@ -1,0 +1,14 @@
+.meal-card-container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .meal-card-container-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
