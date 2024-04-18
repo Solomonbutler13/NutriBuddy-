@@ -6,8 +6,8 @@ import './index.css'
 
 // Importing all the component pages here as we make them
 import PersonalPage from './assets/components/personal_page/personal_info.jsx';
-import Login from './pages/login.jsx'
 import SignUp from './pages/signup.jsx'
+import LoginPage from './pages/login_page/LoginPage'
 
 export default function App() {
   const {
@@ -47,9 +47,7 @@ export default function App() {
       return (
         <Router>
           <Routes>
-            <Route path="/" element={<Login />} />
-            {/* <Route path="/signup" element={<SignUp />} />
-            <Route path="/personal_info" element={<Login redirectUrl="/personal_info" />} /> */}
+            <Route path="/" element={<LoginPage />} />
           </Routes>
         </Router>
       );
