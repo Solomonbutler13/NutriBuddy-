@@ -1,0 +1,11 @@
+/* Avatar.css */
+.defaultClass {
+    width: 250px; /* Example size, adjust as needed */
+    height: 250px; /* Keep the aspect ratio */
+    border-radius: 40%; /* Circular avatar */
+    object-fit: cover; /* Ensures the image covers the space without distortion */
+}
+
+
+/*"https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"*/
+

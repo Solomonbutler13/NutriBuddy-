@@ -1,0 +1,76 @@
+.profile-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #f9f9f9; /* Light grey background for the overall container */
+}
+
+.top-section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.info-box {
+  flex: 1;
+  background: #f4ece2; /* Light brown color */
+  padding: 20px;
+  margin: 0 10px;
+  border-radius: 8px;
+  height: 200px; /* Adjust height as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.bottom-section {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.bottom-box {
+  flex: 1;
+  margin: 0 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Ensures no content spills out */
+}
+
+/* Style for the left box */
+.bottom-box:first-child {
+  background: #ffffff; /* White background */
+  border: 2px solid #cccccc; /* Light grey border */
+}
+
+/* Style for the right box */
+.bottom-box:last-child {
+  background: #e6e6e6; /* Lighter grey background */
+  border: 2px solid #b3b3b3; /* Darker grey border */
+}
+
+.list-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 20px; /* Space around the title */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 20px; /* Padding inside the box, only horizontally */
+  margin: 0; /* No margin for the list */
+}
+
+li {
+  padding: 8px 0; /* Padding for each list item */
+  border-bottom: 1px solid #cccccc; /* Separator for items */
+}
+
+li:last-child {
+  border-bottom: none; /* No border for the last item */
+}
