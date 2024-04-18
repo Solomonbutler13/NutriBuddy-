@@ -15,7 +15,6 @@ export default function App() {
     isAuthenticated,
     error,
     user,
-    loginWithRedirect,
     logout,
   } = useAuth0();
 
@@ -23,12 +22,7 @@ export default function App() {
   if (isLoading) {
     return <div>Loading...</div>
   }
-
-  // Error State
-  if (error) {
-    return <div>Oops...wrong fridge {error.message}</div>
-  }
-
+  
   // Content to render based on authentication state
   const renderContent = () => {
     if (isAuthenticated) {
