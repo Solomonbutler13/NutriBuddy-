@@ -2,16 +2,18 @@
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
+// import 
 
-export default function LoginPage() {
+export default function LoginPage({ error }) {
     // Define the Login component
     const { loginWithRedirect } = useAuth0();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+
     // Function to handle login button click
     const handleLogin = event => {
-        event.preventDefault(); 
+        event.preventDefault();
         loginWithRedirect();
     };
 
@@ -64,6 +66,9 @@ export default function LoginPage() {
                     Your tummy thanks you
                 </button>
             </form>
+            {/*  Error State: Render Auth error */}
+            {error &&
+                <div>Oops...wrong fridge {error.message}</div>}
             {/* Don't have an account? link */}
             <p>
                 <Link to="/signup">Don't have an account? </Link>
