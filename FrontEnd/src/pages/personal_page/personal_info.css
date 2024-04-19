@@ -78,7 +78,7 @@
     width: 50px;
 }
 
-.personalPageContinue{
+.personalPageSignupButtons{
     display: flex;
     gap: 7%;
 }
