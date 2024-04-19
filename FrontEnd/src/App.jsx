@@ -14,7 +14,7 @@ import Test from './pages/test.jsx';
 import Allergies from './pages/allergies_page/allergies_info.jsx';
 import Activity from './pages/activity_page/activity_info.jsx';
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel.jsx'
-
+import CallbackPage from './pages/callbackPage'
 
 export default function App() {
   const {
@@ -40,6 +40,7 @@ export default function App() {
             <Route path="/" element={<PersonalPage />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/personal_info" element={<PersonalPage />} />
+            <Route path="/callback" element={<CallbackPage />} />
           </Routes>
         </Router>
       );
@@ -49,6 +50,7 @@ export default function App() {
         <Router>
           <Routes>
             <Route path="/" element={<LoginPage />} />
+            <Route path="/callback" element={<CallbackPage />} />
           </Routes>
         </Router>
       );
