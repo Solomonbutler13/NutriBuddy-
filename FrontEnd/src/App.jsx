@@ -9,6 +9,7 @@ import './index.css'
 import PersonalPage from './assets/components/personal_page/personal_info.jsx';
 import SignUp from './pages/signup.jsx'
 import LoginPage from './pages/login_page/LoginPage'
+import CallbackPage from './pages/callbackPage'
 
 // Importing all the component pages here as we make them
 import Login from './pages/login_page/login.jsx';
@@ -46,6 +47,7 @@ export default function App() {
             <Route path="/" element={<PersonalPage />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/personal_info" element={<PersonalPage />} />
+            <Route path="/callback" element={<CallbackPage />} />
           </Routes>
         </Router>
       );
@@ -55,6 +57,7 @@ export default function App() {
         <Router>
           <Routes>
             <Route path="/" element={<LoginPage />} />
+            <Route path="/callback" element={<CallbackPage />} />
           </Routes>
         </Router>
       );

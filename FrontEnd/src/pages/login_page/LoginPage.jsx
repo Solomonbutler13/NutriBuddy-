@@ -4,10 +4,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import './login.css'
 
-export default function LoginPage({ error }) {
+export default function LoginPage() {
     // Define the Login component
     const { loginWithRedirect } = useAuth0();
-
 
     // Function to handle login button click
     const handleLogin = event => {
