@@ -18,6 +18,9 @@ import Test from './pages/test.jsx';
 import Allergies from './pages/allergies_page/allergies_info.jsx';
 import Activity from './pages/activity_page/activity_info.jsx';
 
+// Importing grocery list 
+import GroceryList from './assets/components/groceryList.jsx';
+
 export default function App() {
 
   return (
