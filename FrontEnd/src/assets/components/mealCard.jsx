@@ -24,12 +24,9 @@
   
     import { useState } from 'react';
     import './mealCard.css';
-
-    export default function MealCard({ meal }) {
+    export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) {
       const { title, imageUrl, description, calories } = meal;
       const [isExpanded, setIsExpanded] = useState(false);
-      const [favorites, setFavorites] = useState([]);
-      const [weeklyPlan, setWeeklyPlan] = useState([]);
     
       const addToFavorites = async () => {
         try {
@@ -41,8 +38,8 @@
             body: JSON.stringify({ mealId: meal.id }),
           });
           if (!response.ok) throw new Error('Failed to add to favorites');
-          const newFave = await response.json(); 
-          setFavorites((prevFavorites) => ([...prevFavorites, newFave]));
+          const newFave = await response.json();
+          onAddToFavorites(newFave); // Call the callback prop with the new favorite
         } catch (error) {
           console.error('Error adding to favorites:', error);
         }
@@ -57,9 +54,9 @@
             },
             body: JSON.stringify({ mealId: meal.id }),
           });
-        if (!response.ok) throw new Error('Failed to add to weekly plan');
+          if (!response.ok) throw new Error('Failed to add to weekly plan');
           const newWeeklyMeal = await response.json();
-          setWeeklyPlan((prevWeeklies) => ([...prevWeeklies, newWeeklyMeal]));
+          onAddToWeeklyPlan(newWeeklyMeal); // Call the callback prop with the new weekly meal
         } catch (error) {
           console.error('Error adding to weekly plan:', error);
         }
@@ -69,30 +66,26 @@
         setIsExpanded(current => !current);
       };
     
-  return (
-    <div className="meal-card-container">
-      <div className="meal-card-header">
-        Meal Suggestions
-      </div>
-      <div className="meal-card-content" onClick={toggleExpand}>
-        <img className="meal-card-image" src={imageUrl} alt={title} />
-        <h3 className="meal-card-title">{title}</h3>
-        <p className="meal-card-description">
-          {isExpanded ? description : `${description.substring(0, 100)}...`}
-        </p>
-        <p className="meal-card-calories">{calories} kcal</p>
-      </div>
-      <div className="meal-card-buttons">
-        <button className="button-favorite" onClick={(e) => {
-          e.stopPropagation(); 
-          addToFavorites();
-        }}>Favorite</button>
-        <button className="button-weekly" onClick={(e) => {
-          e.stopPropagation();
-          addToWeeklyPlan();
-        }}>Add to Plan</button>
-      </div>
-    </div>
-  );
-
+      return (
+        <div className="meal-card-container">
+          <div className="meal-card-content" onClick={toggleExpand}>
+            <img className="meal-card-image" src={imageUrl} alt={title} />
+            <h3 className="meal-card-title">{title}</h3>
+            <p className="meal-card-description">
+              {isExpanded ? description : `${description.substring(0, 100)}...`}
+            </p>
+            <p className="meal-card-calories">{calories} kcal</p>
+          </div>
+          <div className="meal-card-buttons">
+            <button className="button-favorite" onClick={(e) => {
+              e.stopPropagation(); 
+              addToFavorites();
+            }}>Favorite</button>
+            <button className="button-weekly" onClick={(e) => {
+              e.stopPropagation();
+              addToWeeklyPlan();
+            }}>Add to Plan</button>
+          </div>
+        </div>
+      );
     }
