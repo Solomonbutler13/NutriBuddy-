@@ -30,9 +30,10 @@ Display:
                 - onDragStart={(event) => handleDragStart(meal, event)}
                 - Display text of meal */}
 
+import { useState } from 'react';
 import './weeklyPlan.css';
 
-const WeeklyPlanPanel = ({ meals }) => {
+const WeeklyPlan = ({ meals }) => {
   const [weeklyMeals, setWeeklyMeals] = useState([
     { day: 'Sunday', meals: [] },
     { day: 'Monday', meals: [] },
@@ -97,4 +98,4 @@ const WeeklyPlanPanel = ({ meals }) => {
   );
 };
 
-export default WeeklyPlanPanel;
+export default WeeklyPlan;

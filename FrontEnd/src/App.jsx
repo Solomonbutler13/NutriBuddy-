@@ -19,7 +19,6 @@ import Activity from './pages/activity_page/activity_info';
 export default function App() {
 
   return (
-    <>
     <Router>
       <Routes>
         <Route path='/' element={<Login />} />
@@ -61,7 +60,5 @@ export default function App() {
         <Route path='/test' element={<Test />} />
       </Routes>
     </Router>
-    </>
   )
 }
-

@@ -1,5 +1,5 @@
 import React from 'react';
-import MealCard from './mealCard.jsx';
+import MealCard from './MealCard.jsx';
 import './mealCardContainer.css';
 
 const MealCardContainer = ({ meals }) => {
