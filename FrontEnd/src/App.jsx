@@ -16,7 +16,7 @@ import Test from './pages/test';
 import Allergies from './pages/allergies_page/allergies_info';
 import Activity from './pages/activity_page/activity_info';
 
-// Importing grocery list 
+// Importing grocery list component and cost calculator 
 import GroceryList from './assets/components/groceryList.jsx';
 
 export default function App() {
