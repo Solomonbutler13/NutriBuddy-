@@ -1,82 +1,72 @@
 import './signup.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-
-// Allow Zustand to store data
-export const useStore = create(persist(set => ({
-    email: '',
-    password: '',
-    setEmail: (email) => set({ email }),
-    setPassword: (password) => set({ password }),
-}), {
-    name: 'user-data',
-}));
+import { useStore } from "../../components/userdata.jsx";
 
 export default function SignUp() {
     const navigate = useNavigate();
-    // These two allows user to store email and password in Zustand
-    const setEmail = useStore(state => state.setEmail);
-    const setPassword = useStore(state => state.setPassword);
 
-    // This use state gets the info from the inputs
+    // Allow user to store data
+    const store = useStore();
+
+    // Get user input data
     const [loginInfo, setLoginInfo] = useState({
         email: '',
         password: '',
         confirmPassword: ''
     });
     
-    // This use state checks for 3 possible errors from user
+    // This state allows error message to be displayed
     const [checkErrors, setCheckErrors] = useState({
         emailEmpty: false,
         passwordEmpty: false,
         passwordDifferent: false
     });
 
-    // Change info as user types
-    const handleChange = (input) => {
+    // This function checks for changes in user input
+    const handleInfoChange = (input) => {
         const { name, value } = input.target;
         setLoginInfo(prev => ({ ...prev, [name]: value }));
     };
 
-    // Check input before submitting
+    // This function checks the info before passing it on
     function checkInput() {
         const { email, password, confirmPassword } = loginInfo;
         // Let the default be there is no error
         setCheckErrors({emailEmpty:false, passwordEmpty:false, passwordDifferent:false})
         let noErrors = true;
 
-        // Check for errors and change that one error while not touching the other errors
+        // Checks for errors
         if (email === ''){
             setCheckErrors(errors => ({ ...errors, emailEmpty: true }));
             noErrors = false;
-        }
-        else if (password !== confirmPassword){
+        }else if(password === '' || confirmPassword === ''){
             setCheckErrors(errors => ({ ...errors, passwordEmpty: true }));
             noErrors = false;
-        }else if(password === '' || confirmPassword === ''){
+        }
+        else if (password !== confirmPassword){
             setCheckErrors(errors => ({ ...errors, passwordDifferent: true }));
             noErrors = false;
         }
-        // Send info to Zustand and proceed to the next page if there are no errors
+        
+        // Send info if there is no error and goto next page
         if(noErrors){
-            setEmail(email);
-            setPassword(password);
+            store.setInfo('email', email);
+            store.setInfo('password', password);
             navigate('/personal_info');
         }
     }
 
     return (
         <div className="signUpPageContainer">
-            <div className="infoContainer">
-                <div className="pageInfo">
+            <div className="signUpInfoContainer">
+                <div className="signUpPageInfo">
                     <h1>Create An Account</h1>
                 </div>
 
-                <input name='email' type='email' placeholder='Enter Email' value={loginInfo.email} onChange={handleChange}/>
-                <input name='password' type='password' placeholder='Create Password' value={loginInfo.password} onChange={handleChange} />
-                <input name='confirmPassword' type="password" placeholder='Confirm Password' value={loginInfo.confirmPassword} onChange={handleChange} />
+                <input name='email' type='email' placeholder='Enter Email' value={loginInfo.email} onChange={handleInfoChange}/>
+                <input name='password' type='password' placeholder='Create Password' value={loginInfo.password} onChange={handleInfoChange} />
+                <input name='confirmPassword' type="password" placeholder='Confirm Password' value={loginInfo.confirmPassword} onChange={handleInfoChange} />
 
                 <button onClick={checkInput}>Next</button>
 
