@@ -6,6 +6,9 @@ import './index.css'
 import Login from './assets/components/login.jsx'
 import SignUp from './assets/components/signup.jsx'
 
+// Importing grocery list 
+import GroceryList from './assets/components/groceryList.jsx';
+
 export default function App() {
 
   return (
@@ -14,6 +17,8 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/grocerylist' element = {<GroceryList />} /> 
+
       </Routes>
     </Router>
     </>

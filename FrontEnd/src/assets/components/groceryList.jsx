@@ -9,15 +9,10 @@
 //     - List of grocery items with quantity and estimated cost
 //     - Total cost display
 
-
-// Notes for wednesday coding
-
-// create my own mock grocery list data 
-// this can test if the grocery list data works 
-// ask to for an understanding of vs code / github initializing 
-
 import React, { useState, useEffect } from 'react';
+import './GroceryList.css'; // CSS file
 
+// Define the GroceryList component
 const GroceryList = ({ weeklyMealPlan }) => {
   // State for managing grocery items and total cost
   const [items, setItems] = useState([]);
@@ -43,7 +38,6 @@ const GroceryList = ({ weeklyMealPlan }) => {
         { name: 'Kidney Beans', quantity: 2, unit: 'cans', costPerUnit: 2 }
       ]
     }
-    // If i need then add more stubbed recipes 
   ];
 
   // UseEffect hook to initialize grocery list data
@@ -68,7 +62,6 @@ const GroceryList = ({ weeklyMealPlan }) => {
     }
   }, [weeklyMealPlan]);
 
-  
   // Function to calculate total cost based on the items in the list
   useEffect(() => {
     let cost = 0;
@@ -81,16 +74,20 @@ const GroceryList = ({ weeklyMealPlan }) => {
 
   return (
     <div className="grocery-list">
+      {/* Grocery list title */}
       <h2>Grocery List</h2>
-      <ul>
+      {/* List of grocery items */}
+      <ul className="grocery-items">
         {items.map((item, index) => (
-          <li key={index}>
+          <li key={index} className="grocery-item">
+            {/* Display each grocery item with quantity and cost */}
             {item.name} - {item.quantity} {item.unit}
             <span> - ${item.quantity * item.costPerUnit.toFixed(2)}</span>
           </li>
         ))}
       </ul>
-      <div>
+      {/* Total cost display */}
+      <div className="total-cost">
         <strong>Total Cost: ${totalCost.toFixed(2)}</strong>
       </div>
     </div>
