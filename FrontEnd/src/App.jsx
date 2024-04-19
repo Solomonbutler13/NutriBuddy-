@@ -16,9 +16,10 @@ import Activity from './pages/activity_page/activity_info';
 
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel.jsx'
 // Importing all the component pages here as we make them
-import Login from './assets/components/login.jsx'
-import SignUp from './assets/components/signup_page/signup.jsx'
-import PersonalPage from './assets/components/personal_page/personal_info.jsx';
+import Login from './pages/login_page/login.jsx';
+import SignUp from './pages/signup_page/signup.jsx';
+import PersonalPage from './pages/personal_page/personal_info.jsx';
+import Test from './pages/test.jsx';
 
 export default function App() {
 

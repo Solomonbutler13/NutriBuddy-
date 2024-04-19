@@ -114,7 +114,7 @@ export default function PersonalPage(){
                     <label> inch </label>
                 </div>
 
-                <div className="personalPageContinue">
+                <div className="personalPageSignupButtons">
                     <button onClick={previousPage}>Back</button>
                     <button onClick={checkInput}>Next</button>
                 </div>
