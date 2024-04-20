@@ -7,7 +7,12 @@ import Login from './assets/components/login.jsx'
 import SignUp from './assets/components/signup.jsx'
 
 // Importing grocery list component and cost calculator 
+
 import GroceryList from './assets/components/groceryList.jsx';
+
+// Importing Recipe of the day component 
+
+import RecipeOfTheDay from './assets/components/recipeOfTheDay.jsx';
 
 export default function App() {
 
@@ -18,8 +23,11 @@ export default function App() {
         <Route path='/' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/grocerylist' element = {<GroceryList />} /> 
+
+        <Route path='/recipe' element = {<RecipeOfTheDay />} />
       </Routes>
     </Router>
     </>
   )
 }
+
