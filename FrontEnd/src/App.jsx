@@ -24,6 +24,9 @@ import GroceryList from './assets/components/groceryList.jsx';
 
 import RecipeOfTheDay from './assets/components/recipeOfTheDay.jsx';
 
+// Importing about nutribuddy pages components 
+import AboutNutriBuddy from './assets/components/aboutNutriBuddy.jsx';
+
 export default function App() {
 
   return (
