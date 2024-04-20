@@ -18,10 +18,32 @@ export default function App() {
           <Route path='/test' element={<MealPlanPanel meals={[{
             id: '1',
             title: 'meal title',
+            imageUrl: 'https://placeholder.pics/svg/300',
+            description: 'this is turkey sandwich',
+            calories: '560'
+          },
+          {
+            id: '2',
+            title: 'meal title',
             imageUrl: 'https://placeholder.pics/svg/500',
             description: 'this is turkey sandwich',
-            calories: '560 kcal'
-          }]} />} />
+            calories: '560'
+          },
+          {
+            id: '3',
+            title: 'meal title',
+            imageUrl: 'https://placeholder.pics/svg/500',
+            description: 'this is turkey sandwich',
+            calories: '560'
+          },
+          {
+            id: '4',
+            title: 'meal title',
+            imageUrl: 'https://placeholder.pics/svg/500',
+            description: 'this is turkey sandwich',
+            calories: '560'
+          },
+          ]} />} />
         </Routes>
       </Router>
     </>

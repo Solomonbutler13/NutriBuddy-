@@ -1,64 +1,81 @@
 .meal-plan-panel {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Adjust the gap as necessary */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  width: 100%; 
+  background-color: #D9D9D9;
+  font-family: 'Kodchasan', sans-serif;
+  padding: 30px; 
+}
+
+.meal-suggestions {
+  background-color: #d8bcbc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 20px; 
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: auto;
+}
+
+.weekly-plan-panel {
+  width: 80%; 
+  background-color: #d8bcbc; 
+  padding: 20px;
+  margin: 20px; 
+}
+
+.meal-suggestions-title { 
+  text-align: left; 
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.meal-suggestions-scrollable {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  scrollbar-width: none;
+}
+
+.meal-suggestions-scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.meal-card-container {
+  min-width: 300px;
+  flex-shrink: 0; 
+}
+
+.day-container {
+  display: flex;
+  align-items: center; 
+  padding: 10px;
+  border: 1px solid #ccc; 
+  margin-bottom: 10px; 
+}
+
+.meal-item {
+  background-color: #FFE8E8;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer; 
+}
+
+.icon-sun {
+  color: #FFA500; 
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .meal-plan-panel, .meal-suggestions, .weekly-plan-panel {
+    width: 100%; 
+    margin: 10px 0; 
+    padding: 10px; 
   }
-  
-  .meal-suggestions,
-  .weekly-plan-panel {
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    max-width: 400px;
-    margin: 20px auto;
-  }
-  
-  .weekly-plan-title,
-  .meal-suggestions-title { /* Added a class for consistency */
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .day-container,
-  .meal-card-container { /* Added a class for consistency */
-    display: flex;
-    align-items: center;
-    border: 1px solid #000;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #FDF3F3;
-  }
-  
-  .day-name,
-  .meal-card-title { /* Added a class for consistency */
-    font-weight: bold;
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .day-meals,
-  .meal-card-content { /* Adjusted for the meal card content */
-    flex: 1;
-  }
-  
-  .meal-item,
-  .meal-card { /* Adjusted for the meal card */
-    background-color: #FFE8E8;
-    padding: 5px 10px;
-    margin-right: 5px;
-    border-radius: 5px;
-    cursor: grab;
-  }
-  
-  .meal-item:active,
-  .meal-card:active { /* Adjusted for the meal card when active */
-    cursor: grabbing;
-  }
-  
-  .icon-sun {
-    color: #FFA500;
-    margin-right: 5px;
-  }
+}
