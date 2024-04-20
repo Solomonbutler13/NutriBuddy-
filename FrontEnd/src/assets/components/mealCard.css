@@ -72,7 +72,7 @@
   }
   
   .button-favorite {
-    background-color: #A020F0;
+
     color: #FFF;
     border-radius: 50%;
     width: 30px;
@@ -80,20 +80,19 @@
     text-align: center;
     line-height: 30px;
     font-size: 20px;
-    right: 50px;
+    right: 36px;
   }
   
   .button-weekly {
     color: #000;
-    right: 16px;
+    right: 4px;
   }
   
-  .button-favorite::before {
-    content: '\2665';
-  }
+
   
   .button-weekly::before {
     content: '\002B';
+    font-size: 36px;
   }
   
   @media (max-width: 768px) {
