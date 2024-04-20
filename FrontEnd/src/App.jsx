@@ -14,6 +14,9 @@ import GroceryList from './assets/components/groceryList.jsx';
 
 import RecipeOfTheDay from './assets/components/recipeOfTheDay.jsx';
 
+// Importing about nutribuddy pages components 
+import AboutNutriBuddy from './assets/components/aboutNutriBuddy.jsx';
+
 export default function App() {
 
   return (
@@ -25,6 +28,8 @@ export default function App() {
         <Route path='/grocerylist' element = {<GroceryList />} /> 
 
         <Route path='/recipe' element = {<RecipeOfTheDay />} />
+
+        <Route path='/about' element = {<AboutNutriBuddy />} />
       </Routes>
     </Router>
     </>
