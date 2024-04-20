@@ -19,7 +19,12 @@ import Allergies from './pages/allergies_page/allergies_info.jsx';
 import Activity from './pages/activity_page/activity_info.jsx';
 
 // Importing grocery list component and cost calculator 
+
 import GroceryList from './assets/components/groceryList.jsx';
+
+// Importing Recipe of the day component 
+
+import RecipeOfTheDay from './assets/components/recipeOfTheDay.jsx';
 
 export default function App() {
 
