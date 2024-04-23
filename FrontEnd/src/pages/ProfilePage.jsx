@@ -6,7 +6,7 @@ function ProfilePage() {
     return (
         <div className="profile-page-container">
             <div className="top-section">
-              <ProfilePic />
+                <ProfilePic />
                 <div className="info-box">
                     <h2>Weight</h2>
                     <p>Current: 180 lbs</p>
@@ -21,6 +21,7 @@ function ProfilePage() {
             <div className="bottom-section">
                 <div className="bottom-box">
                     <div className="list-title">Today's Meal Plan</div>
+                    <h3>Saturday</h3>
                     <ul>
                         <li>Overnight Oats</li>
                         <li>Turkey Salad</li>
@@ -30,10 +31,10 @@ function ProfilePage() {
                 <div className="bottom-box">
                     <div className="list-title">Saved Recipes</div>
                     <ul>
-                        <li>Quinoa Salad with Avocado and Black Beans</li>
-                        <li>Baked Salmon with Roasted Vegetables</li>
-                        <li>Stir-Fried Tofu with Vegetables</li>
-                        <li>Greek Yogurt Parfait</li>
+                        <li><a href="https://example.com/quinoa-salad">Quinoa Salad with Avocado and Black Beans</a></li>
+                        <li><a href="https://example.com/baked-salmon">Baked Salmon with Roasted Vegetables</a></li>
+                        <li><a href="https://example.com/stir-fried-tofu">Stir-Fried Tofu with Vegetables</a></li>
+                        <li><a href="https://example.com/greek-yogurt-parfait">Greek Yogurt Parfait</a></li>
                     </ul>
                 </div>
             </div>

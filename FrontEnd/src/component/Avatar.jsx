@@ -32,11 +32,16 @@
 
 
 import React from 'react';
+import '../component/Avatar.css';
 
-const Avatar = ({ src, alt }) => (
+{/* <Avatar src={user.avatar} alt="User Avatar" username={user.username} /> */}
+
+const Avatar = ({ src, alt, username }) => (
   <div className="avatar">
     <img src={src} alt={alt} style={{ width: '250px', height: '250px', borderRadius: '20%' }} />
+    <div className="avatar-name">{`Hi ${username}`}</div>
   </div>
 );
 
 export default Avatar;
+

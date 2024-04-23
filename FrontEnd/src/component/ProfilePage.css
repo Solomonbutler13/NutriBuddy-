@@ -1,21 +1,22 @@
+/* ProfilePage.css */
 .profile-page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background: #f9f9f9; /* Light grey background for the overall container */
+  padding: 50px;
+  background: #D9D9D9; /* Light grey background for the overall container */
 }
 
 .top-section {
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 
 .info-box {
   flex: 1;
-  background: #f4ece2; /* Light brown color */
+  background: #d8bcbc; /* Light brown color */
   padding: 20px;
   margin: 0 10px;
   border-radius: 8px;
@@ -24,7 +25,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .bottom-section {
@@ -40,37 +41,80 @@
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Ensures no content spills out */
+  
 }
 
 /* Style for the left box */
 .bottom-box:first-child {
   background: #ffffff; /* White background */
-  border: 2px solid #cccccc; /* Light grey border */
+  border: 2px solid #c2a4a4; /* Light grey border */
+  text-align: center;
 }
 
 /* Style for the right box */
 .bottom-box:last-child {
   background: #e6e6e6; /* Lighter grey background */
   border: 2px solid #b3b3b3; /* Darker grey border */
+  text-align: center;
 }
 
 .list-title {
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
-  margin: 10px 20px; /* Space around the title */
+  margin: 10px ; /* Space around the title */
 }
+
+.list-title + h3 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #c2a4a4; /* Choose a color that fits your design */
+  margin-bottom: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
 
 ul {
   list-style-type: none;
   padding: 0 20px; /* Padding inside the box, only horizontally */
-  margin: 0; /* No margin for the list */
+  margin: 3; /* No margin for the list */
+  padding: 10px;
+  font-size: 20px;
 }
 
 li {
   padding: 8px 0; /* Padding for each list item */
   border-bottom: 1px solid #cccccc; /* Separator for items */
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 li:last-child {
   border-bottom: none; /* No border for the last item */
+}
+
+
+/* ProfilePage.css */
+
+/* Add shadow and styling to clickable links */
+.bottom-box ul li a {
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: #d8bcbc; /* Light brown background */
+  color: #333; /* Dark text color */
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bottom-box ul li a:hover {
+  transform: translateY(-2px); /* Add slight upward hover effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+
+.list-title + ul {
+  margin-top: 10px; /* Add margin above the unordered list */
 }
