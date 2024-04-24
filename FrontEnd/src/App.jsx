@@ -23,7 +23,7 @@ export default function App() {
   if (isLoading) {
     return <div>Loading...</div>
   }
-  
+
   // Content to render based on authentication state
   const renderContent = () => {
     if (isAuthenticated) {
@@ -34,6 +34,7 @@ export default function App() {
             <Route path="/" element={<PersonalPage />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/personal_info" element={<PersonalPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} /> {/* New route for Forgot Password */}
             <Route path="/callback" element={<CallbackPage />} />
           </Routes>
         </Router>
@@ -44,6 +45,7 @@ export default function App() {
         <Router>
           <Routes>
             <Route path="/" element={<LoginPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} /> {/* New route for Forgot Password */}
             <Route path="/callback" element={<CallbackPage />} />
           </Routes>
         </Router>
