@@ -40,3 +40,24 @@ export default function LoginPage() {
         </div>
     );
 }
+
+// Define the ForgotPasswordPage component
+export function ForgotPasswordPage() {
+    const handleResetPassword = () => {
+        // Implement Auth0 reset password functionality here
+    };
+
+    return (
+        <div>
+            <h1>Forgot Password</h1>
+            <p>Please enter your email address to reset your password.</p>
+            <form onSubmit={handleResetPassword}>
+                <input type="email" placeholder="Email" required />
+                <button type="submit">Reset Password</button>
+            </form>
+            <p>
+                <Link to="/LoginPage">Back to Login</Link>
+            </p>
+        </div>
+    );  
+}
