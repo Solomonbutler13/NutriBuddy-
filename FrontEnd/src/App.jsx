@@ -31,10 +31,10 @@ export default function App() {
       return (
         <Router>
           <Routes>
-            <Route path="/" element={<PersonalPage />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/personal_info" element={<PersonalPage />} />
-            <Route path="/forgot-password" element={<ForgotPasswordPage />} /> {/* New route for Forgot Password */}
+            <Route path="/" element={<p>Personal Page</p>} />
+            <Route path="/personal_info" element={<p>Personal Page</p>} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} /> 
+            {/* New route for Forgot Password */}
             <Route path="/callback" element={<CallbackPage />} />
           </Routes>
         </Router>
@@ -45,7 +45,9 @@ export default function App() {
         <Router>
           <Routes>
             <Route path="/" element={<LoginPage />} />
-            <Route path="/forgot-password" element={<ForgotPasswordPage />} /> {/* New route for Forgot Password */}
+            <Route path="/signup" element={<p>SignUp Page</p>} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} /> 
+            {/* New route for Forgot Password */}
             <Route path="/callback" element={<CallbackPage />} />
           </Routes>
         </Router>
