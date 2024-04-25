@@ -58,7 +58,7 @@ export function ForgotPasswordPage() {
                 <div className="page-info">
                     <h1>Forgot Password</h1>
                 </div>
-                <p>Please enter your email address to reset your password.</p>
+                <p>Lets get you back on track</p>
                 <form onSubmit={handleResetPassword}>
                     <input type="email" placeholder="Email" required />
                     <button id="login-button" type="submit">Reset Password</button>
