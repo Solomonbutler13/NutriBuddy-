@@ -2,8 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom'
 import './index.css'
 
-// Importing grocery list component and cost calculator 
-
 
 // Importing about nutribuddy pages components 
 import AboutNutriBuddy from './pages/about_nutribuddy/aboutNutriBuddy'
@@ -15,17 +13,6 @@ import Diet from './pages/diet_page/diet_info';
 import Test from './pages/test';
 import Allergies from './pages/allergies_page/allergies_info';
 import Activity from './pages/activity_page/activity_info';
-
-// Importing grocery list component and cost calculator 
-
-import GroceryList from './assets/components/groceryList.jsx';
-
-// Importing Recipe of the day component 
-
-import RecipeOfTheDay from './assets/components/recipeOfTheDay.jsx';
-
-// Importing about nutribuddy pages components 
-import AboutNutriBuddy from './assets/components/aboutNutriBuddy.jsx';
 
 export default function App() {
 
@@ -64,7 +51,7 @@ export default function App() {
             calories: '560'
           },
           ]} />} />
-          <Route path='/about' element = {<AboutNutriBuddy />} />
+        <Route path='/about' element = {<AboutNutriBuddy />} />
         <Route path='/diet_info' element={<Diet />} />
         <Route path='/allergies_info' element={<Allergies />} />
         <Route path='/activity_info' element={<Activity />} />

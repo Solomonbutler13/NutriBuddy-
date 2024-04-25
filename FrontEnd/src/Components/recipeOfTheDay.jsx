@@ -14,16 +14,21 @@ function CulturalRecipeOfTheDay() {
             const dataCanadian = await responseCanadian.json();
             const dataFrench = await responseFrench.json();
             const dataIndian = await responseIndian.json();
+            // Get more data if needed...
 
+            // Combine data from different countries
             const allRecipes = [
                 ...dataCanadian.meals,
                 ...dataFrench.meals,
                 ...dataIndian.meals,
+                // Combine recipes from more countries if needed...
             ];
 
+            // Randomly select a recipe
             const randomIndex = Math.floor(Math.random() * allRecipes.length);
             const selectedRecipe = allRecipes[randomIndex];
 
+            // Fetch instructions for the selected recipe
             const instructionsResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${selectedRecipe.idMeal}`);
             const instructionsData = await instructionsResponse.json();
             const recipeWithInstructions = instructionsData.meals[0];
