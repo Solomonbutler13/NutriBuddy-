@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
+import './login.css'
 
 export default function LoginPage() {
     // Define the Login component
@@ -16,27 +17,31 @@ export default function LoginPage() {
     const enableLoginButton = () => { };
 
     return (
-        <div>
-            <h1> Welcome to NutriBuddy</h1>
-                            
+        <div className="login-container">
+            <div className="login-form">
+                <div className="page-info">
+                    <h1> Welcome to NutriBuddy</h1>
+                </div>
+
                 {/* Button for login */}
                 <button
-                    // className={changeLoginButtonStyle()}
+                    id="login-button"
                     enabled={enableLoginButton()}
                     type="submit"
                     onClick={handleLogin}
                 >
-                    Your tummy thanks you
+                    Your personal dietician awaits
                 </button>
-            
-            {/* Don't have an account? link */}
-            <p>
-                <Link to="/signup">Don't have an account? </Link>
-            </p>
-            {/* Forgot Password Link */}
-            <p>
-                <Link to="/forgot-password">Forgot Password?</Link>
-            </p>
+
+                {/* Don't have an account? link */}
+                <div className="to-login">
+                    <Link to="/signup">Don't have an account? </Link>
+                </div>
+                {/* Forgot Password Link */}
+                <div className="to-login">
+                    <Link to="/forgot-password">Forgot Password?</Link>
+                </div>
+            </div>
         </div>
     );
 }
@@ -48,16 +53,20 @@ export function ForgotPasswordPage() {
     };
 
     return (
-        <div>
-            <h1>Forgot Password</h1>
-            <p>Please enter your email address to reset your password.</p>
-            <form onSubmit={handleResetPassword}>
-                <input type="email" placeholder="Email" required />
-                <button type="submit">Reset Password</button>
-            </form>
-            <p>
-                <Link to="/LoginPage">Back to Login</Link>
-            </p>
+        <div className="login-container">
+            <div className="login-form">
+                <div className="page-info">
+                    <h1>Forgot Password</h1>
+                </div>
+                <p>Please enter your email address to reset your password.</p>
+                <form onSubmit={handleResetPassword}>
+                    <input type="email" placeholder="Email" required />
+                    <button id="login-button" type="submit">Reset Password</button>
+                </form>
+                <p className="to-login">
+                    <Link to="/login">Back to Login</Link>
+                </p>
+            </div>
         </div>
-    );  
+    );
 }
