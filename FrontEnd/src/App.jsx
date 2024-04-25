@@ -20,11 +20,14 @@ import Activity from './pages/activity_page/activity_info.jsx';
 
 // Importing grocery list component and cost calculator 
 
-import GroceryList from './assets/components/groceryList.jsx';
+import GroceryList from './Components/groceryList.jsx';
 
 // Importing Recipe of the day component 
 
-import RecipeOfTheDay from './assets/components/recipeOfTheDay.jsx';
+import RecipeOfTheDay from './Components/recipeOfTheDay.jsx';
+
+// Importing about nutribuddy pages components 
+import AboutNutriBuddy from './Components/aboutNutriBuddy.jsx';
 
 export default function App() {
 
