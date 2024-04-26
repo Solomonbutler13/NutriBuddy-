@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import MealCard from './mealCard.jsx';
-import WeeklyPlan from './WeeklyPlan.jsx';
-import './MealPlanPanel.css'; 
+import MealCard from '../../components/mealCard.jsx';
+import WeeklyPlan from '../../components/WeeklyPlan.jsx';
+import './MealPlanPanel.css';
 
 const MealPlanPanel = ({ meals, userName = "User" }) => {
   const [favorites, setFavorites] = useState([]);
@@ -34,16 +34,16 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
 
   return (
     <div className="meal-plan-panel">
-      <h1 style={{ width: '100%', textAlign: 'center' }}>{userName}'s Meal Plan</h1> 
+      <h1 style={{ width: '100%', textAlign: 'center' }}>{userName}'s Meal Plan</h1>
       <div className="meal-suggestions">
         <h2 className="meal-suggestions-title">Meal Suggestions</h2>
         <div className="meal-suggestions-scrollable">
           {meals.map((meal) => (
-            <MealCard 
-              key={meal.id} 
-              meal={meal} 
-              onAddToFavorites={handleAddToFavorites} 
-              onAddToWeeklyPlan={handleAddToWeeklyPlan} 
+            <MealCard
+              key={meal.id}
+              meal={meal}
+              onAddToFavorites={handleAddToFavorites}
+              onAddToWeeklyPlan={handleAddToWeeklyPlan}
             />
           ))}
         </div>
