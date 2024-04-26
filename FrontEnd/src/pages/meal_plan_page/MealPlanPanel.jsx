@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import MealCard from '../../components/mealCard.jsx';
-import WeeklyPlan from '../../components/WeeklyPlan.jsx';
+import { useState } from 'react';
+import MealCard from '../../components/mealCard';
+import WeeklyPlan from '../../components/weeklyPlan';
+// import your components here
+
 import './MealPlanPanel.css';
 
 const MealPlanPanel = ({ meals, userName = "User" }) => {
@@ -49,6 +51,7 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
         </div>
       </div>
       <WeeklyPlan weeklyMeals={weeklyMeals} />
+      {/* Didar - Components here */}
     </div>
   );
 };

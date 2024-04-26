@@ -16,7 +16,7 @@ Display
      */}
      
 import { useState, useEffect } from 'react';
-import MealCardContainer from './mealCardContainer.jsx';  // Import your MealCardContainer
+import MealCardContainer from './mealCardContainer';  // Import your MealCardContainer
 
 export default function MealRecommendations({ userId }) {
     const [recipes, setRecipes] = useState([]);

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './AboutNutriBuddy.css'; // Import CSS file for styling
-import DidarKhan from '../../Components/DidarKhan';
+import DidarKhan from '../../components/DidarKhan';
 
 const AboutNutriBuddy = () => {
     const statements = [

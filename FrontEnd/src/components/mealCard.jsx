@@ -1,56 +1,69 @@
-import React, { useState } from 'react';
-import MealCard from '../../components/mealCard';
-import WeeklyPlan from '../../components/weeklyPlan';
-import './MealPlanPanel.css';
+import { useState } from 'react';
+import './mealCard.css';
  
-const MealPlanPanel = ({ meals, userName = "User" }) => {
-  const [favorites, setFavorites] = useState([]);
+export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedDays, setSelectedDays] = useState([]);
  
-  const [weeklyMeals, setWeeklyMeals] = useState([
-    { day: 'Sunday', meals: [] },
-    { day: 'Monday', meals: [] },
-    { day: 'Tuesday', meals: [] },
-    { day: 'Wednesday', meals: [] },
-    { day: 'Thursday', meals: [] },
-    { day: 'Friday', meals: [] },
-    { day: 'Saturday', meals: [] }
-  ]);
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
  
-  const handleAddToFavorites = (meal) => {
-    setFavorites(prev => [...prev, meal]);
+  const handleDayChange = (day) => {
+    setSelectedDays(prev => prev.includes(day) ? prev.filter(d => d !== day) : [...prev, day]);
   };
  
-  const handleAddToWeeklyPlan = (meal, days) => {
-    setWeeklyMeals(prevWeeklyMeals => {
-      return prevWeeklyMeals.map(dayInfo => {
-        if (days.includes(dayInfo.day)) {
-          const updatedMeals = dayInfo.meals.find(m => m.id === meal.id) ? dayInfo.meals : [...dayInfo.meals, meal];
-          return { ...dayInfo, meals: updatedMeals };
-        }
-        return dayInfo;
-      });
-    });
+  const submitDays = () => {
+    const updatedMeal = {
+      ...meal, // spread all existing meal properties
+      days: selectedDays // add selected days to the meal object
+    };
+ 
+    onAddToWeeklyPlan(updatedMeal, selectedDays);
+ 
+    // Reset the form state
+    setSelectedDays([]);
+    setShowDropdown(false);
+  };
+ 
+  const toggleExpand = () => {
+    setIsExpanded(current => !current);
   };
  
   return (
-    <div className="meal-plan-panel">
-      <h1 style={{ width: '100%', textAlign: 'center' }}>{userName}'s Meal Plan</h1>
-      <div className="meal-suggestions">
-        <h2 className="meal-suggestions-title">Meal Suggestions</h2>
-        <div className="meal-suggestions-scrollable">
-          {meals.map((meal) => (
-            <MealCard
-              key={meal.id}
-              meal={meal}
-              onAddToFavorites={handleAddToFavorites}
-              onAddToWeeklyPlan={handleAddToWeeklyPlan}
-            />
-          ))}
-        </div>
+    <div className="meal-card-container">
+      <div className="meal-card-content" onClick={toggleExpand}>
+        <img className="meal-card-image" src={meal.imageUrl} alt={meal.title} />
+        <h3 className="meal-card-title">{meal.title}</h3>
+        <p className="meal-card-description">
+          {isExpanded ? meal.description : `${meal.description.substring(0, 100)}...`}
+        </p>
+        <p className="meal-card-calories">{meal.calories} kcal</p>
       </div>
-      <WeeklyPlan weeklyMeals={weeklyMeals} />
+      <div className="meal-card-buttons">
+        <button className="button-favorite" onClick={(e) => {
+          e.stopPropagation();
+          addToFavorites(meal);
+        }}>💟</button>
+        <button className="button-weekly" onClick={(e) => {
+          e.stopPropagation();
+          setShowDropdown(!showDropdown);
+        }}></button>
+        {showDropdown && (
+          <div className="dropdown-menu">
+            {daysOfWeek.map(day => (
+              <label key={day}>
+                <input
+                  type="checkbox"
+                  checked={selectedDays.includes(day)}
+                  onChange={() => handleDayChange(day)}
+                />
+                {day}
+              </label>
+            ))}
+            <button onClick={submitDays}>Done</button>
+          </div>
+        )}
+      </div>
     </div>
   );
-};
- 
-export default MealPlanPanel;
+}

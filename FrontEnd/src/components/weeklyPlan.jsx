@@ -1,4 +1,3 @@
-import React from 'react';
 import './weeklyPlan.css';
 
 const WeeklyPlan = ({ weeklyMeals }) => {
@@ -22,4 +21,4 @@ const WeeklyPlan = ({ weeklyMeals }) => {
   );
 };
 
-export default WeeklyPlanPanel;
+export default WeeklyPlan;
