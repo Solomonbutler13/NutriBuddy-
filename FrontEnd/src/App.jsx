@@ -14,16 +14,6 @@ import Test from './pages/test';
 import Allergies from './pages/allergies_page/allergies_info';
 import Activity from './pages/activity_page/activity_info';
 
-import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel.jsx'
-// Importing all the component pages here as we make them
-import Login from './pages/login_page/login.jsx';
-import SignUp from './pages/signup_page/signup.jsx';
-import PersonalPage from './pages/personal_page/personal_info.jsx';
-import Diet from './pages/diet_page/diet_info.jsx';
-import Test from './pages/test.jsx';
-import Allergies from './pages/allergies_page/allergies_info.jsx';
-import Activity from './pages/activity_page/activity_info.jsx';
-
 export default function App() {
 
   return (
