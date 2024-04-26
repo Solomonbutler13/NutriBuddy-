@@ -29,7 +29,6 @@ export default function MealRecommendations({ userId }) {
     const fetchRecipes = async (goals) => {
         const { calories, diet, health } = goals;
         const app_id = "bd8c592a"; // Your Edamam app_id
-        const app_key = "e17e5ba0a3a6948de1cae377bdcb2196"; // Your Edamam app_key
         const url = `https://api.edamam.com/search?q=healthy&app_id=${app_id}&app_key=${app_key}&calories=${calories}&diet=${diet}&health=${health}`;
 
         try {

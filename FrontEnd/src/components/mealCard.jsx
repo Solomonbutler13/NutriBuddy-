@@ -42,12 +42,12 @@ export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) 
       <div className="meal-card-buttons">
         <button className="button-favorite" onClick={(e) => {
           e.stopPropagation();
-          addToFavorites(meal);
+          onAddToFavorites(meal);
         }}>💟</button>
         <button className="button-weekly" onClick={(e) => {
           e.stopPropagation();
           setShowDropdown(!showDropdown);
-        }}></button>
+        }}>🗓️</button>
         {showDropdown && (
           <div className="dropdown-menu">
             {daysOfWeek.map(day => (
