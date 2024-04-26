@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import MealCard from '../../components/mealCard';
 import WeeklyPlan from '../../components/weeklyPlan';
-// import your components here
+// import your grocery list components here
+import GroceryList from '../../components/groceryList';
+
+// import recipe of the day component here 
+import CulturalRecipeOfTheDay from '../../components/recipeOfTheDay';
+
 
 import './MealPlanPanel.css';
 
@@ -51,7 +56,10 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
         </div>
       </div>
       <WeeklyPlan weeklyMeals={weeklyMeals} />
-      {/* Didar - Components here */}
+      {/* Didar - Grocery List Components here */}
+      <GroceryList />
+      {/* Didar - Recipe of the day Components here */}
+      <CulturalRecipeOfTheDay />
     </div>
   );
 };
