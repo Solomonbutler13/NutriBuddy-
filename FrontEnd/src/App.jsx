@@ -14,6 +14,8 @@ import Test from './pages/test';
 import Allergies from './pages/allergies_page/allergies_info';
 import Activity from './pages/activity_page/activity_info';
 
+import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel.jsx'
+
 export default function App() {
 
   return (
