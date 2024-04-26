@@ -4,14 +4,11 @@ import './index.css'
 
 // Importing grocery list component and cost calculator 
 
-import GroceryList from './Components/groceryList.jsx';
-
-// Importing Recipe of the day component 
-
-import RecipeOfTheDay from './Components/recipeOfTheDay.jsx';
 
 // Importing about nutribuddy pages components 
 import AboutNutriBuddy from './Components/aboutNutriBuddy.jsx';
+
+import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel.jsx'
 
 export default function App() {
 
@@ -19,9 +16,7 @@ export default function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/test' element={<MealPlanPanel meals={[{
+          <Route path='/mealplan' element={<MealPlanPanel meals={[{
             id: '1',
             title: 'meal title',
             imageUrl: 'https://placeholder.pics/svg/300',
