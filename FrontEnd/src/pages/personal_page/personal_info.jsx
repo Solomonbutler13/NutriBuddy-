@@ -68,7 +68,7 @@ export default function PersonalPage(){
             store.setInfo('gender', gender);
             store.setInfo('weight', weight);
             store.setInfo('height', height);
-            navigate('/test'); 
+            navigate('/diet_info'); 
         }     
     }
 
@@ -114,7 +114,7 @@ export default function PersonalPage(){
                     <label> inch </label>
                 </div>
 
-                <div className="personalPageSignupButtons">
+                <div className="personalPageContinue">
                     <button onClick={previousPage}>Back</button>
                     <button onClick={checkInput}>Next</button>
                 </div>
