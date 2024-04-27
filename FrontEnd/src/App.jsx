@@ -25,9 +25,6 @@ export default function App () {
   } = useAuth0()
 
 
-  const handleSignout = async () => await logout()
-
-
   // Loading State
   if (isLoading) {
     return <div>Loading...</div>
