@@ -7,7 +7,7 @@ import './index.css'
 
 // Importing all the component pages here as we make them
 import PersonalPage from './assets/components/personal_page/personal_info.jsx';
-import SignUp from './pages/signup.jsx'
+import SignUp from './pages/signup_page/signup'
 import LoginPage from './pages/login_page/LoginPage'
 import CallbackPage from './pages/callbackPage'
 
@@ -93,7 +93,6 @@ export default function App() {
 
       </Routes>
     </Router>
-
   );
 }
 
