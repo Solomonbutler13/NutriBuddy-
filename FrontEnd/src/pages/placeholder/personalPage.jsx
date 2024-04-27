@@ -1,1 +1,1 @@
-// sign-out setup
+// Function to handle signout button click
