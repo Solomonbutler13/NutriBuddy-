@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import MealCard from '../../components/mealCard.jsx';
+import { useState } from 'react';
+import MealCard from '../../components/MealCard.jsx';
 import WeeklyPlan from '../../components/WeeklyPlan.jsx';
 import './MealPlanPanel.css';
 
