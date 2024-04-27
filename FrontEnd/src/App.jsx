@@ -52,7 +52,6 @@ export default function App() {
       )}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/signup' element={<p>SignUp Page</p>} />
         <Route path='/callback' element={<CallbackPage />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/personal_info' element={<PersonalPage />} />
@@ -101,7 +100,7 @@ function Home() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/personal_info');
+      navigate('/personal_info'); // needs to route user profile page
     }
   }, [isAuthenticated, navigate]);
 
