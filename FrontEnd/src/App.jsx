@@ -34,12 +34,17 @@ export default function App () {
   }
 
   return (
-<<<<<<< HEAD
-    <>
-
     <Router>
+      {isAuthenticated && (
+        <button id='signout-button' type='submit' onClick={() => logout()}>
+          See You Later
+        </button>
+      )}
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/personal_info' element={<p>Personal Info</p>} />
+        <Route path='/signup' element={<p>SignUp Page</p>} />
+        <Route path='/callback' element={<CallbackPage />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/personal_info' element={<PersonalPage />} />
         <Route path='/diet_info' element={<Diet />} />
@@ -75,24 +80,9 @@ export default function App () {
             calories: '560'
           },
           ]} />} />
+
       </Routes>
     </Router>
-    </>
-=======
-    <Router>
-      {isAuthenticated && (
-        <button id='signout-button' type='submit' onClick={() => logout()}>
-          See You Later
-        </button>
-      )}
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/personal_info' element={<p>Personal Info</p>} />
-        <Route path='/signup' element={<p>SignUp Page</p>} />
-        <Route path='/callback' element={<CallbackPage />} />
-      </Routes>
-    </Router>
->>>>>>> 16852ff (Fix callback URL bug in login page and refactor to use Auth0 login)
   );
 }
 
