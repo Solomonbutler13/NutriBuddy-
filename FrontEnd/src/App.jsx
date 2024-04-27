@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -20,9 +19,9 @@ export default function App() {
   const {
     isLoading,
     isAuthenticated,
-    error,
-    user,
-    logout,
+    // error,
+    // user,
+    logout
   } = useAuth0();
 
   // Loading State
@@ -34,7 +33,7 @@ export default function App() {
   const renderContent = () => {
     if (isAuthenticated) {
 
-      const handleSignout = event => { }
+      const handleSignout = async () => await logout()
 
       // User is authenticated
       return (
