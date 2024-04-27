@@ -19,8 +19,8 @@ import Diet from './pages/diet_page/diet_info.jsx';
 import Test from './pages/test.jsx';
 import Allergies from './pages/allergies_page/allergies_info.jsx';
 import Activity from './pages/activity_page/activity_info.jsx';
-import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel.jsx'
-import CallbackPage from './pages/callbackPage'
+import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel.jsx';
+import CallbackPage from './pages/callbackPage';
 
 export default function App() {
   const {
@@ -37,48 +37,13 @@ export default function App() {
     return <div>Loading...</div>
   }
 
-  // Content to render based on authentication state
-  const renderContent = () => {
-    if (isAuthenticated) {
-
-      const handleSignout = async () => await logout()
-
-      // User is authenticated
-      return (
-        <>
-          <button
-            id="signout-button"
-            type="submit"
-            onClick={handleSignout}
-          >Sign Out</button>
-          
-          <Router>
-            <Routes>
-              <Route path="/personal_info" element={<p>Personal Info</p>} />
-              <Route path="/callback" element={<CallbackPage />} />
-            </Routes>
-          </Router>
-        </>
-      );
-    } else {
-      // User is not authenticated
-      return (
-        <Router>
-          <Routes>
-            <Route path="/" element={<LoginPage />} />
-            <Route path="/signup" element={<p>SignUp Page</p>} />
-            <Route path="/callback" element={<CallbackPage />} />
-          </Routes>
-        </Router>
-      );
-    }
-  };
-
   if (error) {
     return <div>Oops...wrong fridge {error.message}</div>
   }
 
   return (
+
+
     <Router>
       {isAuthenticated && (
         <button id='signout-button' type='submit' onClick={() => logout()}>
@@ -128,6 +93,7 @@ export default function App() {
 
       </Routes>
     </Router>
+
   );
 }
 
