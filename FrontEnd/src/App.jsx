@@ -1,22 +1,19 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react';
 
 import './index.css'
 
-// Importing all the component pages here as we make them
-// Import LoginPage and ForgotPasswordPage components
-import LoginPage, { ForgotPasswordPage } from './pages/login_page/loginPage'
-
+// Import Pages 
+import LoginPage from './pages/login_page/LoginPage'
 import CallbackPage from './pages/callbackPage'
 
 export default function App() {
   const {
     isLoading,
     isAuthenticated,
-    error,
-    user,
-    logout,
+    // error,
+    // user,
+    logout
   } = useAuth0();
 
   // Loading State
@@ -28,7 +25,7 @@ export default function App() {
   const renderContent = () => {
     if (isAuthenticated) {
 
-      const handleSignout = event => { }
+      const handleSignout = async () => await logout()
 
       // User is authenticated
       return (
