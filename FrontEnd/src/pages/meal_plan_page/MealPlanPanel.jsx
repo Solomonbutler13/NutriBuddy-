@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import MealCard from '../../components/mealCard.jsx';
 import WeeklyPlan from '../../components/weeklyPlan.jsx';
 import './mealPlanPanel.css';

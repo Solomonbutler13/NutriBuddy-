@@ -12,7 +12,7 @@ import LoginPage from './pages/login_page/LoginPage'
 import CallbackPage from './pages/callbackPage'
 
 // Importing all the component pages here as we make them
-import Login from './pages/login_page/login.jsx';
+import LoginPage from './pages/login_page/LoginPage.jsx';
 import SignUp from './pages/signup_page/signup.jsx';
 import PersonalPage from './pages/personal_page/personal_info.jsx';
 import Diet from './pages/diet_page/diet_info.jsx';
@@ -52,7 +52,6 @@ export default function App() {
       )}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/personal_info' element={<p>Personal Info</p>} />
         <Route path='/signup' element={<p>SignUp Page</p>} />
         <Route path='/callback' element={<CallbackPage />} />
         <Route path='/signup' element={<SignUp />} />
