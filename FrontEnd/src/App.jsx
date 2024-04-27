@@ -1,66 +1,58 @@
-import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom'
-import { useAuth0 } from '@auth0/auth0-react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 import './index.css'
 
-// Import Pages 
+// Import Pages
 import LoginPage from './pages/login_page/LoginPage'
 import CallbackPage from './pages/callbackPage'
 
-export default function App() {
+export default function App () {
   const {
     isLoading,
     isAuthenticated,
     // error,
     // user,
     logout
-  } = useAuth0();
+  } = useAuth0()
+
+
+  const handleSignout = async () => await logout()
+
 
   // Loading State
   if (isLoading) {
     return <div>Loading...</div>
   }
 
-  // Content to render based on authentication state
-  const renderContent = () => {
-    if (isAuthenticated) {
-
-      const handleSignout = async () => await logout()
-
-      // User is authenticated
-      return (
-        <>
-          <button
-            id="signout-button"
-            type="submit"
-            onClick={handleSignout}
-          >Sign Out</button>
-          
-          <Router>
-            <Routes>
-              <Route path="/personal_info" element={<p>Personal Info</p>} />
-              <Route path="/callback" element={<CallbackPage />} />
-            </Routes>
-          </Router>
-        </>
-      );
-    } else {
-      // User is not authenticated
-      return (
-        <Router>
-          <Routes>
-            <Route path="/" element={<LoginPage />} />
-            <Route path="/signup" element={<p>SignUp Page</p>} />
-            <Route path="/callback" element={<CallbackPage />} />
-          </Routes>
-        </Router>
-      );
-    }
-  };
-
   return (
-    <>
-      {renderContent()}
-    </>
+    <Router>
+      {isAuthenticated && (
+        <button id='signout-button' type='submit' onClick={() => logout()}>
+          Sign Out
+        </button>
+      )}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/personal_info' element={<p>Personal Info</p>} />
+        <Route path='/signup' element={<p>SignUp Page</p>} />
+        <Route path='/callback' element={<CallbackPage />} />
+      </Routes>
+    </Router>
   );
+}
+
+function Home() {
+  const { isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/personal_info');
+    }
+  }, [isAuthenticated, navigate]);
+
+  return isAuthenticated ? null : <LoginPage />;
 }
