@@ -15,8 +15,6 @@ export default function App () {
   const {
     isLoading,
     isAuthenticated,
-    // error,
-    // user,
     logout
   } = useAuth0()
 
@@ -44,7 +42,7 @@ export default function App () {
     <Router>
       {isAuthenticated && (
         <button id='signout-button' type='submit' onClick={() => logout()}>
-          Sign Out
+          See You Later
         </button>
       )}
       <Routes>
