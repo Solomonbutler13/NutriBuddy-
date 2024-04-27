@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './mealCard.css';
+import './MealCard.css';
 
 export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) {
   const [isExpanded, setIsExpanded] = useState(false);

@@ -1,5 +1,5 @@
 import React from 'react';
-import './weeklyPlan.css';
+import './WeeklyPlan.css';
 
 const WeeklyPlan = ({ weeklyMeals }) => {
   return (
