@@ -16,16 +16,16 @@ const AuthRedirect = () => {
         if (error) {
             // Handle the error state
             console.error('Error during authentication:', error);
-            navigate('/signin');
+            navigate('/personal_info');
             return;
         }
 
         if (isAuthenticated) {
             // Redirect to personal page if authenticated
-            navigate('/personalPage');
+            navigate('/personal_info');
         } else {
             // Redirect to sign-in page if not authenticated
-            navigate('/signin');
+            navigate('/');
         }
     }, [isLoading, isAuthenticated, error, navigate]); // Add dependencies to useEffect
 }

@@ -27,17 +27,25 @@ export default function App() {
   // Content to render based on authentication state
   const renderContent = () => {
     if (isAuthenticated) {
+
+      const handleSignout = event => { }
+
       // User is authenticated
       return (
-        <Router>
-          <Routes>
-            <Route path="/" element={<p>Personal Page</p>} />
-            <Route path="/personal_info" element={<p>Personal Page</p>} />
-            <Route path="/forgot-password" element={<ForgotPasswordPage />} /> 
-            {/* New route for Forgot Password */}
-            <Route path="/callback" element={<CallbackPage />} />
-          </Routes>
-        </Router>
+        <>
+          <button
+            id="signout-button"
+            type="submit"
+            onClick={handleSignout}
+          >Sign Out</button>
+          
+          <Router>
+            <Routes>
+              <Route path="/personal_info" element={<p>Personal Info</p>} />
+              <Route path="/callback" element={<CallbackPage />} />
+            </Routes>
+          </Router>
+        </>
       );
     } else {
       // User is not authenticated
@@ -46,8 +54,6 @@ export default function App() {
           <Routes>
             <Route path="/" element={<LoginPage />} />
             <Route path="/signup" element={<p>SignUp Page</p>} />
-            <Route path="/forgot-password" element={<ForgotPasswordPage />} /> 
-            {/* New route for Forgot Password */}
             <Route path="/callback" element={<CallbackPage />} />
           </Routes>
         </Router>

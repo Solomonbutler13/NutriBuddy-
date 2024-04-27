@@ -14,8 +14,6 @@ export default function LoginPage() {
         loginWithRedirect();
     };
 
-    const enableLoginButton = () => { };
-
     return (
         <div className="login-container">
             <div className="login-form">
@@ -26,7 +24,6 @@ export default function LoginPage() {
                 {/* Button for login */}
                 <button
                     id="login-button"
-                    enabled={enableLoginButton()}
                     type="submit"
                     onClick={handleLogin}
                 >
@@ -36,10 +33,6 @@ export default function LoginPage() {
                 {/* Don't have an account? link */}
                 <div className="to-login">
                     <Link to="/signup">Don't have an account? </Link>
-                </div>
-                {/* Forgot Password Link */}
-                <div className="to-login">
-                    <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
             </div>
         </div>
