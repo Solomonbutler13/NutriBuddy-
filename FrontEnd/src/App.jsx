@@ -7,7 +7,7 @@ import './index.css'
 
 // Importing all the component pages here as we make them
 import PersonalPage from './assets/components/personal_page/personal_info.jsx';
-import SignUp from './pages/signup.jsx'
+import SignUp from './pages/signup_page/signup'
 import LoginPage from './pages/login_page/LoginPage'
 import CallbackPage from './pages/callbackPage'
 
@@ -28,17 +28,6 @@ export default function App () {
   }
 
   return (
-<<<<<<< HEAD
-    <>
-    <Router>
-      <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path='/personal_info' element={<PersonalPage />} />
-      </Routes>
-    </Router>
-    </>
-=======
     <Router>
       {isAuthenticated && (
         <button id='signout-button' type='submit' onClick={() => logout()}>
@@ -52,7 +41,6 @@ export default function App () {
         <Route path='/callback' element={<CallbackPage />} />
       </Routes>
     </Router>
->>>>>>> 16852ff (Fix callback URL bug in login page and refactor to use Auth0 login)
   );
 }
 

@@ -1,4 +1,4 @@
-import { useStore } from "../signup_page/signup.jsx"
+import { useStore } from "../../../pages/signup_page/signup.jsx"
 
 export default function PersonalPage(){
 
