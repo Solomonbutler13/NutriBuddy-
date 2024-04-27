@@ -41,7 +41,7 @@ export default function App() {
   const renderContent = () => {
     if (isAuthenticated) {
 
-      const handleSignout = event => { }
+      const handleSignout = async () => await logout()
 
       // User is authenticated
       return (
