@@ -56,11 +56,13 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
           ))}
         </div>
       </div>
+      <div className="weekly-plan-section">
       <WeeklyPlan weeklyMeals={weeklyMeals} />
-      {/* Didar - Grocery List Component */}
       <GroceryList />
-      {/* Didar - Recipe of the day Component */}
+      </div>
+      <div className="cultural-recipe">
       <CulturalRecipeOfTheDay />
+      </div>
     </div>
   );
 };
