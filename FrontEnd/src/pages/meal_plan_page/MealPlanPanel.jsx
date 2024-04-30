@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import MealCard from '../../components/MealCard.jsx';
-import WeeklyPlan from '../../components/WeeklyPlan.jsx';
+import MealCard from '../../components/meal_card/MealCard.jsx';
+import WeeklyPlan from '../../components/weekly_plan/WeeklyPlan.jsx';
 import './MealPlanPanel.css';
 
 const MealPlanPanel = ({ meals, userName = "User" }) => {

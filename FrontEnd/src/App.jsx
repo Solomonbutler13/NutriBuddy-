@@ -8,14 +8,14 @@ import './index.css'
 
 // Importing all the component pages here as we make them
 import LoginPage from './pages/login_page/LoginPage.jsx';
-import SignUp from './pages/signup_page/signup.jsx';
-import PersonalPage from './pages/personal_page/personal_info.jsx';
-import Diet from './pages/diet_page/diet_info.jsx';
+import SignUp from './pages/signup_page/Signup.jsx';
+import PersonalPage from './pages/personal_page/PersonalInfo.jsx';
+import Diet from './pages/diet_page/DietInfo.jsx';
 import Test from './components/test.jsx';
-import Allergies from './pages/allergies_page/allergies_info.jsx';
-import Activity from './pages/activity_page/activity_info.jsx';
+import Allergies from './pages/allergies_page/AllergiesInfo.jsx';
+import Activity from './pages/activity_page/ActivityInfo.jsx';
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel.jsx'
-import CallbackPage from './pages/callbackPage'
+import CallbackPage from './pages/CallbackPage'
 
 export default function App () {
   const {

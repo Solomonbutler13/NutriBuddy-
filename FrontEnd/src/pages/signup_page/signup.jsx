@@ -1,7 +1,7 @@
 import './signup.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useStore } from "../../components/userdata.jsx";
+import { useStore } from "../../components/userData.jsx";
 
 export default function SignUp() {
     const navigate = useNavigate();
