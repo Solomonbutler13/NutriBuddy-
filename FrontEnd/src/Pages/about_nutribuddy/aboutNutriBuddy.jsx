@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import './AboutNutriBuddy.css'; // Import CSS file for styling
 import DidarKhan from '../../components/DidarKhan';
-
+import JasonWang from '../../components/JasonWang';
+import DennisWynn from '../../components/DennisWynn';
 const AboutNutriBuddy = () => {
     const statements = [
         "NutriBuddy: Empowering with AI-driven nutrition assistance for personalized health journeys",
@@ -43,6 +44,8 @@ const AboutNutriBuddy = () => {
             <div className="meet-the-team">
                 <h2>Meet The Team</h2>
                 <DidarKhan />
+                <JasonWang />
+                <DennisWynn />
                 {/* Add components for other team members here */}
             </div>
         </div>

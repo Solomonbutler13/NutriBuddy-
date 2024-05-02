@@ -1,20 +1,20 @@
 import React from 'react';
 import './TeamMembers.css'; // Import CSS file for styling
-import didarKhanImage from '../Images-Icons/Didar-Khan.jpg'; // Import image
+import dennisWynnImage from '../Images-Icons/Dennis-Wynn.jpg'; // Import image
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 
 
-const DidarKhan = () => {
+const DennisWynn = () => {
     return (
         <div className="team-member-card">
-            <img src={didarKhanImage} alt="Didar Khan" className="headshot" />
-            <h3 className="name">Didar Khan</h3>
+            <img src={dennisWynnImage} alt="Dennis Wynn" className="headshot" />
+            <h3 className="name">Dennis Wynn</h3>
             <div className="social-links">
-                <a href="https://github.com/didarkhan97" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/denniswynn22" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin className='social-icon'/>
                 </a>
-                <a href="https://linkedin.com/in/DK1997" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/dennis-wynn-bkny22/" target="_blank" rel="noopener noreferrer">
                     <FaGithubSquare className="social-icon" />
                 </a>
             </div>
@@ -26,4 +26,4 @@ const DidarKhan = () => {
     );
 };
 
-export default DidarKhan;
+export default DennisWynn;
