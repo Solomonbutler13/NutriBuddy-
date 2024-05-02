@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useStore } from "../../components/userdata.jsx";
+import { useStore } from "../../components/userData.jsx";
 import './diet_info.css';
 import { useNavigate } from 'react-router-dom';
 

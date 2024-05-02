@@ -1,4 +1,4 @@
-import { useStore } from "../components/userdata.jsx";
+import { useStore } from "../components/userData.jsx";
 
 export default function Test(){
 
