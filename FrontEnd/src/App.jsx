@@ -5,15 +5,9 @@ import { useEffect } from 'react'
 
 import './index.css'
 
-// Importing all the component pages here as we make them
-import PersonalPage from './assets/components/personal_page/personal_info.jsx';
-import SignUp from './pages/signup_page/signup'
-import LoginPage from './pages/login_page/LoginPage'
-import CallbackPage from './pages/callbackPage'
-
-// Importing all the component pages here as we make them
-import LoginPage from './pages/login_page/LoginPage.jsx';
-import SignUp from './pages/signup_page/signup.jsx';
+// Importing all the pages here as we make them
+import SignUp from './pages/signup_page/signup';
+import LoginPage from './pages/login_page/LoginPage';
 import PersonalPage from './pages/personal_page/personal_info.jsx';
 import Diet from './pages/diet_page/diet_info.jsx';
 import Test from './components/test.jsx';
