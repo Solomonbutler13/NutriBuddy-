@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useStore } from "../../components/userData.jsx";
 import './activity_info.css';
 import { useNavigate } from 'react-router-dom';
