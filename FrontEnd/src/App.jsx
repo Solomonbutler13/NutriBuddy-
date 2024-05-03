@@ -6,7 +6,6 @@ import { useEffect } from 'react'
 import './index.css'
 
 // Importing all the pages here as we make them
-import SignUp from './pages/signup_page/signup';
 import LoginPage from './pages/login_page/LoginPage';
 import PersonalPage from './pages/personal_page/personal_info.jsx';
 import Diet from './pages/diet_page/diet_info.jsx';
@@ -47,7 +46,6 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/callback' element={<CallbackPage />} />
-        <Route path='/signup' element={<SignUp />} />
         <Route path='/personal_info' element={<PersonalPage />} />
         <Route path='/diet_info' element={<Diet />} />
         <Route path='/allergies_info' element={<Allergies />} />

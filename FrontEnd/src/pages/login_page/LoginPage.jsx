@@ -28,11 +28,6 @@ export default function LoginPage() {
                 >
                     Your personal dietician awaits
                 </button>
-
-                {/* Don't have an account? link */}
-                <div className="to-login">
-                    <Link to="/signup">Don't have an account? </Link>
-                </div>
             </div>
         </div>
     );
