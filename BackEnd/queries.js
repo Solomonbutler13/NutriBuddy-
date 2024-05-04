@@ -10,7 +10,7 @@ const pool = new Pool({
     port: 5432,
 })
 
-pool.connect((error, client, release) => {
+pool.connect((error) => {
     if (error) {
         console.error("error connecting to db", error);
     }else {
@@ -24,10 +24,21 @@ const getAllUsers = (request, response) => {
         if (error) {
             throw error
         }
-        response.status(200).json(results.row)
+        response.status(200).send(results.rows)
+    })
+}
+
+const getUserById = (request, response) => {
+    const id = parseInt(request.params.id);
+    pool.query(`SELECT * FROM users WHERE id = ${id}`, (error, results) => {
+        if(error) {
+            throw error;
+        }
+        response.status(200).send(results.rows)
     })
 }
 
 module.exports = {
-    getAllUsers
+    getAllUsers,
+    getUserById,
 }

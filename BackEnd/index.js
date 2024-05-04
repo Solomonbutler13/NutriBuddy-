@@ -15,13 +15,14 @@ app.use(cors());
 
 // Route is '/' and Returns JSON response
 app.get('/', (request, response) => {
-    response.json({ info: 'Node.js, Express and Postgres API'})
+    response.json({ info: 'Connected to Nutribuddy Database'})
 })
 
-// Get one contact
-app.get('/contact/:id', db.getContactById);
+// This gets all the user in the data base
+app.get('/allusers', db.getAllUsers);
 
-
+// This gets one user
+app.get('/user/:id', db.getUserById);
 
 // Start server with listen on specified port
 app.listen(port, () => {
