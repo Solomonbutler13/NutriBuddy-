@@ -1,15 +1,11 @@
 /* Avatar.css */
-.defaultClass {
+.avatar {
+    position: relative;
+    display: inline-block;
     width: 250px; /* Example size, adjust as needed */
     height: 250px; /* Keep the aspect ratio */
     border-radius: 40%; /* Circular avatar */
     object-fit: cover; /* Ensures the image covers the space without distortion */
-}
-
-/* Avatar.css */
-.avatar {
-    position: relative;
-    display: inline-block;
   }
   
   .avatar-name {
@@ -25,8 +21,6 @@
     border: 2px solid #e6e6e6; /* Border color */
     text-align: center;
     font-size: 25px;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   
-/*"https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"*/
-
