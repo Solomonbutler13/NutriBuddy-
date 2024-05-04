@@ -14,7 +14,7 @@
 
 .typing {
     animation: typing 5s steps(40, end);
-    animation-delay: 2s; /* Delay before the typing animation starts */
+    animation-delay: 1s; /* Delay before the typing animation starts */
 }
 
 @keyframes typing {
