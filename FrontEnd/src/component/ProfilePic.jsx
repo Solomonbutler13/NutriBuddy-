@@ -1,21 +1,18 @@
 import React, { useState, useRef, useCallback } from 'react';
-import Avatar from './Avatar'; // Import Avatar component
-import { Dialog } from 'primereact/dialog'; // Import Dialog component from PrimeReact
-import { Button } from 'primereact/button'; // Import Button component from PrimeReact
-import Cropper from 'react-easy-crop'; // Import Cropper component
-//import getCroppedImg from './cropImage'; // This needs to be implemented as shown previously
-
+import Avatar from './Avatar';
+import { Dialog } from 'primereact/dialog';
+import { Button } from 'primereact/button';
+import Cropper from 'react-easy-crop';
+import getCroppedImg from './cropImage'; // This needs to be implemented as shown previously
 
 const ProfilePic = () => {
-  // State for managing the image preview URL
   const [imagePreviewUrl, setImagePreviewUrl] = useState('https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png');
-  const fileInputRef = useRef(null); // Ref for the file input element
-  const [showCropDialog, setShowCropDialog] = useState(false); // State for managing the visibility of the crop dialog
-  const [crop, setCrop] = useState({ x: 0, y: 0 }); // State for managing the crop position
-  const [zoom, setZoom] = useState(1); // State for managing the zoom level
-  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null); // State for managing the cropped area pixels
+  const fileInputRef = useRef(null);
+  const [showCropDialog, setShowCropDialog] = useState(false);
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 
-  // Function to handle image change when a new image is selected
   const handleImageChange = async (event) => {
     const file = event.target.files[0];
     if (file && file.type.startsWith('image')) {
@@ -28,7 +25,6 @@ const ProfilePic = () => {
     }
   };
 
-  // Function to handle click event for fetching a new avatar
   const handleNewAvatarClick = async () => {
     try {
       const seed = Math.random().toString(36).substring(7); // Generate a random seed value
@@ -41,20 +37,22 @@ const ProfilePic = () => {
     }
   };
 
-  // Function to handle click event for selecting an avatar from file input
+  const handleAvatarSelection = (seed) => {
+    const url = `https://api.dicebear.com/8.x/adventurer-neutral/svg?seed=${seed}`;
+    setImagePreviewUrl(url);
+    setShowCropDialog(false);
+  };
+
   const handleAvatarClick = () => {
     fileInputRef.current.click();
   };
 
-  // Function to handle saving the cropped image
   const handleSaveCroppedImage = async () => {
-    // Implement getCroppedImg function to save the cropped image
-    // const croppedImage = await getCroppedImg(imagePreviewUrl, croppedAreaPixels);
-    // setImagePreviewUrl(croppedImage);
+    const croppedImage = await getCroppedImg(imagePreviewUrl, croppedAreaPixels);
+    setImagePreviewUrl(croppedImage);
     setShowCropDialog(false);
   };
 
-  // Callback function to update cropped area pixels
   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels);
   }, []);
@@ -62,22 +60,20 @@ const ProfilePic = () => {
   return (
     <div className="profile-img text-center p-4">
       <div className="flex flex-column justify-content-center align-items-center">
-        {/* Hidden file input for image selection */}
         <input type="file" accept="image/*" onChange={handleImageChange} ref={fileInputRef} style={{ display: 'none' }} />
         
-        {/* Avatar display */}
-        <div onClick={handleAvatarClick} style={{ cursor: 'pointer' }}>
+        {/* Use a simple pencil icon for the edit functionality */}
+        <div className="avatar-edit-icon" onClick={() => setShowCropDialog(true)} style={{ cursor: 'pointer' }}>
           <Avatar src={imagePreviewUrl} alt="User Avatar" />
+          <span className="pencil">&#9998;</span> {/* Render the pencil icon */}
         </div>
         
-        {/* Button to get a new avatar */}
-        <Button label="Get New Avatar" onClick={handleNewAvatarClick} />
-        
-        {/* Avatar dropdown for selecting avatars */}
-        {/* <AvatarDropdown onSelect={(url) => setImagePreviewUrl(url)} /> */}
-        
-        {/* Dialog for cropping the image */}
+        {/* Dialog for cropping the image and avatar selection */}
         <Dialog visible={showCropDialog} onHide={() => setShowCropDialog(false)} header="Update Profile" draggable={false}>
+          <div>
+            <Button label="Upload Image" onClick={handleAvatarClick} />
+            <Button label="Choose New Avatar" onClick={handleNewAvatarClick} />
+          </div>
           <div style={{ position: 'relative', width: '90%', height: 400 }}> {/* Enlarged Cropping Area */}
             <Cropper
               image={imagePreviewUrl}
