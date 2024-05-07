@@ -24,6 +24,9 @@ app.get('/allusers', db.getAllUsers);
 // This gets one user
 app.get('/user/:id', db.getUserById);
 
+// This gets the users favorite meal
+app.get('/meal/:id', db.getFavMealsById);
+
 // Start server with listen on specified port
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

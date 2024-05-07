@@ -22,7 +22,7 @@ const AuthRedirect = () => {
 
         if (isAuthenticated) {
             // Redirect to personal page if authenticated
-            navigate('/personal_info');
+            navigate('/test');
         } else {
             // Redirect to sign-in page if not authenticated
             navigate('/');
