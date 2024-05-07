@@ -24,6 +24,7 @@ const getAllUsers = (request, response) => {
         if (error) {
             throw error
         }
+        console.log(results);
         response.status(200).send(results.rows)
     })
 }
@@ -34,6 +35,17 @@ const getUserById = (request, response) => {
         if(error) {
             throw error;
         }
+        console.log(results);
+        response.status(200).send(results.rows)
+    })
+}
+
+const getFavMealsById = (request, response) => {
+    const id = parseInt(request.params.id);
+    pool.query(`SELECT recipe_name FROM favorite_meals WHERE user_id = ${id}`, (error, results) => {
+        if (error) {
+            throw error;
+        }
         response.status(200).send(results.rows)
     })
 }
@@ -41,4 +53,5 @@ const getUserById = (request, response) => {
 module.exports = {
     getAllUsers,
     getUserById,
+    getFavMealsById,
 }
