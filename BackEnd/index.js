@@ -25,7 +25,13 @@ app.get('/allusers', db.getAllUsers);
 app.get('/user/:id', db.getUserById);
 
 // This gets the users favorite meal
-app.get('/meal/:id', db.getFavMealsById);
+app.get('/favoritemeals/:id', db.getFavMealsById);
+
+// This allows users to add favorite meal
+app.post('/addfavoritemeal/', db.addFavMeal);
+
+// This allows users to delete favorite meals
+app.delete("/delfavoritemeal/:id", db.deleteFavMeal)
 
 // Start server with listen on specified port
 app.listen(port, () => {
