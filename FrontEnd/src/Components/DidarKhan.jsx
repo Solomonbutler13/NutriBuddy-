@@ -19,8 +19,8 @@ const DidarKhan = () => {
                 </a>
             </div>
             <div className="role">
-                <p>USER-CENTRIC AND COHESIVE FOCUS</p>
-                <p>CONTROLLED ALIGNMENT WITH UI</p>
+                <p>ENSURED THE PRODUCT DESIGN IS USER-CENTRIC AND COHESIVE</p>
+                <p>UTILIZED AZURE DEVOPS TO TRACK DESIGN RELATED TASKS AND ISSUES</p>
             </div>
         </div>
     );

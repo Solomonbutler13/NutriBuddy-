@@ -64,8 +64,7 @@ import DennisWynn from '../../components/DennisWynn';
 
 const AboutNutriBuddy = () => {
     const statements = [
-        "NutriBuddy: Empowering with AI-driven nutrition assistance for personalized health journeys",
-        "NutriBuddy's Mission: Making healthy eating easy, enjoyable, and accessible for all."
+        "NutriBuddy: Empowering with AI-driven nutrition assistance for personalized health journey"
     ];
     const [currentStatementIndex, setCurrentStatementIndex] = useState(0);
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);

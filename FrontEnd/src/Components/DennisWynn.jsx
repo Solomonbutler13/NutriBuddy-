@@ -19,8 +19,8 @@ const DennisWynn = () => {
                 </a>
             </div>
             <div className="role">
-                <p>USER-CENTRIC AND COHESIVE FOCUS</p>
-                <p>CONTROLLED ALIGNMENT WITH UI</p>
+                <p>DIRECTED PROJECT VISION AND ENSURED ALIGNMENT WITH GOALS</p>
+                <p>MANAGED BACKLOGS, SPRINTS, AND PRIORITIZATION WITHIN AZURE DEVOPS</p>
             </div>
         </div>
     );

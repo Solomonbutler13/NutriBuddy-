@@ -19,8 +19,8 @@ const JasonWang = () => {
                 </a>
             </div>
             <div className="role">
-                <p>USER-CENTRIC AND COHESIVE FOCUS</p>
-                <p>CONTROLLED ALIGNMENT WITH UI</p>
+                <p>LEAD THE TECHNICAL DEVELOPMENT AND ARCHITECTURAL DECISIONS</p>
+                <p>ENSURED INTEGRETION OF FRONT END AND BACKEND COMPONENTS</p>
             </div>
         </div>
     );
