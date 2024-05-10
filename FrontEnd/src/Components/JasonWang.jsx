@@ -12,10 +12,10 @@ const JasonWang = () => {
             <h3 className="name">Jason Wang</h3>
             <div className="social-links">
                 <a href="https://github.com/Jason2945" target="_blank" rel="noopener noreferrer">
-                <FaLinkedin className='social-icon'/>
+                <FaGithubSquare className="social-icon" />
                 </a>
                 <a href="https://www.linkedin.com/in/jason-wang-69863a176/" target="_blank" rel="noopener noreferrer">
-                    <FaGithubSquare className="social-icon" />
+                    <FaLinkedin className='social-icon'/>
                 </a>
             </div>
             <div className="role">
