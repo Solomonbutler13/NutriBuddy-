@@ -19,14 +19,22 @@ app.get('/', (request, response) => {
 })
 
 // This gets all the user in the data base
-app.get('/allusers', db.getAllUsers);
+app.get('/users/all', db.getAllUsers);
 // This gets one user
-app.get('/user/:id', db.getUserById);
+app.get('/users/:id', db.getUserById);
 // This deletes the user from the database
-app.delete('/deluser/:id', db.deleteUserById);
+app.delete('/users/del/:id', db.deleteUserById);
 
-// This gets the meals for a user
-app.get('/usermeals/:id', db.getAllUserMealsByUserId)
+// This gets the all the meals for a user through user id
+app.get('/usermeals/:id', db.getUserMealsByUserId)
+// This gets all the meals for a user past inputted date
+app.get('/usermeals/pastdate/:id/:date', db.getUsersMealsByPastDate)
+// This gets all the meals for a user currently or greater than inputted date
+app.get('/usermeals/currdate/:id/:date', db.getUsersMealsByFutureDate)
+// This gets all the meals for a user through meal type (Lunch or Dinner)
+app.get('/usermeals/mealtype/:id/:type', db.getUsersMealsByMealType)
+// This gets all the meals for a user through calories
+app.get('/usermeals/calories/:id/:calories', db.getUsersMealsByCalories)
 
 // This allows users to get the ingredients for a meal
 app.get('/mealingredients/:id', db.getIngredientsByMealId);
@@ -34,9 +42,9 @@ app.get('/mealingredients/:id', db.getIngredientsByMealId);
 // This gets the users favorite meal
 app.get('/favoritemeals/:id', db.getFavMealsById);
 // This allows users to add favorite meal
-app.post('/addfavoritemeal/', db.addFavMeal);
+app.post('/favoritemeals/add', db.addFavMeal);
 // This allows users to delete favorite meals
-app.delete('/delfavoritemeal/:id', db.deleteFavMeal);
+app.delete('/favoritemeals/del/:id', db.deleteFavMeal);
 
 
 
