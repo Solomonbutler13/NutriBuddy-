@@ -20,18 +20,25 @@ app.get('/', (request, response) => {
 
 // This gets all the user in the data base
 app.get('/allusers', db.getAllUsers);
-
 // This gets one user
 app.get('/user/:id', db.getUserById);
+// This deletes the user from the database
+app.delete('/deluser/:id', db.deleteUserById);
+
+// This gets the meals for a user
+app.get('/usermeals/:id', db.getAllUserMealsByUserId)
+
+// This allows users to get the ingredients for a meal
+app.get('/mealingredients/:id', db.getIngredientsByMealId);
 
 // This gets the users favorite meal
 app.get('/favoritemeals/:id', db.getFavMealsById);
-
 // This allows users to add favorite meal
 app.post('/addfavoritemeal/', db.addFavMeal);
-
 // This allows users to delete favorite meals
-app.delete("/delfavoritemeal/:id", db.deleteFavMeal)
+app.delete('/delfavoritemeal/:id', db.deleteFavMeal);
+
+
 
 // Start server with listen on specified port
 app.listen(port, () => {

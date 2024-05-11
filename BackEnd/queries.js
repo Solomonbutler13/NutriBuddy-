@@ -6,7 +6,7 @@ const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'nutribuddy',
-    password: '',
+    password: 'password',
     port: 5432,
 })
 
@@ -16,7 +16,7 @@ pool.connect((error) => {
     }else {
         console.log("connected to db");
     }
-})
+});
 
 const getAllUsers = (request, response) => {
     pool.query('SELECT * FROM users',
@@ -24,10 +24,9 @@ const getAllUsers = (request, response) => {
         if (error) {
             throw error
         }
-        console.log(results);
         response.status(200).send(results.rows)
     })
-}
+};
 
 const getUserById = (request, response) => {
     const id = parseInt(request.params.id);
@@ -35,10 +34,43 @@ const getUserById = (request, response) => {
         if(error) {
             throw error;
         }
-        console.log(results);
         response.status(200).send(results.rows)
     })
+};
+
+const deleteUserById = (request, response) => {
+    const id = parseInt(request.params.id);
+    pool.query(`
+        DELETE FROM meal WHERE user_id = ${id};
+        DELETE FROM favorite_meals WHERE user_id = ${id};
+        DELETE FROM users WHERE id = ${id};
+    `, (error, results) => {
+        if(error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    });
+};
+
+const getAllUserMealsByUserId = (request, response) => {
+    const id = parseInt(request.params.id);
+    pool.query(`SELECT * FROM meal WHERE user_id = $1`, [id], (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
 }
+
+const getIngredientsByMealId = (request, response) => {
+    const id = request.params.id;
+    pool.query(`SELECT * FROM ingredients WHERE recipe_id = $1`, [id], (error, results) => {
+        if(error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    })
+};
 
 const getFavMealsById = (request, response) => {
     const id = parseInt(request.params.id);
@@ -46,10 +78,9 @@ const getFavMealsById = (request, response) => {
         if (error) {
             throw error;
         }
-        console.log(results.rows);
         response.status(200).send(results.rows)
     })
-}
+};
 
 const addFavMeal = (request, response) => {
     try {
@@ -66,7 +97,6 @@ const addFavMeal = (request, response) => {
                     console.log(error, '<--- error here')
                     throw error;
                 }
-                console.log(results, '<--- results!')
                 response.status(201).json(results.rows)
             }
         );
@@ -88,6 +118,12 @@ const deleteFavMeal = (request, response) => {
 module.exports = {
     getAllUsers,
     getUserById,
+    deleteUserById,
+
+    getAllUserMealsByUserId,
+
+    getIngredientsByMealId,
+
     getFavMealsById,
     addFavMeal,
     deleteFavMeal
