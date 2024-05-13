@@ -3,7 +3,7 @@ const { request, response } = require('express')
 const Pool = require('pg').Pool
 
 const pool = new Pool({
-    user: 'postgres',
+    user: 'adam',
     host: 'localhost',
     database: 'nutribuddy',
     password: '',
@@ -36,7 +36,7 @@ const getUserById = (request, response) => {
             throw error;
         }
         console.log(results);
-        response.status(200).send(results.rows)
+        response.status(200).send(results.rows[0])
     })
 }
 
