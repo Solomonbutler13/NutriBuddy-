@@ -112,8 +112,9 @@ useEffect(() => {
         <div className="meal-suggestions-scrollable">
           {mealSuggestions.map((meal) => (
             <MealCard
-              key={meal.recipe.uri}
-              title=
+              key={meal.id}
+              meal={meal}
+              // title=
               onAddToFavorites={handleAddToFavorites}
               onAddToWeeklyPlan={handleAddToWeeklyPlan}
             />
