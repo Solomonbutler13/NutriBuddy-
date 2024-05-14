@@ -1,3 +1,9 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './index.css';
+import Login from './assets/components/login';
+import SignUp from './assets/components/signup';
+import ProfilePage from './pages/ProfilePage'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
@@ -33,6 +39,7 @@ export default function App() {
   if (error) {
     return <div>Oops...wrong fridge {error.message}</div>
   }
+
 
   return (
 
@@ -86,6 +93,7 @@ export default function App() {
   );
 }
 
+
 function Home() {
   const { isAuthenticated } = useAuth0();
   const navigate = useNavigate();
@@ -98,3 +106,5 @@ function Home() {
 
   return isAuthenticated ? null : <LoginPage />;
 }
+
+
