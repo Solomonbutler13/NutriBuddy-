@@ -46,12 +46,12 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/callback' element={<CallbackPage />} />
-        <Route path='/personal_info' element={<PersonalPage />} />
-        <Route path='/diet_info' element={<Diet />} />
-        <Route path='/allergies_info' element={<Allergies />} />
-        <Route path='/activity_info' element={<Activity />} />
-        <Route path='/test' element={<Test />} />
-        <Route path='/mealplan' element={<MealPlanPanel meals={[{
+        {isAuthenticated && ( <Route path='/personal_info' element={<PersonalPage />} />)}
+        {isAuthenticated && ( <Route path='/diet_info' element={<Diet />} />)}
+        {isAuthenticated && ( <Route path='/allergies_info' element={<Allergies />} />)}
+        {isAuthenticated && ( <Route path='/activity_info' element={<Activity />} />)}
+        {isAuthenticated && ( <Route path='/test' element={<Test />} />)}
+        {isAuthenticated && ( <Route path='/mealplan' element={<MealPlanPanel meals={[{
           id: '1',
           title: 'meal title',
           imageUrl: 'https://placeholder.pics/svg/300',
@@ -79,7 +79,7 @@ export default function App() {
           description: 'this is turkey sandwich',
           calories: '560'
         },
-        ]} />} />
+        ]} />} />)}
 
       </Routes>
     </Router>

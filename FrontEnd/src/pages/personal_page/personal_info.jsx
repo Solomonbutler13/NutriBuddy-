@@ -35,11 +35,6 @@ export default function PersonalPage(){
         setPersonalInfo(prev => ({...prev, [name]: value}));
     }
 
-    //  Goto the previous page
-    function previousPage(){
-        navigate('/signup');
-    }
-
     // Check input before submitting
     function checkInput(){
         const { firstName, lastName, age, gender, weight, height } = personalInfo;

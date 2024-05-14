@@ -27,7 +27,7 @@ export default function Activity(){
     // Check input before submitting
     function checkInput(){
         store.setInfo('activityLevel', activityLevel);
-        navigate('/test');
+        navigate('/mealplan');
     }
 
     return(
