@@ -61,6 +61,8 @@ import './AboutNutriBuddy.css';
 import DidarKhan from '../../components/DidarKhan';
 import JasonWang from '../../components/JasonWang';
 import DennisWynn from '../../components/DennisWynn';
+import AdamOuriel from '../../components/AdamOuriel';
+import SolomonButler from '../../components/SolomonButler';
 
 const AboutNutriBuddy = () => {
     const statements = [
@@ -70,7 +72,7 @@ const AboutNutriBuddy = () => {
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
     const [visible, setVisible] = useState(true);
     const [currentTeamMemberIndex, setCurrentTeamMemberIndex] = useState(0);
-    const [teamMembers, setTeamMembers] = useState([DidarKhan, JasonWang, DennisWynn]);
+    const [teamMembers, setTeamMembers] = useState([DidarKhan, JasonWang, DennisWynn, AdamOuriel, SolomonButler]);
 
     useEffect(() => {
                 const typingTimer = setTimeout(() => {
