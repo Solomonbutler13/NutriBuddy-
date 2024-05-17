@@ -22,133 +22,75 @@ VALUES
     ('Harper', 'Taylor', 27, 'harper.taylor@example.com', 130.0, 125.0, 158, 1700, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE),
     ('Lucas', 'Martin', 32, 'lucas.martin@example.com', 175.0, 170.0, 180, 2000, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, TRUE);
 
-INSERT INTO meal (recipe_id, user_id, meal_name, meal_time, meal_type, meal_calories) 
+INSERT INTO meal (recipe_id, user_id, meal_name, meal_time, meal_type, meal_calories, recipe_link) 
 VALUES 
-('rcp001', 1, 'Breakfast Burrito', '2024-05-01', 'L', 450),
-('rcp001', 2, 'Breakfast Burrito', '2024-05-06', 'L', 450),
-('rcp002', 2, 'Grilled Chicken', '2024-05-01', 'L', 600),
-('rcp003', 2, 'Veggie Stir-fry', '2024-05-07', 'D', 400),
-('rcp003', 3, 'Veggie Stir-fry', '2024-05-07', 'D', 400),
-('rcp004', 4, 'Fruit Salad', '2024-05-03', 'L', 200),
-('rcp005', 5, 'Salmon Fillet', '2024-05-01', 'D', 350),
-('rcp006', 6, 'Quinoa Salad', '2024-05-01', 'L', 400),
-('rcp007', 7, 'Chicken Caesar Salad', '2024-05-01', 'L', 500),
-('rcp008', 8, 'Pasta Primavera', '2024-05-01', 'D', 550),
-('rcp009', 9, 'Greek Yogurt Parfait', '2024-05-01', 'D', 300),
-('rcp010', 10, 'Tofu Stir-fry', '2024-05-01', 'D', 450),
-('rcp011', 11, 'Avocado Toast', '2024-05-01', 'D', 350),
-('rcp012', 12, 'Mediterranean Wrap', '2024-05-01', 'L', 500),
-('rcp013', 13, 'Bean Burrito', '2024-05-01', 'D', 400),
-('rcp014', 14, 'Sushi Roll', '2024-05-01', 'D', 600),
-('rcp015', 15, 'Omelette', '2024-05-01', 'D', 400),
-('rcp016', 16, 'Vegetable Soup', '2024-05-01', 'D', 300),
-('rcp017', 17, 'Shrimp Scampi', '2024-05-01', 'D', 550),
-('rcp018', 18, 'Hummus Wrap', '2024-05-01', 'L', 450),
-('rcp019', 19, 'Fajitas', '2024-05-01', 'D', 500),
-('rcp020', 20, 'Stuffed Bell Peppers', '2024-05-01', 'D', 400);
+    ('rcp001', 1, 'Breakfast Burrito', '2024-05-01', 'L', 450, 'http://example.com/recipe/rcp001'),
+    ('rcp001', 2, 'Breakfast Burrito', '2024-05-06', 'L', 450, 'http://example.com/recipe/rcp001'),
+    ('rcp002', 2, 'Grilled Chicken', '2024-05-01', 'L', 600, 'http://example.com/recipe/rcp002'),
+    ('rcp003', 2, 'Veggie Stir-fry', '2024-05-07', 'D', 400, 'http://example.com/recipe/rcp003'),
+    ('rcp003', 3, 'Veggie Stir-fry', '2024-05-07', 'D', 400, 'http://example.com/recipe/rcp003'),
+    ('rcp004', 4, 'Fruit Salad', '2024-05-03', 'L', 200, 'http://example.com/recipe/rcp004'),
+    ('rcp005', 5, 'Salmon Fillet', '2024-05-01', 'D', 350, 'http://example.com/recipe/rcp005'),
+    ('rcp006', 6, 'Quinoa Salad', '2024-05-01', 'L', 400, 'http://example.com/recipe/rcp006'),
+    ('rcp007', 7, 'Chicken Caesar Salad', '2024-05-01', 'L', 500, 'http://example.com/recipe/rcp007'),
+    ('rcp008', 8, 'Pasta Primavera', '2024-05-01', 'D', 550, 'http://example.com/recipe/rcp008'),
+    ('rcp009', 9, 'Greek Yogurt Parfait', '2024-05-01', 'D', 300, 'http://example.com/recipe/rcp009'),
+    ('rcp010', 10, 'Tofu Stir-fry', '2024-05-01', 'D', 450, 'http://example.com/recipe/rcp010'),
+    ('rcp011', 11, 'Avocado Toast', '2024-05-01', 'D', 350, 'http://example.com/recipe/rcp011'),
+    ('rcp012', 12, 'Mediterranean Wrap', '2024-05-01', 'L', 500, 'http://example.com/recipe/rcp012'),
+    ('rcp013', 13, 'Bean Burrito', '2024-05-01', 'D', 400, 'http://example.com/recipe/rcp013'),
+    ('rcp014', 14, 'Sushi Roll', '2024-05-01', 'D', 600, 'http://example.com/recipe/rcp014'),
+    ('rcp015', 15, 'Omelette', '2024-05-01', 'D', 400, 'http://example.com/recipe/rcp015'),
+    ('rcp016', 16, 'Vegetable Soup', '2024-05-01', 'D', 300, 'http://example.com/recipe/rcp016'),
+    ('rcp017', 17, 'Shrimp Scampi', '2024-05-01', 'D', 550, 'http://example.com/recipe/rcp017'),
+    ('rcp018', 18, 'Hummus Wrap', '2024-05-01', 'L', 450, 'http://example.com/recipe/rcp018'),
+    ('rcp019', 19, 'Fajitas', '2024-05-01', 'D', 500, 'http://example.com/recipe/rcp019'),
+    ('rcp020', 20, 'Stuffed Bell Peppers', '2024-05-01', 'D', 400, 'http://example.com/recipe/rcp020');
 
--- Sample data for the ingredients table
+
 INSERT INTO ingredients (recipe_id, ingredient_name, quantity, unit_type, price_per_unit) 
 VALUES 
--- Ingredients for Breakfast Burrito (rcp001)
-('rcp001', 'Tortilla', 1, 'piece', 0.50),
-('rcp001', 'Eggs', 2, 'piece', 0.20),
-('rcp001', 'Bacon', 2, 'slices', 0.75),
+    -- Ingredients for Breakfast Burrito (rcp001)
+    ('rcp001', '{"Tortilla", "Eggs", "Bacon"}', '{1, 2, 2}', '{"piece", "piece", "slices"}', '{0.50, 0.2, 0.75}'),
+    -- Ingredients for Grilled Chicken (rcp002)
+    ('rcp002', '{"Chicken Breast", "Olive Oil", "Salt"}', '{1, 2, 1}', '{"piece", "tbsp", "pinch"}', '{2.50, 0.1, 0.05}'),
+    -- Ingredients for Veggie Stir-fry (rcp003)
+    ('rcp003', '{"Tofu", "Mixed Vegetables", "Soy Sauce"}', '{200, 1, 2}', '{"grams", "pack", "tbsp"}', '{1.20, 3.00, 0.30}'),
+    -- Ingredients for Fruit Salad (rcp004)
+    ('rcp004', '{"Apple", "Banana", "Orange"}', '{1, 1, 1}', '{"piece", "piece", "piece"}', '{0.75, 0.50, 0.60}'),
+    -- Ingredients for Salmon Fillet (rcp005)
+    ('rcp005', '{"Salmon Fillet", "Lemon", "Olive Oil"}', '{1, 1, 1}', '{"piece", "piece", "tbsp"}', '{5.00, 0.80, 0.10}'),
+    -- Ingredients for Quinoa Salad (rcp006)
+    ('rcp006', '{"Quinoa", "Cucumber", "Tomato"}', '{1, 1, 1}', '{"cup", "piece", "piece"}', '{1.50, 0.75, 0.60}'),
+    -- Ingredients for Chicken Caesar Salad (rcp007)
+    ('rcp007', '{"Chicken Breast", "Romaine Lettuce", "Caesar Dressing"}', '{1, 2, 2}', '{"piece", "cups", "tbsp"}', '{2.50, 1.00, 0.50}'),
+    -- Ingredients for Pasta Primavera (rcp008)
+    ('rcp008', '{"Pasta", "Broccoli", "Bell Pepper"}', '{2, 1, 1}', '{"cups", "cup", "piece"}', '{1.00, 0.75, 0.80}'),
+    -- Ingredients for Greek Yogurt Parfait (rcp009)
+    ('rcp009', '{"Greek Yogurt", "Granola", "Berries"}', '{1, 0.5, 0.5}', '{"cup", "cup", "cup"}', '{1.00, 1.20, 0.80}'),
+    -- Ingredients for Tofu Stir-fry (rcp010)
+    ('rcp010', '{"Tofu", "Bell Pepper", "Broccoli"}', '{200, 1, 1}', '{"grams", "piece", "cup"}', '{1.20, 0.80, 0.75}'),
+    -- Ingredients for Avocado Toast (rcp011)
+    ('rcp011', '{"Avocado", "Bread", "Tomato"}', '{1, 2, 1}', '{"piece", "slices", "piece"}', '{1.50, 0.50, 0.60}'),
+    -- Ingredients for Mediterranean Wrap (rcp012)
+    ('rcp012', '{"Chicken Breast", "Hummus", "Whole Wheat Wrap"}', '{1, 2, 1}', '{"piece", "tbsp", "piece"}', '{2.50, 0.80, 1.00}'),
+    -- Ingredients for Bean Burrito (rcp013)
+    ('rcp013', '{"Black Beans", "Tortilla", "Cheese"}', '{1, 1, 0.5}', '{"cup", "piece", "cup"}', '{0.75, 0.50, 1.00}'),
+    -- Ingredients for Sushi Roll (rcp014)
+    ('rcp014', '{"Sushi Rice", "Nori", "Cucumber"}', '{1, 2, 1}', '{"cup", "sheets", "piece"}', '{1.00, 0.50, 0.75}'),
+    -- Ingredients for Omelette (rcp015)
+    ('rcp015', '{"Eggs", "Mushrooms", "Cheese"}', '{3, 0.5, 0.5}', '{"piece", "cup", "cup"}', '{0.20, 0.80, 1.00}'),
+    -- Ingredients for Vegetable Soup (rcp016)
+    ('rcp016', '{"Vegetable Broth", "Carrot", "Potato"}', '{2, 1, 1}', '{"cups", "piece", "piece"}', '{1.00, 0.50, 0.60}'),
+    -- Ingredients for Shrimp Scampi (rcp017)
+    ('rcp017', '{"Shrimp", "Garlic", "Lemon"}', '{200, 2, 1}', '{"grams", "cloves", "piece"}', '{3.00, 0.40, 0.80}'),
+    -- Ingredients for Hummus Wrap (rcp018)
+    ('rcp018', '{"Hummus", "Whole Wheat Wrap", "Cucumber"}', '{2, 1, 1}', '{"tbsp", "piece", "piece"}', '{0.80, 1.00, 0.75}'),
+    -- Ingredients for Fajitas (rcp019)
+    ('rcp019', '{"Chicken Breast", "Bell Pepper", "Onion"}', '{1, 1, 1}', '{"piece", "piece", "piece"}', '{2.50, 0.80, 0.60}'),
+    -- Ingredients for Stuffed Bell Peppers (rcp020)
+    ('rcp020', '{"Bell Pepper", "Ground Beef", "Rice"}', '{2, 200, 1}', '{"pieces", "grams", "cup"}', '{1.50, 3.00, 1.00}');
 
--- Ingredients for Grilled Chicken (rcp002)
-('rcp002', 'Chicken Breast', 1, 'piece', 2.50),
-('rcp002', 'Olive Oil', 2, 'tbsp', 0.10),
-('rcp002', 'Salt', 1, 'pinch', 0.05),
-
--- Ingredients for Veggie Stir-fry (rcp003)
-('rcp003', 'Tofu', 200, 'grams', 1.20),
-('rcp003', 'Mixed Vegetables', 1, 'pack', 3.00),
-('rcp003', 'Soy Sauce', 2, 'tbsp', 0.30),
-
--- Ingredients for Fruit Salad (rcp004)
-('rcp004', 'Apple', 1, 'piece', 0.75),
-('rcp004', 'Banana', 1, 'piece', 0.50),
-('rcp004', 'Orange', 1, 'piece', 0.60),
-
--- Ingredients for Salmon Fillet (rcp005)
-('rcp005', 'Salmon Fillet', 1, 'piece', 5.00),
-('rcp005', 'Lemon', 1, 'piece', 0.80),
-('rcp005', 'Olive Oil', 1, 'tbsp', 0.10),
-
--- Ingredients for Quinoa Salad (rcp006)
-('rcp006', 'Quinoa', 1, 'cup', 1.50),
-('rcp006', 'Cucumber', 1, 'piece', 0.75),
-('rcp006', 'Tomato', 1, 'piece', 0.60),
-
--- Ingredients for Chicken Caesar Salad (rcp007)
-('rcp007', 'Chicken Breast', 1, 'piece', 2.50),
-('rcp007', 'Romaine Lettuce', 2, 'cups', 1.00),
-('rcp007', 'Caesar Dressing', 2, 'tbsp', 0.50),
-
--- Ingredients for Pasta Primavera (rcp008)
-('rcp008', 'Pasta', 2, 'cups', 1.00),
-('rcp008', 'Broccoli', 1, 'cup', 0.75),
-('rcp008', 'Bell Pepper', 1, 'piece', 0.80),
-
--- Ingredients for Greek Yogurt Parfait (rcp009)
-('rcp009', 'Greek Yogurt', 1, 'cup', 1.00),
-('rcp009', 'Granola', 0.5, 'cup', 1.20),
-('rcp009', 'Berries', 0.5, 'cup', 0.80),
-
--- Ingredients for Tofu Stir-fry (rcp010)
-('rcp010', 'Tofu', 200, 'grams', 1.20),
-('rcp010', 'Bell Pepper', 1, 'piece', 0.80),
-('rcp010', 'Broccoli', 1, 'cup', 0.75),
-
--- Ingredients for Avocado Toast (rcp011)
-('rcp011', 'Avocado', 1, 'piece', 1.50),
-('rcp011', 'Bread', 2, 'slices', 0.50),
-('rcp011', 'Tomato', 1, 'piece', 0.60),
-
--- Ingredients for Mediterranean Wrap (rcp012)
-('rcp012', 'Chicken Breast', 1, 'piece', 2.50),
-('rcp012', 'Hummus', 2, 'tbsp', 0.80),
-('rcp012', 'Whole Wheat Wrap', 1, 'piece', 1.00),
-
--- Ingredients for Bean Burrito (rcp013)
-('rcp013', 'Black Beans', 1, 'cup', 0.75),
-('rcp013', 'Tortilla', 1, 'piece', 0.50),
-('rcp013', 'Cheese', 0.5, 'cup', 1.00),
-
--- Ingredients for Sushi Roll (rcp014)
-('rcp014', 'Sushi Rice', 1, 'cup', 1.00),
-('rcp014', 'Nori', 2, 'sheets', 0.50),
-('rcp014', 'Cucumber', 1, 'piece', 0.75),
-
--- Ingredients for Omelette (rcp015)
-('rcp015', 'Eggs', 3, 'piece', 0.20),
-('rcp015', 'Mushrooms', 0.5, 'cup', 0.80),
-('rcp015', 'Cheese', 0.5, 'cup', 1.00),
-
--- Ingredients for Vegetable Soup (rcp016)
-('rcp016', 'Vegetable Broth', 2, 'cups', 1.00),
-('rcp016', 'Carrot', 1, 'piece', 0.50),
-('rcp016', 'Potato', 1, 'piece', 0.60),
-
--- Ingredients for Shrimp Scampi (rcp017)
-('rcp017', 'Shrimp', 200, 'grams', 3.00),
-('rcp017', 'Garlic', 2, 'cloves', 0.40),
-('rcp017', 'Lemon', 1, 'piece', 0.80),
-
--- Ingredients for Hummus Wrap (rcp018)
-('rcp018', 'Hummus', 2, 'tbsp', 0.80),
-('rcp018', 'Whole Wheat Wrap', 1, 'piece', 1.00),
-('rcp018', 'Cucumber', 1, 'piece', 0.75),
-
--- Ingredients for Fajitas (rcp019)
-('rcp019', 'Chicken Breast', 1, 'piece', 2.50),
-('rcp019', 'Bell Pepper', 1, 'piece', 0.80),
-('rcp019', 'Onion', 1, 'piece', 0.60),
-
--- Ingredients for Stuffed Bell Peppers (rcp020)
-('rcp020', 'Bell Pepper', 2, 'pieces', 1.50),
-('rcp020', 'Ground Beef', 200, 'grams', 3.00),
-('rcp020', 'Rice', 1, 'cup', 1.00);
 
 
 INSERT INTO favorite_meals (recipe_name, recipe_id, user_id)

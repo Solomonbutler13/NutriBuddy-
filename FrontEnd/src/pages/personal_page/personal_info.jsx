@@ -67,6 +67,7 @@ export default function PersonalPage(){
             store.setInfo('lastName', lastName);
             store.setInfo('age', age);
             store.setInfo('gender', gender);
+            store.setInfo('goalWeight', goalWeight);
             store.setInfo('weight', weight);
             store.setInfo('height', height);
             navigate('/diet_info'); 
