@@ -1,5 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './index.css';
+import Login from './assets/components/login';
+import SignUp from './assets/components/signup';
+import ProfilePage from './pages/ProfilePage'; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+
 import './index.css'
 
 
@@ -15,9 +24,32 @@ import Allergies from './pages/allergies_page/allergies_info';
 import Activity from './pages/activity_page/activity_info';
 
 export default function App() {
+  const {
+    isLoading,
+    isAuthenticated,
+    error,
+    logout,
+  } = useAuth0();
+  
+  const handleSignout = async () => await logout()
+
+  // Loading State
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Oops...wrong fridge {error.message}</div>
+  }
+
 
   return (
     <Router>
+      {isAuthenticated && (
+        <button id='signout-button' type='submit' onClick={() => logout()}>
+          See You Later
+        </button>
+      )}
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
@@ -52,11 +84,28 @@ export default function App() {
           },
           ]} />} />
         <Route path='/about' element = {<AboutNutriBuddy />} />
+        <Route path='/callback' element={<CallbackPage />} />
         <Route path='/diet_info' element={<Diet />} />
         <Route path='/allergies_info' element={<Allergies />} />
         <Route path='/activity_info' element={<Activity />} />
         <Route path='/test' element={<Test />} />
       </Routes>
     </Router>
-  )
+  );
 }
+
+
+function Home() {
+  const { isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/personal_info'); // needs to route user profile page
+    }
+  }, [isAuthenticated, navigate]);
+
+  return isAuthenticated ? null : <LoginPage />;
+}
+
+
