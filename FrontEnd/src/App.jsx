@@ -1,10 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
-import Login from './assets/components/login';
-import SignUp from './assets/components/signup';
 import ProfilePage from './pages/ProfilePage'; 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
@@ -22,6 +19,7 @@ import Diet from './pages/diet_page/diet_info';
 import Test from './pages/test';
 import Allergies from './pages/allergies_page/allergies_info';
 import Activity from './pages/activity_page/activity_info';
+import * as CallbackPage from './pages/callbackPage';
 
 export default function App() {
   const {
