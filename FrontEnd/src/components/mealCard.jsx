@@ -29,15 +29,19 @@ export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) 
     setIsExpanded(current => !current);
   };
 
+  console.log(meal)
+
   return (
     <div className="meal-card-container">
       <div className="meal-card-content" onClick={toggleExpand}>
         <img className="meal-card-image" src={meal.imageUrl} alt={meal.title} />
         <h3 className="meal-card-title">{meal.title}</h3>
-        <p className="meal-card-description">
-          {isExpanded ? meal.description : `${meal.description.substring(0, 100)}...`}
+        <p className="meal-card-macros">
+        <span className="meal-card-calories">{Math.round((meal.calories/meal.yield)/4)} cal</span>
+        {
+          meal.nutrients.filter(macro => macro.label === 'Fat' || macro.label === 'Carbs' )
+        }
         </p>
-        <p className="meal-card-calories">{meal.calories} kcal</p>
       </div>
       <div className="meal-card-buttons">
         <button className="button-favorite" onClick={(e) => {

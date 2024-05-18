@@ -48,61 +48,72 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
   function calculateCalorieGoal(userInfo) {
     let bmr;
     if (gender === 'female') {
-        bmr = 10 * curr_weight + 6.25 * height - 5 * age - 161;
+      bmr = 10 * curr_weight + 6.25 * height - 5 * age - 161;
     } else {
-        bmr = 10 * curr_weight + 6.25 * height - 5 * age + 5;
+      bmr = 10 * curr_weight + 6.25 * height - 5 * age + 5;
     }
 
     const activityMultipliers = {
-        'sedentary': 1.2,
-        'lightly_active': 1.375,
-        'moderately_active': 1.55,
-        'very_active': 1.725,
-        'extra_active': 1.9
+      'sedentary': 1.2,
+      'lightly_active': 1.375,
+      'moderately_active': 1.55,
+      'very_active': 1.725,
+      'extra_active': 1.9
     };
 
     const tdee = bmr * (activityMultipliers[activity_level] || 1.55);
     return Math.round(tdee * 0.4);  // Assuming 40% of calories for each major meal
-}
-
-
+  }
 
   const fetchUserFitnessInfoAndMeals = async () => {
     setIsLoading(true);
     try {
-        const userResponse = await fetch(`http://localhost:3000/user/${userId}`);
-        if (!userResponse.ok) throw new Error('Failed to fetch user fitness information');
-        const userInfo = await userResponse.json();
-        console.log('User info from meal recommendations: ', userInfo)
-        const mealCalorieGoal = calculateCalorieGoal(userInfo);
+      const userResponse = await fetch(`http://localhost:3000/user/${userId}`);
+      if (!userResponse.ok) throw new Error('Failed to fetch user fitness information');
+      const userInfo = await userResponse.json();
+      const mealCalorieGoal = calculateCalorieGoal(userInfo);
 
-        const params = new URLSearchParams({
-            type: 'public',
-            q: 'healthy',
-            app_id: 'bd8c592a',
-            app_key: 'e17e5ba0a3a6948de1cae377bdcb2196',
-            calories: `${mealCalorieGoal - 50}-${mealCalorieGoal + 50}`,
-            to: '14'  // Fetching a total of 14 meals
-        });
+      const params = {
+        apiKey: import.meta.env.VITE_SPOONACULAR_KEY,
+        minCalories: mealCalorieGoal - 50,
+        maxCalories: mealCalorieGoal + 50,
+        number: '14'  // Fetching a total of 14 meals
+      };
 
-        const url = `https://api.edamam.com/api/recipes/v2?${params.toString()}`;
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Failed to fetch recipes');
-        const data = await response.json();
-        setMealSuggestions(data.hits.map(hit => hit.recipe));
-        console.log('My recipes: ', data.hits)
-        setError('');
+      const data = `https://api.spoonacular.com/recipes/random?number=${params.number}&apiKey=${params.apiKey}`;
+      const response = await fetch(data);
+      const recipeData = await response.json();
+      if (!response.ok) throw new Error(`Failed to fetch recipes ${JSON.stringify(recipeData)}`);
+
+      const mealSuggestions = await Promise.all(recipeData.recipes.map(async (recipe) => {
+        const url = `https://api.spoonacular.com/recipes/${recipe.id}/nutritionWidget.json?apiKey=${params.apiKey}`;
+        const nutritionResponse = await fetch(url);
+        const nutritionData = await nutritionResponse.json();
+        if (!nutritionResponse.ok) throw new Error('Failed to fetch nutrition info');
+
+        return {
+          ...recipe,
+          calories: nutritionData.nutrients[0].amount,
+          protein: nutritionData.nutrients[8].amount,
+          carbs: nutritionData.nutrients[3].amount,
+          fat: nutritionData.nutrients[1].amount,
+          imageUrl: recipe.image
+        };
+      }));
+
+      setMealSuggestions(mealSuggestions);
+      setError('');
     } catch (error) {
-        console.error('Error fetching recipes:', error);
-        setError('Failed to load recipes, please try again.');
+      console.error('Error fetching recipes:', error);
+      setError('Failed to load recipes, please try again.');
     } finally {
-        setIsLoading(false);
+      setIsLoading(false);
     }
-};
+  };
 
-useEffect(() => {
-  fetchUserFitnessInfoAndMeals();
-}, []);
+  useEffect(() => {
+    fetchUserFitnessInfoAndMeals();
+  }, []);
 
   return (
     <div className="meal-plan-panel">
@@ -114,7 +125,6 @@ useEffect(() => {
             <MealCard
               key={meal.id}
               meal={meal}
-              // title=
               onAddToFavorites={handleAddToFavorites}
               onAddToWeeklyPlan={handleAddToWeeklyPlan}
             />
