@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useStore } from "../../components/UserData.jsx";
-import './activity_info.css';
+import './activityInfo.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function Activity(){
