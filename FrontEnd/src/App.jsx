@@ -1,10 +1,6 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
-import Login from './assets/components/login';
-import SignUp from './assets/components/signup';
-import ProfilePage from './pages/ProfilePage'; 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
@@ -20,6 +16,7 @@ import Allergies from './pages/allergies_page/allergies_info.jsx';
 import Activity from './pages/activity_page/activity_info.jsx';
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel.jsx';
 import CallbackPage from './pages/callbackPage';
+import ProfilePage from './pages/profile_page/ProfilePage.jsx'; 
 
 export default function App() {
   const {
@@ -54,6 +51,7 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='/callback' element={<CallbackPage />} />
         <Route path='/personal_info' element={<PersonalPage />} />
+        <Route path='/profilepage' element={<ProfilePage />} />
         <Route path='/diet_info' element={<Diet />} />
         <Route path='/allergies_info' element={<Allergies />} />
         <Route path='/activity_info' element={<Activity />} />
