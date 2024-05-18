@@ -9,7 +9,7 @@ import './index.css';
 import LoginPage from './pages/login_page/LoginPage'
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel'
 import PersonalPage from './pages/personal_page/PersonalPage';
-import AboutNutriBuddy from './pages/about_page/AboutNutriBuddy.jsx';
+import AboutNutriBuddy from './pages/about_page/AboutNutriBuddy';
 import Diet from './pages/diet_page/DietInfo';
 import Test from './pages/Test';
 import AllergiesInfo from './pages/allergies_page/AllergiesInfo';
@@ -44,6 +44,12 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/personal_info' element={<PersonalPage />} />
+        <Route path='/about' element = {<AboutNutriBuddy />} />
+        <Route path='/callback' element={<CallbackPage />} />
+        <Route path='/diet_info' element={<Diet />} />
+        <Route path='/allergies_info' element={<AllergiesInfo />} />
+        <Route path='/activity_info' element={<Activity />} />
+        <Route path='/test' element={<Test />} />
         <Route path='/mealplan' element={<MealPlanPanel meals={[{
             id: '1',
             title: 'meal title',
@@ -73,12 +79,6 @@ export default function App() {
             calories: '560'
           },
           ]} />} />
-        <Route path='/about' element = {<AboutNutriBuddy />} />
-        <Route path='/callback' element={<CallbackPage />} />
-        <Route path='/diet_info' element={<Diet />} />
-        <Route path='/allergies_info' element={<AllergiesInfo />} />
-        <Route path='/activity_info' element={<Activity />} />
-        <Route path='/test' element={<Test />} />
       </Routes>
     </Router>
   );
