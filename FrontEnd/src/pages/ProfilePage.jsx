@@ -1,4 +1,4 @@
-import '../components/ProfilePage.css'; // Ensure CSS is imported
+import '../components/profilePage.css'; // Ensure CSS is imported
 import ProfilePic from '../components/ProfilePic';
 
 function ProfilePage() {

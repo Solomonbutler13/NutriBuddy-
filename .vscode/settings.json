@@ -6,5 +6,13 @@
     "favoritemeals",
     "mealplan",
     "Nutribuddy"
-  ]
+  ],
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/Components/**": false,
+    "**/components/**": false
+  }
+  
 }

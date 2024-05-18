@@ -1,4 +1,3 @@
-import React from 'react';
 import './teamMembers.css'; // Import CSS file for styling
 // Import image Under this
 import { FaLinkedin } from "react-icons/fa";

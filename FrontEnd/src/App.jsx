@@ -3,20 +3,22 @@ import './index.css';
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
-import './index.css'
-
+import './index.css';
 
 // Importing about nutribuddy pages components 
-import AboutNutriBuddy from './pages/about_nutribuddy/AboutNutriBuddy'
+import LoginPage from './pages/login_page/LoginPage'
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel'
-import LoginPage from './pages/login_page/LoginPage';
+import AboutNutriBuddy from './pages/about_nutribuddy/AboutNutriBuddy'
 import SignUp from './pages/signup_page/Signup';
-import PersonalPage from './pages/personal_page/PersonalPage';
-import Diet from './pages/diet_page/Diet_info';
+import PersonalPage from './pages/personal_page/Personal_info';
+import Diet from './pages/diet_page/DietInfo';
 import Test from './pages/Test';
-import Allergies from './pages/allergies_page/Allergies_info';
-import Activity from './pages/activity_page/Activity_info';
+import AllergiesInfo from './pages/allergies_page/AllergiesInfo';
+import Activity from './pages/activity_page/ActivityInfo';
 import CallbackPage from './pages/CallbackPage';
 
 export default function App() {
@@ -80,7 +82,7 @@ export default function App() {
         <Route path='/about' element = {<AboutNutriBuddy />} />
         <Route path='/callback' element={<CallbackPage />} />
         <Route path='/diet_info' element={<Diet />} />
-        <Route path='/allergies_info' element={<Allergies />} />
+        <Route path='/allergies_info' element={<AllergiesInfo />} />
         <Route path='/activity_info' element={<Activity />} />
         <Route path='/test' element={<Test />} />
       </Routes>
