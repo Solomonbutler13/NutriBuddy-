@@ -1,13 +1,13 @@
-const { request, response } = require('express')
+require('dotenv').config();
+const { request, response } = require('express');
+const { connectionString } = require('pg/lib/defaults');
 
-const Pool = require('pg').Pool
+const { Pool } = require('pg')
+
+console.log(process.env.DB_CONNECTION_STRING)
 
 const pool = new Pool({
-    user: 'adam',
-    host: 'localhost',
-    database: 'nutribuddy',
-    password: '',
-    port: 5432,
+    connectionString: process.env.DB_CONNECTION_STRING,
 })
 
 pool.connect((error) => {

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
 import './mealCard.css';
 
 export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) {
@@ -29,17 +30,20 @@ export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) 
     setIsExpanded(current => !current);
   };
 
-  console.log(meal)
+  console.log('meal: ', meal)
+  const { calories, protein, carbs, fat, title, imageUrl } = meal;
 
   return (
     <div className="meal-card-container">
       <div className="meal-card-content" onClick={toggleExpand}>
-        <img className="meal-card-image" src={meal.imageUrl} alt={meal.title} />
-        <h3 className="meal-card-title">{meal.title}</h3>
+        <img className="meal-card-image" src={imageUrl} alt={title} />
+        <h3 className="meal-card-title">{title}</h3>
         <p className="meal-card-macros">
-        <span className="meal-card-calories">{Math.round((meal.calories/meal.yield)/4)} cal</span>
+        <span className="meal-card-calories">{calories} cal</span>
         {
-          meal.nutrients.filter(macro => macro.label === 'Fat' || macro.label === 'Carbs' )
+          [protein, carbs, fat].map((macro, index) => (
+          <span key={index}>{macro}g</span>
+        ))
         }
         </p>
       </div>

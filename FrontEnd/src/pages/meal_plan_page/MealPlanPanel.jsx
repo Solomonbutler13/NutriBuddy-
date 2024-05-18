@@ -87,6 +87,7 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
 
       const mealSuggestions = await Promise.all(recipeData.recipes.map(async (recipe) => {
         const url = `https://api.spoonacular.com/recipes/${recipe.id}/nutritionWidget.json?apiKey=${params.apiKey}`;
+        console.log('url:', url);
         const nutritionResponse = await fetch(url);
         const nutritionData = await nutritionResponse.json();
         if (!nutritionResponse.ok) throw new Error('Failed to fetch nutrition info');
