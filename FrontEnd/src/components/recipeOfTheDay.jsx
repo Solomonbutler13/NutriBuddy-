@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import './RecipeOfTheDay.css'; // Import the CSS file
+import { useState, useEffect } from 'react';
+import './recipeOfTheDay.css'; // Import the CSS file
 
 function CulturalRecipeOfTheDay() {
     const [recipe, setRecipe] = useState(null);

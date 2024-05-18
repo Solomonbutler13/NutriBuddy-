@@ -1,7 +1,5 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
-import ProfilePage from './pages/ProfilePage'; 
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
@@ -10,16 +8,16 @@ import './index.css'
 
 
 // Importing about nutribuddy pages components 
-import AboutNutriBuddy from './pages/about_nutribuddy/aboutNutriBuddy'
+import AboutNutriBuddy from './pages/about_nutribuddy/AboutNutriBuddy'
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel'
-import Login from './pages/login_page/login';
-import SignUp from './pages/signup_page/signup';
-import PersonalPage from './pages/personal_page/personal_info';
-import Diet from './pages/diet_page/diet_info';
-import Test from './pages/test';
-import Allergies from './pages/allergies_page/allergies_info';
-import Activity from './pages/activity_page/activity_info';
-import * as CallbackPage from './pages/callbackPage';
+import LoginPage from './pages/login_page/LoginPage';
+import SignUp from './pages/signup_page/Signup';
+import PersonalPage from './pages/personal_page/PersonalPage';
+import Diet from './pages/diet_page/Diet_info';
+import Test from './pages/Test';
+import Allergies from './pages/allergies_page/Allergies_info';
+import Activity from './pages/activity_page/Activity_info';
+import CallbackPage from './pages/CallbackPage';
 
 export default function App() {
   const {
@@ -28,8 +26,6 @@ export default function App() {
     error,
     logout,
   } = useAuth0();
-  
-  const handleSignout = async () => await logout()
 
   // Loading State
   if (isLoading) {
@@ -49,7 +45,7 @@ export default function App() {
         </button>
       )}
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/' element={<Home />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/personal_info' element={<PersonalPage />} />
         <Route path='/mealplan' element={<MealPlanPanel meals={[{

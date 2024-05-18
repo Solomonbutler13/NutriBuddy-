@@ -1,6 +1,5 @@
-import React from 'react';
-import './TeamMembers.css'; // Import CSS file for styling
-import jasonWangImage from '../Images-Icons/Jason-Wang.jpg'; // Import image
+import './teamMembers.css'; // Import CSS file for styling
+import jasonWangImage from '../assets/Images-Icons/Jason-Wang.jpg'; // Import image
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 

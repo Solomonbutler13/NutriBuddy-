@@ -1,6 +1,5 @@
-import React from 'react';
-import '../component/ProfilePage.css'; // Ensure CSS is imported
-import ProfilePic from '../component/ProfilePic';
+import '../components/ProfilePage.css'; // Ensure CSS is imported
+import ProfilePic from '../components/ProfilePic';
 
 function ProfilePage() {
     return (

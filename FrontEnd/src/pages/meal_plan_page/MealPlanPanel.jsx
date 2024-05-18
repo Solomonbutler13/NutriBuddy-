@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import MealCard from '../../components/mealCard';
-import WeeklyPlan from '../../components/weeklyPlan';
+import MealCard from '../../components/MealCard';
+import WeeklyPlan from '../../components/WeeklyPlan';
 
 // import your grocery list components here
-import GroceryList from '../../components/groceryList';
+import GroceryList from '../../components/GroceryList';
 
 // import recipe of the day component here 
-import CulturalRecipeOfTheDay from '../../components/recipeOfTheDay';
+import CulturalRecipeOfTheDay from '../../components/RecipeOfTheDay';
 
 
-import './MealPlanPanel.css';
+import './mealPlanPanel.css';
 
 const MealPlanPanel = ({ meals, userName = "User" }) => {
   const [favorites, setFavorites] = useState([]);

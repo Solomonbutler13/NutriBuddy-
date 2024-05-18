@@ -9,8 +9,8 @@
 //     - List of grocery items with quantity and estimated cost
 //     - Total cost display
 
-import React, { useState, useEffect } from 'react';
-import './GroceryList.css'; // CSS file
+import { useState, useEffect } from 'react';
+import './groceryList.css'; // CSS file
 
 // Define the GroceryList component
 const GroceryList = ({ weeklyMealPlan }) => {
