@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useStore } from "../../components/UserData"
-import './allergies_info.css';
+import './allergiesInfo.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function Allergies(){
