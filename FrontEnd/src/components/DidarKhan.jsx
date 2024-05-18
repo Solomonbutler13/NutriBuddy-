@@ -1,6 +1,6 @@
 import React from 'react';
 import './teamMembers.css'; // Import CSS file for styling
-import didarKhanImage from '../Images-Icons/Didar-Khan.jpg'; // Import image
+import didarKhanImage from '../assets/images/Didar-Khan.jpg'; // Import image
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 

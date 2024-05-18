@@ -1,6 +1,6 @@
 import React from 'react';
 import './teamMembers.css'; // Import CSS file for styling
-import dennisWynnImage from '../Images-Icons/Dennis-Wynn.jpg'; // Import image
+import dennisWynnImage from '../assets/images/Dennis-Wynn.jpg'; // Import image
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react'
 
 import './index.css';
@@ -8,9 +8,8 @@ import './index.css';
 // Importing about nutribuddy pages components 
 import LoginPage from './pages/login_page/LoginPage'
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel'
-import AboutNutriBuddy from './pages/about_nutribuddy/AboutNutriBuddy'
-import SignUp from './pages/signup_page/Signup';
-import PersonalPage from './pages/personal_page/Personal_info';
+import PersonalPage from './pages/personal_page/PersonalPage';
+import AboutNutriBuddy from './pages/about_page/AboutNutriBuddy';
 import Diet from './pages/diet_page/DietInfo';
 import Test from './pages/Test';
 import AllergiesInfo from './pages/allergies_page/AllergiesInfo';
@@ -44,8 +43,13 @@ export default function App() {
       )}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/signup' element={<SignUp />} />
         <Route path='/personal_info' element={<PersonalPage />} />
+        <Route path='/about' element = {<AboutNutriBuddy />} />
+        <Route path='/callback' element={<CallbackPage />} />
+        <Route path='/diet_info' element={<Diet />} />
+        <Route path='/allergies_info' element={<AllergiesInfo />} />
+        <Route path='/activity_info' element={<Activity />} />
+        <Route path='/test' element={<Test />} />
         <Route path='/mealplan' element={<MealPlanPanel meals={[{
             id: '1',
             title: 'meal title',
@@ -75,12 +79,6 @@ export default function App() {
             calories: '560'
           },
           ]} />} />
-        <Route path='/about' element = {<AboutNutriBuddy />} />
-        <Route path='/callback' element={<CallbackPage />} />
-        <Route path='/diet_info' element={<Diet />} />
-        <Route path='/allergies_info' element={<AllergiesInfo />} />
-        <Route path='/activity_info' element={<Activity />} />
-        <Route path='/test' element={<Test />} />
       </Routes>
     </Router>
   );
