@@ -8,6 +8,12 @@ html, body{
   padding: 0;
 }
 
+.circular-image {
+  width: 200px; /* or any specific size */
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover; /* ensures the image covers the area without being stretched */
+}
 #root{
   margin: 0;
   padding: 0;

@@ -79,3 +79,25 @@
     padding: 10px; 
   }
 }
+
+.weekly-plan-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.grocery-list-panel, .weekly-plan-panel {
+  width: 100%; /* Adjust width to fit side by side */
+}
+
+.cultural-recipe {
+  background-color: #d8bcbc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 20px; 
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: auto;
+}
