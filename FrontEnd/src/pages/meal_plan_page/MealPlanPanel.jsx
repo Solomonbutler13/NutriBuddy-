@@ -1,7 +1,15 @@
 import { useState } from 'react';
-import MealCard from '../../components/mealCard.jsx';
-import WeeklyPlan from '../../components/weeklyPlan.jsx';
-import './mealPlanPanel.css';
+import MealCard from '../../components/mealCard';
+import WeeklyPlan from '../../components/weeklyPlan';
+
+// import your grocery list components here
+import GroceryList from '../../components/groceryList';
+
+// import recipe of the day component here 
+import CulturalRecipeOfTheDay from '../../components/recipeOfTheDay';
+
+
+import './MealPlanPanel.css';
 
 const MealPlanPanel = ({ meals, userName = "User" }) => {
   const [favorites, setFavorites] = useState([]);
@@ -48,7 +56,13 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
           ))}
         </div>
       </div>
+      <div className="weekly-plan-section">
       <WeeklyPlan weeklyMeals={weeklyMeals} />
+      <GroceryList />
+      </div>
+      <div className="cultural-recipe">
+      <CulturalRecipeOfTheDay />
+      </div>
     </div>
   );
 };
