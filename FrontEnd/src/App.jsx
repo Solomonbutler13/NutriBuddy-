@@ -8,8 +8,8 @@ import './index.css';
 // Importing about nutribuddy pages components 
 import LoginPage from './pages/login_page/LoginPage'
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel'
-import AboutNutriBuddy from './pages/about_nutribuddy/AboutNutriBuddy'
 import PersonalPage from './pages/personal_page/PersonalPage';
+import AboutNutriBuddy from './pages/about_page/AboutNutriBuddy.jsx';
 import Diet from './pages/diet_page/DietInfo';
 import Test from './pages/Test';
 import AllergiesInfo from './pages/allergies_page/AllergiesInfo';
