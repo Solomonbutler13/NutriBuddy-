@@ -1,5 +1,5 @@
 import React from 'react';
-import './TeamMembers.css'; // Import CSS file for styling
+import './teamMembers.css'; // Import CSS file for styling
 // Import image Under this
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";

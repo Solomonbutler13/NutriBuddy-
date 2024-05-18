@@ -57,7 +57,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'; // Import motion from Framer Motion (This shoud make the animation a little smoother)
-import './AboutNutriBuddy.css'; 
+import './aboutNutriBuddy.css'; 
 import DidarKhan from '../../components/DidarKhan';
 import JasonWang from '../../components/JasonWang';
 import DennisWynn from '../../components/DennisWynn';

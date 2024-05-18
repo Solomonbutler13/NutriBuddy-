@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useStore } from "../../components/userData.jsx";
+import { useStore } from "../../components/UserData.jsx";
 import './activity_info.css';
 import { useNavigate } from 'react-router-dom';
 
