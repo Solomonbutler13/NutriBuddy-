@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { useStore } from './components/userData';
 
 import './index.css'
 
@@ -20,10 +21,22 @@ export default function App() {
     isLoading,
     isAuthenticated,
     error,
+    user,
+    loginWithRedirect,
     logout,
   } = useAuth0();
-  
-  const handleSignout = async () => await logout()
+
+  // Zustand store
+  const setInfo = useStore(state => state.setInfo);
+
+  // Function to handle signout
+  const handleSignout = () => {
+    logout({ returnTo: window.location.origin });
+    // Clear user data from Zustand store upon logout
+    setUserEmail(null);
+    setUserData(null);
+  };
+
 
   // Loading State
   if (isLoading) {
@@ -34,6 +47,12 @@ export default function App() {
     return <div>Oops...wrong fridge {error.message}</div>
   }
 
+  // After authentication
+  if (isAuthenticated) {
+    setInfo('email', user.email);
+  };
+
+  
   return (
 
 
@@ -46,12 +65,12 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/callback' element={<CallbackPage />} />
-        {isAuthenticated && ( <Route path='/personal_info' element={<PersonalPage />} />)}
-        {isAuthenticated && ( <Route path='/diet_info' element={<Diet />} />)}
-        {isAuthenticated && ( <Route path='/allergies_info' element={<Allergies />} />)}
-        {isAuthenticated && ( <Route path='/activity_info' element={<Activity />} />)}
-        {isAuthenticated && ( <Route path='/test' element={<Test />} />)}
-        {isAuthenticated && ( <Route path='/mealplan' element={<MealPlanPanel meals={[{
+        {isAuthenticated && (<Route path='/personal_info' element={<PersonalPage />} />)}
+        {isAuthenticated && (<Route path='/diet_info' element={<Diet />} />)}
+        {isAuthenticated && (<Route path='/allergies_info' element={<Allergies />} />)}
+        {isAuthenticated && (<Route path='/activity_info' element={<Activity />} />)}
+        {isAuthenticated && (<Route path='/test' element={<Test />} />)}
+        {isAuthenticated && (<Route path='/mealplan' element={<MealPlanPanel meals={[{
           id: '1',
           title: 'meal title',
           imageUrl: 'https://placeholder.pics/svg/300',
