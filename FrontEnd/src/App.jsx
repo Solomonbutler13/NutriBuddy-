@@ -9,7 +9,6 @@ import './index.css';
 import LoginPage from './pages/login_page/LoginPage'
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel'
 import AboutNutriBuddy from './pages/about_nutribuddy/AboutNutriBuddy'
-import SignUp from './pages/signup_page/Signup';
 import PersonalPage from './pages/personal_page/PersonalPage';
 import Diet from './pages/diet_page/DietInfo';
 import Test from './pages/Test';
@@ -44,7 +43,6 @@ export default function App() {
       )}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/signup' element={<SignUp />} />
         <Route path='/personal_info' element={<PersonalPage />} />
         <Route path='/mealplan' element={<MealPlanPanel meals={[{
             id: '1',
