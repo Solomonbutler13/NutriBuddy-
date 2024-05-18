@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion'; // Import motion from Framer Motion (This shoud make the animation a little smoother)
+import { motion } from 'framer-motion'; // Import motion from Framer Motion (This should make the animation a little smoother)
 import './aboutNutriBuddy.css'; 
 import DidarKhan from '../../components/DidarKhan';
 import JasonWang from '../../components/JasonWang';
@@ -7,15 +7,14 @@ import DennisWynn from '../../components/DennisWynn';
 import AdamOuriel from '../../components/AdamOuriel';
 import SolomonButler from '../../components/SolomonButler';
 
+const statements = [
+    "NutriBuddy: Empowering with AI-driven nutrition assistance for personalized health journey"
+];
 const AboutNutriBuddy = () => {
-    const statements = [
-        "NutriBuddy: Empowering with AI-driven nutrition assistance for personalized health journey"
-    ];
     const [currentStatementIndex, setCurrentStatementIndex] = useState(0);
     const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
     const [visible, setVisible] = useState(true);
     const [currentTeamMemberIndex, setCurrentTeamMemberIndex] = useState(0);
-    const [teamMembers, setTeamMembers] = useState([DidarKhan, JasonWang, DennisWynn, AdamOuriel, SolomonButler]);
 
     useEffect(() => {
                 const typingTimer = setTimeout(() => {
@@ -30,7 +29,7 @@ const AboutNutriBuddy = () => {
                 }, 100); // Adjust typing speed here
         
                 return () => clearTimeout(typingTimer);
-            }, [currentCharacterIndex, currentStatementIndex, statements, visible]);
+            }, [currentCharacterIndex, currentStatementIndex, visible]);
         
             useEffect(() => {
                 if (!visible) {
@@ -38,16 +37,16 @@ const AboutNutriBuddy = () => {
                     setCurrentStatementIndex(nextIndex);
                     setVisible(true);
                 }
-            }, [currentStatementIndex, statements, visible]);
+            }, [currentStatementIndex, visible]);
 
     useEffect(() => {
         const teamMemberTimer = setInterval(() => {
-            setCurrentTeamMemberIndex(currentIndex => (currentIndex + 1) % teamMembers.length);
+            setCurrentTeamMemberIndex(currentIndex => (currentIndex + 1) % 5);
             setVisible(true);
         }, 5000); // Adjust delay between each team member appearing
 
         return () => clearInterval(teamMemberTimer);
-    }, [setTeamMembers]);
+    }, [ currentTeamMemberIndex, setVisible]);
 
     return (
         <div className="about-nutribuddy">
@@ -62,7 +61,9 @@ const AboutNutriBuddy = () => {
                     animate={{ opacity: 1 }} // Animation when visible
                     exit={{ opacity: 0 }} // Animation when disappearing
                 >
-                    {React.createElement(teamMembers[currentTeamMemberIndex])}
+                    {
+                        [<DidarKhan key='Didar'/>, <JasonWang key='Jason'/>, <DennisWynn key='Dennis'/>, <AdamOuriel key='Adam'/>, <SolomonButler key='Solomon'/>][currentTeamMemberIndex]
+                    }
                 </motion.div>
             </div>
         </div>

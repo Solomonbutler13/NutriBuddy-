@@ -36,12 +36,12 @@ export default function PersonalPage(){
     }
 
     //  Goto the previous page
-    function previousPage(){
+    const previousPage = () => {
         navigate('/signup');
     }
 
     // Check input before submitting
-    function checkInput(){
+    const checkInput = () => {
         const { firstName, lastName, age, gender, weight, height } = personalInfo;
         setCheckErrors({nameError:false, ageError:false, weightError:false})
         let noErrors = true;
@@ -121,8 +121,7 @@ export default function PersonalPage(){
 
                 {checkErrors.nameError && <p id='nameError'>You forgot to fill out your name!</p>}
                 {checkErrors.ageError && <p id='ageError'>You are too young to make an account!</p>}
-                {checkErrors.weightError && <p id='weightError'>Your weight doesn't look correct!</p>}
-                {checkErrors.heightError && <p id='heightError'>Your height doesn't look correct!</p>}
+                {checkErrors.weightError && <p id='weightError'>{'Your weight doesn\'t look correct!'}</p>}
             </div>
         </div>
     )
