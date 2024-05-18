@@ -25,7 +25,13 @@ const baseStore = set => ({
    activityLevel: 'Moderate',
    setInfo: (info, value) => set({ [info]: value }),
 });
-// Wrap the base store with zustymiddleware and then persist
-export const useStore = create(persist(zustymiddleware(baseStore), {
-   name: 'user-data',
-}));
+
+// Wrap the base store with zustymiddleware
+const zustyStore = (set, get, api) => zustymiddleware(baseStore)(set, get, api);
+
+// Apply persist middleware on top of zustymiddleware
+export const useStore = create(
+  persist(zustyStore, {
+    name: 'user-data',
+  })
+);
