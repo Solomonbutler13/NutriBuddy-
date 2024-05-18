@@ -1,5 +1,6 @@
 import './teamMembers.css'; // Import CSS file for styling
 // Import image Under this
+import solomonButlerImage from '../assets/images/Solomon-Butler.jpg';
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 
@@ -8,7 +9,7 @@ const SolomonButler = () => {
     return (
         <div className="team-member-card">
             {/* INSERT IMAGE/Example below(Just replace with picture) */}
-            {/* <img src={dennisWynnImage} alt="Dennis Wynn" className="headshot" /> */}
+            <img src={solomonButlerImage} alt="Solomon Butler" className="headshot" />
             <h3 className="name">Solomon Butler</h3>
             <div className="social-links">
                 <a href="https://github.com/Solomonbutler13" target="_blank" rel="noopener noreferrer">
