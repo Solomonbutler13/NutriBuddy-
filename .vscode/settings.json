@@ -1,11 +1,13 @@
 {
   "cSpell.words": [
-    "addfavoritemeal",
-    "allusers",
-    "favoritemeal",
-    "favoritemeals",
+    "Carb",
+    "Didar",
     "mealplan",
-    "Nutribuddy"
+    "Nutri",
+    "nutribuddy",
+    "Ouriel",
+    "Zustand",
+    "zustymiddleware"
   ],
   "files.watcherExclude": {
     "**/.git/objects/**": true,

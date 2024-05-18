@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useStore } from './components/userData'
+import { useStore } from './components/UserData'
 import { useNavigate } from 'react-router-dom'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -18,7 +18,7 @@ import Activity from './pages/activity_page/ActivityInfo'
 import CallbackPage from './pages/CallbackPage'
 
 export default function App () {
-  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
+  const { isLoading, isAuthenticated, error, user, logout } =
     useAuth0()
 
   // Zustand store
@@ -28,8 +28,7 @@ export default function App () {
   const handleSignout = () => {
     logout({ returnTo: window.location.origin })
     // Clear user data from Zustand store upon logout
-    setUserEmail(null)
-    setUserData(null)
+    setInfo('email', null)
   }
 
   // Loading State
@@ -49,7 +48,7 @@ export default function App () {
   return (
     <Router>
       {isAuthenticated && (
-        <button id='signout-button' type='submit' onClick={() => logout()}>
+        <button id='signout-button' type='submit' onClick={handleSignout}>
           See You Later
         </button>
       )}
@@ -64,7 +63,7 @@ export default function App () {
         )}
         {isAuthenticated && <Route path='/diet_info' element={<Diet />} />}
         {isAuthenticated && (
-          <Route path='/allergies_info' element={<Allergies />} />
+          <Route path='/allergies_info' element={<AllergiesInfo />} />
         )}
         {isAuthenticated && (
           <Route path='/activity_info' element={<Activity />} />

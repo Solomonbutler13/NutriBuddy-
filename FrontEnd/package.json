@@ -10,19 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.4",
+    "auth0": "^4.3.1",
     "framer-motion": "^11.1.7",
     "primeicons": "^7.0.0",
     "primereact": "^10.6.5",
-    "@auth0/auth0-react": "^2.2.4",
-    "auth0": "^4.3.1",
     "react": "^18.2.0",
     "react-avatar-edit": "^1.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^5.2.0",
     "react-easy-crop": "^5.0.6",
+    "react-icons": "^5.2.0",
     "react-image-crop": "^11.0.5",
     "react-router-dom": "^6.22.3",
-    "zustand": "^4.5.2"
+    "zustand": "^4.5.2",
+    "zustymiddleware": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
