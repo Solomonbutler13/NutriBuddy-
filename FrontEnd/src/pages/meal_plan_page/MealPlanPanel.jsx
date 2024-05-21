@@ -100,6 +100,7 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
 
         return {
           ...recipe,
+          id: recipe.id,
           calories: Math.round(nutritionData.nutrients[0].amount),
           protein: Math.round(nutritionData.nutrients[8].amount),
           carbs: Math.round(nutritionData.nutrients[3].amount),

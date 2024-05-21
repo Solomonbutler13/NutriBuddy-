@@ -13,13 +13,48 @@ export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) 
     setSelectedDays(prev => prev.includes(day) ? prev.filter(d => d !== day) : [...prev, day]);
   };
 
-  const submitDays = () => {
+  const submitDays = async () => {
     const updatedMeal = {
       ...meal, // spread all existing meal properties
       days: selectedDays // add selected days to the meal object
     };
 
     onAddToWeeklyPlan(updatedMeal, selectedDays);
+
+        // Prepare the data to be sent to the backend
+        const ingredientData = {
+          ingredients: updatedMeal.ingredients.map(ingredient => ({
+            name: ingredient.ingredientName,
+            amount: {
+              us: {
+                value: ingredient.value,
+                unit: ingredient.unit
+              }
+            },
+            price: ingredient.price
+          })),
+          recipe_id: meal.id // Ensure the recipe_id is included
+        };
+    
+        // Send a POST request to the backend
+        try {
+          const response = await fetch(`http://localhost:3000/ingredients/${meal.id}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(ingredientData)
+          });
+    
+          if (!response.ok) {
+            throw new Error('Failed to add ingredients');
+          }
+    
+          // Handle successful response if needed
+          console.log('Ingredients added successfully');
+        } catch (error) {
+          console.error('Error adding ingredients:', error);
+        }
 
     // Reset the form state
     setSelectedDays([]);
@@ -43,7 +78,6 @@ export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) 
           <span>{protein}g <i>Protein</i></span>
           <span>{carbs}g <i>Carbs</i></span>
           <span>{fat}g <i>Fat</i></span>
-          <span>{ingredientName}</span>
         </div>
       </div>
       <div className="meal-card-buttons">
