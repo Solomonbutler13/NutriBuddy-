@@ -77,7 +77,7 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
         apiKey: import.meta.env.VITE_SPOONACULAR_KEY,
         minCalories: mealCalorieGoal - 50,
         maxCalories: mealCalorieGoal + 50,
-        number: '14'  // Fetching a total of 14 meals
+        number: '2'  // Fetching a total of 14 meals
       };
 
       const data = `https://api.spoonacular.com/recipes/random?number=${params.number}&apiKey=${params.apiKey}`;
@@ -91,14 +91,26 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
         const nutritionResponse = await fetch(url);
         const nutritionData = await nutritionResponse.json();
         if (!nutritionResponse.ok) throw new Error('Failed to fetch nutrition info');
+        
+        const link = `https://api.spoonacular.com/recipes/${recipe.id}/priceBreakdownWidget.json?apiKey=${params.apiKey}`;
+        console.log('link:', link);
+        const priceResponse = await fetch(link);
+        const priceData = await priceResponse.json();
+        if (!priceResponse.ok) throw new Error('Failed to fetch nutrition info');
 
         return {
           ...recipe,
-          calories: nutritionData.nutrients[0].amount,
-          protein: nutritionData.nutrients[8].amount,
-          carbs: nutritionData.nutrients[3].amount,
-          fat: nutritionData.nutrients[1].amount,
-          imageUrl: recipe.image
+          calories: Math.round(nutritionData.nutrients[0].amount),
+          protein: Math.round(nutritionData.nutrients[8].amount),
+          carbs: Math.round(nutritionData.nutrients[3].amount),
+          fat: Math.round(nutritionData.nutrients[1].amount),
+          imageUrl: recipe.image,
+          ingredients: priceData.ingredients.map(ingredient => ({
+            ingredientName: ingredient.name,
+            value: ingredient.amount.us.value,
+            unit: ingredient.amount.us.unit,
+            price: (ingredient.price / 100).toFixed(2)
+          }))
         };
       }));
 
@@ -125,7 +137,7 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
           {mealSuggestions.map((meal) => (
             <MealCard
               key={meal.id}
-              meal={meal}
+              meal={meal} //{...meal}
               onAddToFavorites={handleAddToFavorites}
               onAddToWeeklyPlan={handleAddToWeeklyPlan}
             />

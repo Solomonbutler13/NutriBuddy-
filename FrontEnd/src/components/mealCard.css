@@ -47,10 +47,16 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  
+
   .meal-card-calories {
+    padding-right: -1px;
+  }
+
+  .meal-card-macros {
+    display: flex;
+    justify-content: space-between;
     margin-top: 8px;
-    font-weight: bold;
+    font-weight: 500;
     color: #000;
   }
   

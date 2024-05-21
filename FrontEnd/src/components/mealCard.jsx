@@ -31,21 +31,20 @@ export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) 
   };
 
   console.log('meal: ', meal)
-  const { calories, protein, carbs, fat, title, imageUrl } = meal;
+  const { calories, protein, carbs, fat, title, imageUrl, ingredientName } = meal;
 
   return (
     <div className="meal-card-container">
       <div className="meal-card-content" onClick={toggleExpand}>
         <img className="meal-card-image" src={imageUrl} alt={title} />
         <h3 className="meal-card-title">{title}</h3>
-        <p className="meal-card-macros">
-        <span className="meal-card-calories">{calories} cal</span>
-        {
-          [protein, carbs, fat].map((macro, index) => (
-          <span key={index}>{macro}g</span>
-        ))
-        }
-        </p>
+        <div className="meal-card-macros">
+        <span className="meal-card-calories">{calories} <i>Calories</i></span>
+          <span>{protein}g <i>Protein</i></span>
+          <span>{carbs}g <i>Carbs</i></span>
+          <span>{fat}g <i>Fat</i></span>
+          <span>{ingredientName}</span>
+        </div>
       </div>
       <div className="meal-card-buttons">
         <button className="button-favorite" onClick={(e) => {
