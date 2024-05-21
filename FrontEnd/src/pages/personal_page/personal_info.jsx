@@ -17,6 +17,7 @@ export default function PersonalPage(){
         lastName: '',
         age: 0,
         gender: "Male",
+        goalWeight: 0,
         weight: 0,
         height: 0,
     })
@@ -42,7 +43,7 @@ export default function PersonalPage(){
 
     // Check input before submitting
     function checkInput(){
-        const { firstName, lastName, age, gender, weight, height } = personalInfo;
+        const { firstName, lastName, age, gender, weight, goalWeight, height } = personalInfo;
         setCheckErrors({nameError:false, ageError:false, weightError:false})
         let noErrors = true;
 
@@ -53,7 +54,7 @@ export default function PersonalPage(){
         else if (age < 13){
             setCheckErrors(errors => ({ ...errors, ageError: true}));
             noErrors = false;
-        }else if (weight < 5 || weight > 1500){
+        }else if ((weight < 5 || weight > 1500) || (goalWeight < 5 || goalWeight > 1500)){
             setCheckErrors(errors => ({ ...errors, weightError: true}));
             noErrors = false;
         }else if (height < 24 || height > 96){
@@ -66,6 +67,7 @@ export default function PersonalPage(){
             store.setInfo('lastName', lastName);
             store.setInfo('age', age);
             store.setInfo('gender', gender);
+            store.setInfo('goalWeight', goalWeight);
             store.setInfo('weight', weight);
             store.setInfo('height', height);
             navigate('/diet_info'); 
@@ -105,6 +107,9 @@ export default function PersonalPage(){
                 <div className="personalPageWeightContainer">
                     <label>Weight</label>
                     <input name='weight' id='userWeightInput' type="number"step=".01" onChange={handleChange}/>
+
+                    <label>Goal Weight</label>
+                    <input name='goalWeight' id='userGoalWeightInput' type="number"step=".01" onChange={handleChange}/>
                     <label> lbs </label>
                 </div>
 

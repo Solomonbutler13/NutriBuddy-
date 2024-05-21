@@ -3,6 +3,19 @@
     "allusers",
     "favoritemeal",
     "mealplan",
-    "Nutribuddy"
+    "Nutribuddy",
+    "addfavoritemeal",
+    "allusers",
+    "currdate",
+    "favoritemeal",
+    "favoritemeals",
+    "mealingredients",
+    "mealplan",
+    "mealtype",
+    "Nutribuddy",
+    "pastdate",
+    "updateallergies",
+    "updatepersonal",
+    "usermeals"
   ]
 }
