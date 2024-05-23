@@ -2,8 +2,13 @@ import { useState } from "react";
 import { useStore } from "../../components/UserData"
 import './personalInfo.css';
 import { useNavigate } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function PersonalPage(){
+
+    const {
+        logout,
+    } = useAuth0();
 
     // Allow user to store data
     const store = useStore();
@@ -38,7 +43,7 @@ export default function PersonalPage(){
 
     //  Goto the previous page
     function previousPage(){
-        navigate('/signup');
+        logout();
     }
 
     // Check input before submitting
