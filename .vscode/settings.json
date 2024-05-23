@@ -2,10 +2,18 @@
   "cSpell.words": [
     "addfavoritemeal",
     "allusers",
+    "currdate",
     "favoritemeal",
     "favoritemeals",
+    "mealingredients",
     "mealplan",
-    "Nutribuddy"
+    "mealtype",
+    "Nutribuddy",
+    "pastdate",
+    "updateallergies",
+    "updatepersonal",
+    "usermeals",
+    "Nutribuddy",
   ],
   "files.watcherExclude": {
     "**/.git/objects/**": true,

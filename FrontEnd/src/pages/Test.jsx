@@ -2,13 +2,14 @@ import { useStore } from "../components/UserData"
 
 export default function Test(){
 
-    const { email, firstName, lastName, age, gender, weight, height, activityLevel, keto, vegan, lowCarb,
+    const { email, firstName, lastName, age, gender, weight, goalWeight, height, activityLevel, keto, vegan, lowCarb,
     Fish, Soy, Milk, Shellfish, Nuts, Eggs, Wheat, Sesame } = useStore(state => ({
     email: state.email,
     firstName: state.firstName,
     lastName: state.lastName,
     age: state.age,
     gender: state.gender,
+    goalWeight: state.goalWeight,
     weight: state.weight,
     height: state.height,
     activityLevel: state.activityLevel,
