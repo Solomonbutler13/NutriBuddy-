@@ -1,15 +1,5 @@
 const { request, response } = require('express')
-
-const Pool = require('pg').Pool
-
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'nutribuddy',
-    password: 'password',
-    port: 5432,
-})
-
+const { pool } = require("../index")
 //////////////////////////////////////////////////////////////////////////////////
 // Users Table Query
 const getAllUsers = (request, response) => {

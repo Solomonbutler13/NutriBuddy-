@@ -1,13 +1,11 @@
 const { request, response } = require('express')
 
+require('dotenv').config();
+
 const Pool = require('pg').Pool
 
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'nutribuddy',
-    password: 'password',
-    port: 5432,
+    connectionString : process.env.CONNECTIONSTRING
 })
 
 // Import express module
@@ -89,3 +87,7 @@ app.delete('/favoritemeals/del/:id', db4.deleteFavMeal);
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
 })
+
+module.exports = (
+    pool
+)
