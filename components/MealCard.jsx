@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './mealCard.css';
-
+ 
 export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedDays, setSelectedDays] = useState([]);
-
+ 
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
+ 
   const handleDayChange = (day) => {
     setSelectedDays(prev => prev.includes(day) ? prev.filter(d => d !== day) : [...prev, day]);
   };
-
+ 
   const submitDays = () => {
     const updatedMeal = {
       ...meal, // spread all existing meal properties
       days: selectedDays // add selected days to the meal object
     };
-
+ 
     onAddToWeeklyPlan(updatedMeal, selectedDays);
-
+ 
     // Reset the form state
     setSelectedDays([]);
     setShowDropdown(false);
   };
-
+ 
   const toggleExpand = () => {
     setIsExpanded(current => !current);
   };
-
+ 
   return (
     <div className="meal-card-container">
       <div className="meal-card-content" onClick={toggleExpand}>
@@ -42,12 +42,12 @@ export default function MealCard({ meal, onAddToFavorites, onAddToWeeklyPlan }) 
       <div className="meal-card-buttons">
         <button className="button-favorite" onClick={(e) => {
           e.stopPropagation();
-          addToFavorites(meal);
+          onAddToFavorites(meal);
         }}>💟</button>
         <button className="button-weekly" onClick={(e) => {
           e.stopPropagation();
           setShowDropdown(!showDropdown);
-        }}></button>
+        }}>🗓️</button>
         {showDropdown && (
           <div className="dropdown-menu">
             {daysOfWeek.map(day => (

@@ -1,4 +1,3 @@
-import React from 'react';
 import './weeklyPlan.css';
 
 const WeeklyPlan = ({ weeklyMeals }) => {
