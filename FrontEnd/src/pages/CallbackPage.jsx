@@ -16,7 +16,7 @@ const AuthRedirect = () => {
         if (error) {
             // Handle the error state
             console.error('Error during authentication:', error);
-            navigate('/personal_info');
+            navigate('/');
             return;
         }
 
