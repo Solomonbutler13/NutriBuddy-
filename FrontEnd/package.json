@@ -22,11 +22,11 @@
     "react-icons": "^5.2.0",
     "react-image-crop": "^11.0.5",
     "react-router-dom": "^6.22.3",
-    "zustand": "^4.5.2",
-    "zustymiddleware": "^1.2.0"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
+    "zustymiddleware": "^1.2.0",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.57.0",
