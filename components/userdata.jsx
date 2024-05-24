@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import zustymiddleware from 'zustymiddleware';
 
 // Create default data and allow user to change it
 export const useStore = create(persist(set => ({
@@ -24,7 +25,12 @@ export const useStore = create(persist(set => ({
     Sesame: false,
     activityLevel: 'Moderate',
     
-    setInfo: (info, value) => set({ [info]: value })
+    setInfo: (info, value) => set({ [info]: value }),
+    saveUserDataToDB: async (userData) => {
+        try {
+            const response = await fetch('/api/user',)
+        }
+    }
 }), {
     name: 'user-data',
 }));

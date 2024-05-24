@@ -68,7 +68,6 @@ export default function App () {
         {isAuthenticated && (
           <Route path='/activity_info' element={<Activity />} />
         )}
-        {isAuthenticated && <Route path='/test' element={<Test />} />}
         {isAuthenticated && (
           <Route
             path='/mealplan'

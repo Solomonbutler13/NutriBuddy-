@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MealCard from '../../components/MealCard';
 import WeeklyPlan from '../../components/WeeklyPlan';
 
@@ -24,6 +24,10 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
     { day: 'Saturday', meals: [] }
   ]);
 
+  useEffect(() =>{
+    console.log(meals,"meals")
+  },[])
+  
   const handleAddToFavorites = (meal) => {
     setFavorites(prev => [...prev, meal]);
   };
