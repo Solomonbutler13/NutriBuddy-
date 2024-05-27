@@ -1,16 +1,5 @@
-// GroceryList Component
-// - Import necessary dependencies (React, useState, useEffect)
-// - Define GroceryList component
-//   - Define state for the grocery list items and total cost using useState hook
-//   - Define useEffect hook to fetch initial grocery list data from backend API
-//   - Define function to calculate total cost based on the items in the list
-//   - Render:
-//     - Grocery list title
-//     - List of grocery items with quantity and estimated cost
-//     - Total cost display
-
 import { useState, useEffect } from 'react';
-import './groceryList.css'; // CSS file
+import './groceryList.css'; // Import the CSS file for styling
 
 // Define the GroceryList component
 const GroceryList = ({ weeklyMealPlan }) => {
@@ -18,59 +7,56 @@ const GroceryList = ({ weeklyMealPlan }) => {
   const [items, setItems] = useState([]);
   const [totalCost, setTotalCost] = useState(0);
 
-  // Stubbed mock data for testing
-  const stubbedWeeklyMealPlan = [
-    {
-      id: 1,
-      name: 'Salmon with Roasted Vegetables',
-      ingredients: [
-        { name: 'Salmon', quantity: 2, unit: 'lbs', costPerUnit: 10 },
-        { name: 'Broccoli', quantity: 1, unit: 'lb', costPerUnit: 2 },
-        { name: 'Carrots', quantity: 1, unit: 'lb', costPerUnit: 1 }
-      ]
-    },
-    {
-      id: 2,
-      name: 'Turkey Chili',
-      ingredients: [
-        { name: 'Ground Turkey', quantity: 1, unit: 'lb', costPerUnit: 8 },
-        { name: 'Tomatoes', quantity: 3, unit: 'lbs', costPerUnit: 3 },
-        { name: 'Kidney Beans', quantity: 2, unit: 'cans', costPerUnit: 2 }
-      ]
-    }
-  ];
-
-  // UseEffect hook to initialize grocery list data
+  // UseEffect hook to fetch grocery list data from backend API
   useEffect(() => {
-    // For now, use the stubbed weekly meal plan data
-    if (!weeklyMealPlan) {
-      setItems(stubbedWeeklyMealPlan.flatMap(recipe => recipe.ingredients));
-    } else {
-      // Extract ingredients from the provided weekly meal plan
-      const newItems = [];
-      weeklyMealPlan.forEach(recipe => {
-        recipe.ingredients.forEach(ingredient => {
-          newItems.push({
-            name: ingredient.name,
-            quantity: ingredient.quantity,
-            unit: ingredient.unit,
-            costPerUnit: ingredient.costPerUnit
-          });
-        });
-      });
-      setItems(newItems);
-    }
-  }, [weeklyMealPlan]);
+    // Function to fetch ingredients for each meal in the weeklyMealPlan
+    const fetchIngredients = async () => {
+      try {
+        const fetchedItems = [];
 
-  // Function to calculate total cost based on the items in the list
+        // Loop through each meal in the weeklyMealPlan
+        for (let meal of weeklyMealPlan) {
+          // Make a GET request to fetch ingredients for the current meal ID
+          const response = await fetch(`http://localhost:3000/mealingredients/${meal.id}`);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+
+          // Assuming the response contains an array of ingredients
+          data.forEach(ingredient => {
+            fetchedItems.push({
+              name: ingredient.ingredient_name, // Ingredient name
+              quantity: ingredient.quantity,    // Quantity of the ingredient
+              unit: ingredient.unit_type,       // Unit type of the quantity (e.g., grams, liters)
+              costPerUnit: ingredient.price_per_unit // Price per unit of the ingredient
+            });
+          });
+        }
+
+        // Update the state with the fetched ingredients
+        setItems(fetchedItems);
+      } catch (error) {
+        console.error('Error fetching ingredients:', error);
+      }
+    };
+
+    // Call the fetchIngredients function
+    fetchIngredients();
+  }, [weeklyMealPlan]); // Dependency array: the effect will re-run when weeklyMealPlan changes
+
+  // UseEffect hook to calculate total cost based on the items in the list
   useEffect(() => {
     let cost = 0;
+
+    // Calculate total cost by summing up the cost of each item
     items.forEach(item => {
       cost += item.quantity * item.costPerUnit;
     });
+
     // Update total cost state
     setTotalCost(cost);
-  }, [items]);
+  }, [items]); // Dependency array: the effect will re-run when items changes
 
   return (
     <div className="grocery-list">
@@ -95,3 +81,18 @@ const GroceryList = ({ weeklyMealPlan }) => {
 };
 
 export default GroceryList;
+
+
+
+// Explanation
+// Fetching Ingredients:
+
+// The fetchIngredients function fetches ingredients for each meal ID present in the weeklyMealPlan.
+// It makes a GET request to the backend endpoint for each meal ID and accumulates the fetched ingredients in the fetchedItems array.
+// The state items is then updated with the fetched ingredients.
+// Calculating Total Cost:
+
+// The second useEffect hook calculates the total cost of the ingredients whenever the items state changes.
+// Rendering:
+
+// The component renders the grocery list with the fetched ingredients and their total cost.
