@@ -1,5 +1,5 @@
 const { request, response } = require('express')
-const { pool } = require("../index")
+const  pool  = require("../db")
 //////////////////////////////////////////////////////////////////////////////////
 // Users Table Query
 const getAllUsers = (request, response) => {

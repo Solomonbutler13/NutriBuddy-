@@ -1,12 +1,13 @@
+const pool = require('./db')
 const { request, response } = require('express')
 
 require('dotenv').config();
 
-const Pool = require('pg').Pool
+// const Pool = require('pg').Pool
 
-const pool = new Pool({
-    connectionString : process.env.CONNECTIONSTRING
-})
+// const pool = new Pool({
+//     connectionString : process.env.CONNECTIONSTRING
+// })
 
 // Import express module
 const express = require('express');
