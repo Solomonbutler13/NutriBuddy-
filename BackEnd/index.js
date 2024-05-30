@@ -1,22 +1,13 @@
-const { request, response } = require('express')
-
-require('dotenv').config();
-
-const Pool = require('pg').Pool
-
-const pool = new Pool({
-    connectionString : process.env.CONNECTIONSTRING
-})
+const pool = require('./database');
+const db1 = require('./queries/usersQueries');
+const db2 = require('./queries/mealsQueries');
+const db3 = require('./queries/ingredientsQueries');
+const db4 = require('./queries/favoriteQueries');
 
 // Import express module
 const express = require('express');
 // Create express application
 const app = express();
-// Import queries file
-const db1 = require('./queries/usersQueries.js');
-const db2 = require('./queries/mealsQueries.js');
-const db3 = require('./queries/ingredientsQueries.js');
-const db4 = require('./queries/favoriteQueries.js');
 // Specify route num
 const port = 3000;
 
@@ -42,7 +33,7 @@ app.get('/', (request, response) => {
 // This gets all the user in the data base
 app.get('/users/all', db1.getAllUsers);
 // This gets one user
-app.get('/users/:id', db1.getUserById);
+app.get('/users/email', db1.getUserByEmail);
 // This deletes the user from the database
 app.delete('/users/del/:id', db1.deleteUserById);
 // This updates user personal info in database
