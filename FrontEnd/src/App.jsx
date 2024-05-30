@@ -1,3 +1,4 @@
+// App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 
@@ -39,8 +40,6 @@ export default function App() {
 
 
   return (
-
-
     <Router>
       {isAuthenticated && (
         <button id='signout-button' type='submit' onClick={() => logout()}>
@@ -56,41 +55,40 @@ export default function App() {
         <Route path='/allergies_info' element={<Allergies />} />
         <Route path='/activity_info' element={<Activity />} />
         <Route path='/test' element={<Test />} />
-        <Route path='/mealplan' element={<MealPlanPanel meals={[{
-          id: '1',
-          title: 'meal title',
-          imageUrl: 'https://placeholder.pics/svg/300',
-          description: 'this is turkey sandwich',
-          calories: '560'
-        },
-        {
-          id: '2',
-          title: 'meal title',
-          imageUrl: 'https://placeholder.pics/svg/500',
-          description: 'this is turkey sandwich',
-          calories: '560'
-        },
-        {
-          id: '3',
-          title: 'meal title',
-          imageUrl: 'https://placeholder.pics/svg/500',
-          description: 'this is turkey sandwich',
-          calories: '560'
-        },
-        {
-          id: '4',
-          title: 'meal title',
-          imageUrl: 'https://placeholder.pics/svg/500',
-          description: 'this is turkey sandwich',
-          calories: '560'
-        },
+        <Route path='/mealplan' element={<MealPlanPanel meals={[
+          {
+            id: '1',
+            title: 'meal title',
+            imageUrl: 'https://placeholder.pics/svg/300',
+            description: 'this is turkey sandwich',
+            calories: '560'
+          },
+          {
+            id: '2',
+            title: 'meal title',
+            imageUrl: 'https://placeholder.pics/svg/500',
+            description: 'this is turkey sandwich',
+            calories: '560'
+          },
+          {
+            id: '3',
+            title: 'meal title',
+            imageUrl: 'https://placeholder.pics/svg/500',
+            description: 'this is turkey sandwich',
+            calories: '560'
+          },
+          {
+            id: '4',
+            title: 'meal title',
+            imageUrl: 'https://placeholder.pics/svg/500',
+            description: 'this is turkey sandwich',
+            calories: '560'
+          },
         ]} />} />
-
       </Routes>
     </Router>
   );
 }
-
 
 function Home() {
   const { isAuthenticated } = useAuth0();
@@ -104,5 +102,3 @@ function Home() {
 
   return isAuthenticated ? null : <LoginPage />;
 }
-
-
