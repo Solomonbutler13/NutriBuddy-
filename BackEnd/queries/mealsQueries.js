@@ -1,6 +1,6 @@
 const { request, response } = require('express')
 
-const { pool } = require("../index")
+const pool = require('../database');
 
 //////////////////////////////////////////////////////////////////////////////////
 // Meals Table Query

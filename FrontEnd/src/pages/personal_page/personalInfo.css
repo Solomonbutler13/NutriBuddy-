@@ -2,13 +2,18 @@
     background-color: #D9D9D9;
     width: 100vw;
     height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Kodchasan', sans-serif;
 }
 
 .personalPageInfoContainer {
-    background-color: #FDF3F3;
+    background-color: #D8BCBC;
     width: 30%;
     height: 70%;
     display: flex;
@@ -36,49 +41,73 @@
     gap: 7%;
 }
 
+.personalPageNameContainer input{
+    height: 20px;
+    width: 200px;
+}
+
 .personalPageAgeContainer{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 7%;
 }
 
 #selectAge{
+    height: 20px;
     width: 50px;
 }
 
 .personalPageGenderContainer{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 7%;
     width: 50%;
 }
 
 #selectGender {
+    height: 20px;
     width: 100px;
 }
 
 .personalPageWeightContainer{
     display: flex;
     justify-content: center;
-    width: 50%;
+    align-items: center;
+    width: 70%;
     gap: 5%;
 }
 
 #userWeightInput {
+    height: 20px;
+    width: 50px;
+}
+
+#userGoalWeightInput {
+    height: 20px;
     width: 50px;
 }
 
 .personalPageHeightContainer{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 5%;
 }
 
 #userHeightInput {
     width: 50px;
+    height: 20px;
 }
 
 .personalPageContinue{
     display: flex;
     gap: 7%;
+}
+
+.personalPageContinue button{
+    font-family: 'Kodchasan', sans-serif;
+    width: 100px;
+    height: 30px;
 }

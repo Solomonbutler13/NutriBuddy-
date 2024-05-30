@@ -4,7 +4,7 @@ import './personalInfo.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react'
 
-export default function PersonalPage(){
+export default function PersonalInfo(){
 
     const {
         logout,
@@ -59,7 +59,7 @@ export default function PersonalPage(){
         else if (age < 13){
             setCheckErrors(errors => ({ ...errors, ageError: true}));
             noErrors = false;
-        }else if ((weight < 5 || weight > 1500) || (goalWeight < 5 || goalWeight > 1500)){
+        }else if ((weight < 50 || weight > 1500) || (goalWeight < 5 || goalWeight > 1500)){
             setCheckErrors(errors => ({ ...errors, weightError: true}));
             noErrors = false;
         }else if (height < 24 || height > 96){
@@ -111,10 +111,10 @@ export default function PersonalPage(){
                 
                 <div className="personalPageWeightContainer">
                     <label>Weight</label>
-                    <input name='weight' id='userWeightInput' type="number"step=".01" onChange={handleChange}/>
+                    <input name='weight' id='userWeightInput' type="number" step=".1" min="50" max="1500" onChange={handleChange}/>
 
                     <label>Goal Weight</label>
-                    <input name='goalWeight' id='userGoalWeightInput' type="number"step=".01" onChange={handleChange}/>
+                    <input name='goalWeight' id='userGoalWeightInput' type="number" step=".1" min="50" max="1500" onChange={handleChange}/>
                     <label> lbs </label>
                 </div>
 
@@ -131,7 +131,7 @@ export default function PersonalPage(){
 
                 {checkErrors.nameError && <p id='nameError'>You forgot to fill out your name!</p>}
                 {checkErrors.ageError && <p id='ageError'>You are too young to make an account!</p>}
-                {checkErrors.weightError && <p id='weightError'>{'Your weight doesn\'t look correct!'}</p>}
+                {checkErrors.heightError && <p id='heightError'>Your height doesn't look correct!</p>}
             </div>
         </div>
     )
