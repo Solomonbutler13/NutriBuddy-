@@ -1,6 +1,14 @@
 import { useState } from 'react';
-import MealCard from '../../components/mealCard.jsx';
-import WeeklyPlan from '../../components/weeklyPlan.jsx';
+import MealCard from '../../components/MealCard';
+import WeeklyPlan from '../../components/WeeklyPlan';
+
+// import your grocery list components here
+import GroceryList from '../../components/GroceryList';
+
+// import recipe of the day component here 
+import CulturalRecipeOfTheDay from '../../components/RecipeOfTheDay';
+
+
 import './mealPlanPanel.css';
 
 const MealPlanPanel = ({ meals, userName = "User" }) => {
@@ -48,7 +56,13 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
           ))}
         </div>
       </div>
+      <div className="weekly-plan-section">
       <WeeklyPlan weeklyMeals={weeklyMeals} />
+      <GroceryList />
+      </div>
+      <div className="cultural-recipe">
+      <CulturalRecipeOfTheDay />
+      </div>
     </div>
   );
 };

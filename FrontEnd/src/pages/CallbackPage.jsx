@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ const AuthRedirect = () => {
 
         if (isAuthenticated) {
             // Redirect to personal page if authenticated
-            navigate('/personal_info');
+            navigate('/test');
         } else {
             // Redirect to sign-in page if not authenticated
             navigate('/');

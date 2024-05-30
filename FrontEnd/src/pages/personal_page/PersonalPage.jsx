@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useStore } from "../../components/userData.jsx";
-import './personal_info.css';
+import { useStore } from "../../components/UserData"
+import './personalInfo.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function PersonalPage(){

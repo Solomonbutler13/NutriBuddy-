@@ -1,7 +1,7 @@
 // Avatar.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Avatar.css';
+import './avatar.css';
 
 const Avatar = ({ src, alt, username }) => {
   // State to manage loading state
