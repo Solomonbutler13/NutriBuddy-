@@ -1,5 +1,5 @@
 const { request, response } = require('express')
-const { pool } = require("../index")
+const pool = require('../database');
 //////////////////////////////////////////////////////////////////////////////////
 // Users Table Query
 const getAllUsers = (request, response) => {
@@ -12,9 +12,9 @@ const getAllUsers = (request, response) => {
     })
 };
 
-const getUserById = (request, response) => {
-    const id = parseInt(request.params.id);
-    pool.query(`SELECT * FROM users WHERE id = ${id}`, (error, results) => {
+const getUserByEmail = (request, response) => {
+    const { email } = request.body;
+    pool.query(`SELECT * FROM users WHERE email = $1`, [email], (error, results) => {
         if(error) {
             throw error;
         }
@@ -167,7 +167,7 @@ const addUser = (request, response) => {
 
 module.exports = {
     getAllUsers,
-    getUserById,
+    getUserByEmail,
     deleteUserById,
     updateUserPersonalById,
     updateUserAllergiesById,
