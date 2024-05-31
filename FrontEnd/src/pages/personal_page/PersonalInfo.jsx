@@ -2,8 +2,13 @@ import { useState } from "react";
 import { useStore } from "../../components/UserData"
 import './personalInfo.css';
 import { useNavigate } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react'
 
-export default function PersonalPage(){
+export default function PersonalInfo(){
+
+    const {
+        logout,
+    } = useAuth0();
 
     // Allow user to store data
     const store = useStore();
@@ -17,6 +22,7 @@ export default function PersonalPage(){
         lastName: '',
         age: 0,
         gender: "Male",
+        goalWeight: 0,
         weight: 0,
         height: 0,
     })
@@ -37,12 +43,12 @@ export default function PersonalPage(){
 
     //  Goto the previous page
     function previousPage(){
-        navigate('/signup');
+        logout();
     }
 
     // Check input before submitting
     function checkInput(){
-        const { firstName, lastName, age, gender, weight, height } = personalInfo;
+        const { firstName, lastName, age, gender, weight, goalWeight, height } = personalInfo;
         setCheckErrors({nameError:false, ageError:false, weightError:false})
         let noErrors = true;
 
@@ -53,7 +59,7 @@ export default function PersonalPage(){
         else if (age < 13){
             setCheckErrors(errors => ({ ...errors, ageError: true}));
             noErrors = false;
-        }else if (weight < 5 || weight > 1500){
+        }else if ((weight < 50 || weight > 1500) || (goalWeight < 5 || goalWeight > 1500)){
             setCheckErrors(errors => ({ ...errors, weightError: true}));
             noErrors = false;
         }else if (height < 24 || height > 96){
@@ -66,6 +72,7 @@ export default function PersonalPage(){
             store.setInfo('lastName', lastName);
             store.setInfo('age', age);
             store.setInfo('gender', gender);
+            store.setInfo('goalWeight', goalWeight);
             store.setInfo('weight', weight);
             store.setInfo('height', height);
             navigate('/diet_info'); 
@@ -104,7 +111,10 @@ export default function PersonalPage(){
                 
                 <div className="personalPageWeightContainer">
                     <label>Weight</label>
-                    <input name='weight' id='userWeightInput' type="number"step=".01" onChange={handleChange}/>
+                    <input name='weight' id='userWeightInput' type="number" step=".1" min="50" max="1500" onChange={handleChange}/>
+
+                    <label>Goal Weight</label>
+                    <input name='goalWeight' id='userGoalWeightInput' type="number" step=".1" min="50" max="1500" onChange={handleChange}/>
                     <label> lbs </label>
                 </div>
 
@@ -121,7 +131,6 @@ export default function PersonalPage(){
 
                 {checkErrors.nameError && <p id='nameError'>You forgot to fill out your name!</p>}
                 {checkErrors.ageError && <p id='ageError'>You are too young to make an account!</p>}
-                {checkErrors.weightError && <p id='weightError'>Your weight doesn't look correct!</p>}
                 {checkErrors.heightError && <p id='heightError'>Your height doesn't look correct!</p>}
             </div>
         </div>

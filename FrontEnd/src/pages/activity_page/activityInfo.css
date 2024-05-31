@@ -3,12 +3,17 @@
     display: flex;
     width: 100vw;
     height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
     align-items: center;
     justify-content: center;
+    font-family: 'Kodchasan', sans-serif;
 }
 
 .activityPageInfoContainer{
-    background-color: #FDF3F3;
+    background-color: #D8BCBC;
     width: 30%;
     height: 70%;
     display: flex;
@@ -49,6 +54,7 @@
     align-items: center;
     justify-content: center;
     font-size: 2em;
+    font-family: 'Kodchasan', sans-serif;
 }
 
 .activityPageContinue{
@@ -57,4 +63,10 @@
     align-items: center;
     gap: 7%;
     user-select: none;
+}
+
+.activityPageContinue > button{
+    font-family: 'Kodchasan', sans-serif;
+    width: 100px;
+    height: 30px;
 }

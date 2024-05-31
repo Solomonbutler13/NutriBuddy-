@@ -9,7 +9,7 @@ import './index.css';
 import ProfilePage from './pages/profile_page/ProfilePage.jsx'; 
 import LoginPage from './pages/login_page/LoginPage'
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel'
-import PersonalPage from './pages/personal_page/PersonalPage';
+import PersonalInfo from './pages/personal_page/PersonalInfo';
 import AboutNutriBuddy from './pages/about_page/AboutNutriBuddy';
 import Diet from './pages/diet_page/DietInfo';
 import Test from './pages/Test';
@@ -44,8 +44,8 @@ export default function App() {
       )}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/personal_info' element={<PersonalPage />} />
         <Route path='/profilepage' element={<ProfilePage />} />
+        <Route path='/personal_info' element={<PersonalInfo />} />
         <Route path='/about' element = {<AboutNutriBuddy />} />
         <Route path='/callback' element={<CallbackPage />} />
         <Route path='/diet_info' element={<Diet />} />
