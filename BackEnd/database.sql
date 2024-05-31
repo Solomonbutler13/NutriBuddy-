@@ -11,7 +11,7 @@ CREATE DATABASE nutribuddy;
 
 -- Create the users table
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY,
     first_name VARCHAR(16),
     last_name VARCHAR(16),
     age INTEGER,
@@ -34,6 +34,7 @@ CREATE TABLE users (
 CREATE TABLE meal (
     id SERIAL PRIMARY KEY,
     recipe_id TEXT,
+    recipe_link TEXT,
     user_id INTEGER REFERENCES users(id),
     meal_name VARCHAR(100),
     meal_time DATE,
@@ -45,10 +46,10 @@ CREATE TABLE meal (
 CREATE TABLE ingredients (
     ingredient_id SERIAL PRIMARY KEY,
     recipe_id TEXT,
-    ingredient_name VARCHAR(30),
-    quantity INTEGER,
-    unit_type VARCHAR(30),
-    price_per_unit FLOAT
+    ingredient_name TEXT[],
+    quantity FLOAT[],
+    unit_type TEXT[],
+    price_per_unit FLOAT[]
 );
 
 -- Create the favorite_meals table

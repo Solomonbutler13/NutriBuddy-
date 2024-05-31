@@ -3,12 +3,17 @@
     display: flex;
     width: 100vw;
     height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
     align-items: center;
     justify-content: center;
+    font-family: 'Kodchasan', sans-serif;
 }
 
 .dietPageInfoContainer{
-    background-color: #FDF3F3;
+    background-color: #D8BCBC;
     width: 30%;
     height: 70%;
     display: flex;
@@ -45,6 +50,7 @@
     width: 50%;
     height: 10%;
     font-size: 1em;
+    font-family: 'Kodchasan', sans-serif;
 }
 
 .dietPageContinue{
@@ -53,4 +59,10 @@
     align-items: center;
     gap: 7%;
     user-select: none;
+}
+
+.dietPageContinue > button{
+    font-family: 'Kodchasan', sans-serif;
+    width: 100px;
+    height: 30px;
 }

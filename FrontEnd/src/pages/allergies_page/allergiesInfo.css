@@ -3,12 +3,17 @@
     display: flex;
     width: 100vw;
     height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
     align-items: center;
     justify-content: center;
+    font-family: 'Kodchasan', sans-serif;
 }
 
 .allergiesPageInfoContainer{
-    background-color: #FDF3F3;
+    background-color: #D8BCBC;
     width: 30%;
     height: 70%;
     display: flex;
@@ -31,7 +36,7 @@
 
 .allergiesOptionContainer{
     height: 50%;
-    width: 90%;
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     user-select: none;
@@ -42,7 +47,8 @@
 
 .allergiesOptionContainer > button{
     flex: 40%;
-    font-size: 2em;
+    font-family: 'Kodchasan', sans-serif;
+    font-size: 1em;
     color: wheat;
 }
 
@@ -52,4 +58,12 @@
     align-items: center;
     gap: 7%;
     user-select: none;
+}
+
+.allergiesPageContinue > button{
+    font-family: 'Kodchasan', sans-serif;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 30px;
 }
