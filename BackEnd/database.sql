@@ -11,7 +11,7 @@ CREATE DATABASE nutribuddy;
 
 -- Create the users table
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY,
     first_name VARCHAR(16),
     last_name VARCHAR(16),
     age INTEGER,

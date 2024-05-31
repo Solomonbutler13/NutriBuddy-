@@ -1,26 +1,26 @@
 -- Sample data for the users table
-INSERT INTO users (first_name, last_name, age, email, curr_weight, goal_weight, height, calorie_goal, fish, soy, milk, shellfish, nuts, eggs, wheat, sesame) 
+INSERT INTO users (id, first_name, last_name, age, email, curr_weight, goal_weight, height, calorie_goal, fish, soy, milk, shellfish, nuts, eggs, wheat, sesame) 
 VALUES 
-    ('Emily', 'Johnson', 28, 'emily.johnson@example.com', 135.0, 130.0, 165, 1800, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE),
-    ('Michael', 'Smith', 32, 'michael.smith@example.com', 180.0, 175.0, 175, 2000, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE),
-    ('Ashley', 'Brown', 30, 'ashley.brown@example.com', 150.0, 145.0, 160, 1800, FALSE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE),
-    ('Daniel', 'Martinez', 35, 'daniel.martinez@example.com', 170.0, 165.0, 180, 2000, TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, TRUE, FALSE),
-    ('Olivia', 'Jones', 27, 'olivia.jones@example.com', 140.0, 135.0, 160, 1800, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, TRUE),
-    ('William', 'Davis', 29, 'william.davis@example.com', 190.0, 185.0, 180, 2200, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE),
-    ('Sophia', 'Taylor', 31, 'sophia.taylor@example.com', 125.0, 120.0, 155, 1600, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE),
-    ('Ethan', 'Anderson', 33, 'ethan.anderson@example.com', 175.0, 170.0, 178, 2000, TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE),
-    ('Isabella', 'Wilson', 26, 'isabella.wilson@example.com', 130.0, 125.0, 160, 1700, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, TRUE),
-    ('James', 'Thomas', 34, 'james.thomas@example.com', 200.0, 195.0, 185, 2200, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE),
-    ('Emma', 'Garcia', 29, 'emma.garcia@example.com', 140.0, 135.0, 162, 1800, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, FALSE),
-    ('Alexander', 'Rodriguez', 31, 'alexander.rodriguez@example.com', 185.0, 180.0, 180, 2100, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE),
-    ('Ava', 'Martinez', 28, 'ava.martinez@example.com', 135.0, 130.0, 168, 1800, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE),
-    ('Benjamin', 'Jackson', 36, 'benjamin.jackson@example.com', 170.0, 165.0, 178, 2000, FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE),
-    ('Mia', 'White', 25, 'mia.white@example.com', 150.0, 145.0, 162, 1800, TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE),
-    ('Jacob', 'Harris', 30, 'jacob.harris@example.com', 180.0, 175.0, 180, 2000, FALSE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE),
-    ('Charlotte', 'Clark', 28, 'charlotte.clark@example.com', 140.0, 135.0, 160, 1800, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, TRUE),
-    ('Matthew', 'Lee', 33, 'matthew.lee@example.com', 190.0, 185.0, 182, 2200, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE),
-    ('Harper', 'Taylor', 27, 'harper.taylor@example.com', 130.0, 125.0, 158, 1700, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE),
-    ('Lucas', 'Martin', 32, 'lucas.martin@example.com', 175.0, 170.0, 180, 2000, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, TRUE);
+    (1,'Emily', 'Johnson', 28, 'emily.johnson@example.com', 135.0, 130.0, 165, 1800, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE),
+    (2,'Michael', 'Smith', 32, 'michael.smith@example.com', 180.0, 175.0, 175, 2000, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE),
+    (3,'Ashley', 'Brown', 30, 'ashley.brown@example.com', 150.0, 145.0, 160, 1800, FALSE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE),
+    (4,'Daniel', 'Martinez', 35, 'daniel.martinez@example.com', 170.0, 165.0, 180, 2000, TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, TRUE, FALSE),
+    (5,'Olivia', 'Jones', 27, 'olivia.jones@example.com', 140.0, 135.0, 160, 1800, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, TRUE),
+    (6,'William', 'Davis', 29, 'william.davis@example.com', 190.0, 185.0, 180, 2200, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE),
+    (7,'Sophia', 'Taylor', 31, 'sophia.taylor@example.com', 125.0, 120.0, 155, 1600, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE),
+    (8,'Ethan', 'Anderson', 33, 'ethan.anderson@example.com', 175.0, 170.0, 178, 2000, TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE),
+    (9,'Isabella', 'Wilson', 26, 'isabella.wilson@example.com', 130.0, 125.0, 160, 1700, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, TRUE),
+    (10,'James', 'Thomas', 34, 'james.thomas@example.com', 200.0, 195.0, 185, 2200, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE),
+    (11,'Emma', 'Garcia', 29, 'emma.garcia@example.com', 140.0, 135.0, 162, 1800, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, FALSE),
+    (12,'Alexander', 'Rodriguez', 31, 'alexander.rodriguez@example.com', 185.0, 180.0, 180, 2100, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE),
+    (13,'Ava', 'Martinez', 28, 'ava.martinez@example.com', 135.0, 130.0, 168, 1800, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE),
+    (14,'Benjamin', 'Jackson', 36, 'benjamin.jackson@example.com', 170.0, 165.0, 178, 2000, FALSE, FALSE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE),
+    (15,'Mia', 'White', 25, 'mia.white@example.com', 150.0, 145.0, 162, 1800, TRUE, FALSE, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE),
+    (16,'Jacob', 'Harris', 30, 'jacob.harris@example.com', 180.0, 175.0, 180, 2000, FALSE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE),
+    (17,'Charlotte', 'Clark', 28, 'charlotte.clark@example.com', 140.0, 135.0, 160, 1800, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, FALSE, TRUE),
+    (18,'Matthew', 'Lee', 33, 'matthew.lee@example.com', 190.0, 185.0, 182, 2200, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE),
+    (19,'Harper', 'Taylor', 27, 'harper.taylor@example.com', 130.0, 125.0, 158, 1700, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE),
+    (20,'Lucas', 'Martin', 32, 'lucas.martin@example.com', 175.0, 170.0, 180, 2000, TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, TRUE);
 
 INSERT INTO meal (recipe_id, user_id, meal_name, meal_time, meal_type, meal_calories, recipe_link) 
 VALUES 
