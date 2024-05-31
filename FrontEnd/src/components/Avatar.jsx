@@ -1,39 +1,59 @@
+// Avatar.jsx
 import React, { useState, useEffect } from 'react';
-import '../component/Avatar.css';
+import { useNavigate } from 'react-router-dom';
+import './avatar.css';
 
 const Avatar = ({ src, alt, username }) => {
-  // State to manage loading state when fetching a new avatar
-  const [loading, setLoading] = useState(true);
+  // State to manage loading state
+  const [loading, setLoading] = useState(false);
+  // State to manage the avatar URL
   const [avatarUrl, setAvatarUrl] = useState(src);
+  // Hook to navigate to different routes
+  const navigate = useNavigate();
 
-  // Function to fetch a new avatar when the component mounts
+  // Effect to fetch a default avatar if no source is provided
   useEffect(() => {
-    const fetchAvatar = async () => {
-      try {
-        // Make API call to fetch new avatar
-        const response = await fetch('https://api.dicebear.com/8.x/adventurer-neutral/svg?seed=Felix');
-        const blob = await response.blob();
-        const newAvatarUrl = URL.createObjectURL(blob);
-        setAvatarUrl(newAvatarUrl);
-      } catch (error) {
-        console.error('Error fetching new avatar:', error);
-      } finally {
-        setLoading(false); // Set loading state back to false after fetching
-      }
-    };
+    if (!src) {
+      const fetchAvatar = async () => {
+        setLoading(true);
+        try {
+          // Fetch a new avatar from Dicebear API
+          const response = await fetch('https://api.dicebear.com/8.x/adventurer-neutral/svg?seed=Felix');
+          const blob = await response.blob();
+          // Create a URL for the fetched avatar
+          const newAvatarUrl = URL.createObjectURL(blob);
+          // Set the fetched avatar URL
+          setAvatarUrl(newAvatarUrl);
+        } catch (error) {
+          console.error('Error fetching new avatar:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
 
-    fetchAvatar(); // Call the fetchAvatar function when the component mounts
-  }, []); // Empty dependency array to ensure the effect runs only once when the component mounts
+      fetchAvatar();
+    }
+  }, [src]);
+
+  // Effect to update the avatar URL when the src prop changes
+  useEffect(() => {
+    setAvatarUrl(src);
+  }, [src]);
+
+  // Handle click event to navigate to the profile page
+  const handleClick = () => {
+    navigate('/profilepage'); // Navigate to the profile page
+  };
 
   return (
-    <div className="avatar">
-      {/* Display current avatar */}
+    <div className="avatar" onClick={handleClick} style={{ cursor: 'pointer' }}>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <>
-          <img src={avatarUrl || src} alt={alt} style={{ width: '250px', height: '250px', borderRadius: '20%' }} />
-          {/* Display username */}
+          {/* Display the avatar image */}
+          <img src={avatarUrl} alt={alt} style={{ width: '250px', height: '250px', borderRadius: '20%' }} />
+          {/* Display the username */}
           <div className="avatar-name">{`Hi ${username}`}</div>
         </>
       )}

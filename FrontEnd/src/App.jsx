@@ -6,6 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import './index.css';
 
 // Importing about nutribuddy pages components 
+import ProfilePage from './pages/profile_page/ProfilePage.jsx'; 
 import LoginPage from './pages/login_page/LoginPage'
 import MealPlanPanel from './pages/meal_plan_page/MealPlanPanel'
 import PersonalInfo from './pages/personal_page/PersonalInfo';
@@ -43,6 +44,7 @@ export default function App() {
       )}
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/profilepage' element={<ProfilePage />} />
         <Route path='/personal_info' element={<PersonalInfo />} />
         <Route path='/about' element = {<AboutNutriBuddy />} />
         <Route path='/callback' element={<CallbackPage />} />
@@ -84,7 +86,6 @@ export default function App() {
   );
 }
 
-
 function Home() {
   const { isAuthenticated } = useAuth0();
   const navigate = useNavigate();
@@ -97,5 +98,3 @@ function Home() {
 
   return isAuthenticated ? null : <LoginPage />;
 }
-
-
