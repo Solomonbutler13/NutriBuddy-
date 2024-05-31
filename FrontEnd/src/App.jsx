@@ -51,34 +51,39 @@ export default function App() {
         <Route path='/activity_info' element={<Activity />} />
         <Route path='/test' element={<Test />} />
         <Route path='/mealplan' element={<MealPlanPanel meals={[{
-            id: '1',
-            title: 'meal title',
-            imageUrl: 'https://placeholder.pics/svg/300',
-            description: 'this is turkey sandwich',
-            calories: '560'
-          },
-          {
-            id: '2',
-            title: 'meal title',
-            imageUrl: 'https://placeholder.pics/svg/500',
-            description: 'this is turkey sandwich',
-            calories: '560'
-          },
-          {
-            id: '3',
-            title: 'meal title',
-            imageUrl: 'https://placeholder.pics/svg/500',
-            description: 'this is turkey sandwich',
-            calories: '560'
-          },
-          {
-            id: '4',
-            title: 'meal title',
-            imageUrl: 'https://placeholder.pics/svg/500',
-            description: 'this is turkey sandwich',
-            calories: '560'
-          },
-          ]} />} />
+          id: '1',
+          title: 'meal title',
+          imageUrl: 'https://placeholder.pics/svg/300',
+          description: 'this is turkey sandwich',
+          calories: '560',
+          nutrients: [],
+        },
+        {
+          id: '2',
+          title: 'meal title',
+          imageUrl: 'https://placeholder.pics/svg/500',
+          description: 'this is turkey sandwich',
+          calories: '560',
+          nutrients: [],
+        },
+        {
+          id: '3',
+          title: 'meal title',
+          imageUrl: 'https://placeholder.pics/svg/500',
+          description: 'this is turkey sandwich',
+          calories: '560',
+          nutrients: [],
+        },
+        {
+          id: '4',
+          title: 'meal title',
+          imageUrl: 'https://placeholder.pics/svg/500',
+          description: 'this is turkey sandwich',
+          calories: '560',
+          nutrients: [],
+        },
+        ]} />} />
+
       </Routes>
     </Router>
   );
