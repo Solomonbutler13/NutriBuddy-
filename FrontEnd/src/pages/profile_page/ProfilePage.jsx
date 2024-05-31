@@ -1,6 +1,6 @@
 import React from 'react';
-import './ProfilePage.css'; // Ensure CSS is imported
-import ProfilePic from '../../components/ProfilePic';
+import './ProfilePage.css'; // Ensure CSS is imported for styling
+import ProfilePic from '../../components/ProfilePic'; // Importing the ProfilePic component
 
 function ProfilePage() {
     return (
@@ -9,12 +9,13 @@ function ProfilePage() {
             <div className="top-section">
                 {/* Profile picture component */}
                 <ProfilePic /> 
-                {/* Information boxes for weight and calories */}
+                {/* Information boxes for weight */}
                 <div className="info-box">
                     <h2>Weight</h2>
                     <p>Current: 180 lbs</p>
                     <p>Goal: 160 lbs</p>
                 </div>
+                {/* Information boxes for calories */}
                 <div className="info-box">
                     <h2>Calories</h2>
                     <p>Consumed Today: 2200 kcal</p>
@@ -27,7 +28,7 @@ function ProfilePage() {
                 <div className="bottom-box">
                     <div className="list-title">Today's Meal Plan</div>
                     <h3>Saturday</h3>
-                    {/* List of meal items */}
+                    {/* List of meal items for the day */}
                     <ul>
                         <li>Overnight Oats</li>
                         <li>Turkey Salad</li>
