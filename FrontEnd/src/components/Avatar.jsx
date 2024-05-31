@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../component/Avatar.css';
+import '../component/avatar.css';
 
 const Avatar = ({ src, alt, username }) => {
   // State to manage loading state when fetching a new avatar
