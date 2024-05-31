@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { useState, useEffect } from 'react';
 import MealCard from '../../components/MealCard';
 import WeeklyPlan from '../../components/WeeklyPlan';
@@ -36,6 +37,8 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
     { day: 'Friday', meals: [] },
     { day: 'Saturday', meals: [] }
   ]);
+const {user}= useAuth0() 
+
 
   const handleAddToFavorites = (meal) => {
     setFavorites(prev => [...prev, meal]);
@@ -76,7 +79,7 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
   const fetchUserFitnessInfoAndMeals = async () => {
     setIsLoading(true);
     try {
-      const userResponse = await fetch(`http://localhost:3000/users/${userId}`);
+      const userResponse = await fetch(`http://localhost:3000/users/email`, { method:'POST', body: JSON.stringify({email:user.email})});
       if (!userResponse.ok) throw new Error('Failed to fetch user fitness information');
       const userInfo = await userResponse.json();
       const mealCalorieGoal = calculateCalorieGoal(userInfo);
@@ -155,7 +158,7 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
       </div>
       <div className="weekly-plan-section">
       <WeeklyPlan userId={userId} weeklyMeals={weeklyMeals} />
-      <GroceryList />
+      <GroceryList weeklyMealPlan={weeklyMeals} />
       </div>
       <div className="cultural-recipe">
       <CulturalRecipeOfTheDay />

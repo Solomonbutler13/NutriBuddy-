@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './groceryList.css'; // Import the CSS file for styling
 
 // Define the GroceryList component
-const GroceryList = ({ weeklyMealPlan }) => {
+const GroceryList = ({weeklyMealPlan}) => {
   // State for managing grocery items and total cost
   const [items, setItems] = useState([]);
   const [totalCost, setTotalCost] = useState(0);
