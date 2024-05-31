@@ -49,3 +49,7 @@
     color: #FFA500;
     margin-right: 5px;
   }
+
+  .meal-item button {
+    background-color: pink;
+  }

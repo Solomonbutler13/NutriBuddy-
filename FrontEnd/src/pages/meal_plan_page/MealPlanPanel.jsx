@@ -76,7 +76,7 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
   const fetchUserFitnessInfoAndMeals = async () => {
     setIsLoading(true);
     try {
-      const userResponse = await fetch(`http://localhost:3000/user/${userId}`);
+      const userResponse = await fetch(`http://localhost:3000/users/${userId}`);
       if (!userResponse.ok) throw new Error('Failed to fetch user fitness information');
       const userInfo = await userResponse.json();
       const mealCalorieGoal = calculateCalorieGoal(userInfo);
@@ -154,7 +154,7 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
         </div>
       </div>
       <div className="weekly-plan-section">
-      <WeeklyPlan weeklyMeals={weeklyMeals} />
+      <WeeklyPlan userId={userId} weeklyMeals={weeklyMeals} />
       <GroceryList />
       </div>
       <div className="cultural-recipe">
