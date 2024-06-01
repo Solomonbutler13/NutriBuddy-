@@ -3,7 +3,7 @@ import Avatar from './Avatar';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import Cropper from 'react-easy-crop';
-import getCroppedImg from './CropImage'; // This needs to be implemented as shown previously
+import getCroppedImg from './cropImage'; // This needs to be implemented as shown previously
 
 const ProfilePic = () => {
   const [imagePreviewUrl, setImagePreviewUrl] = useState('https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png');

@@ -1,12 +1,9 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MealCard from '../../components/MealCard';
 import WeeklyPlan from '../../components/WeeklyPlan';
-
-// import your grocery list components here
 import GroceryList from '../../components/GroceryList';
-
-// import recipe of the day component here 
 import CulturalRecipeOfTheDay from '../../components/RecipeOfTheDay';
 
 import { useStore } from "../../components/UserData.jsx";
@@ -41,15 +38,17 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
 const {user}= useAuth0() 
 
 
+  const navigate = useNavigate();
+
   const handleAddToFavorites = (meal) => {
-    setFavorites(prev => [...prev, meal]);
+    setFavorites((prev) => [...prev, meal]);
   };
 
   const handleAddToWeeklyPlan = (meal, days) => {
-    setWeeklyMeals(prevWeeklyMeals => {
-      return prevWeeklyMeals.map(dayInfo => {
+    setWeeklyMeals((prevWeeklyMeals) => {
+      return prevWeeklyMeals.map((dayInfo) => {
         if (days.includes(dayInfo.day)) {
-          const updatedMeals = dayInfo.meals.find(m => m.id === meal.id) ? dayInfo.meals : [...dayInfo.meals, meal];
+          const updatedMeals = dayInfo.meals.find((m) => m.id === meal.id) ? dayInfo.meals : [...dayInfo.meals, meal];
           return { ...dayInfo, meals: updatedMeals };
         }
         return dayInfo;
@@ -141,9 +140,17 @@ const {user}= useAuth0()
     fetchUserFitnessInfoAndMeals();
   }, []);
 
+  const AboutMe = () => {
+    navigate('/about'); // routes to user profile page
+  };
+
+
   return (
     <div className="meal-plan-panel">
-      <h1>{userName}'s Meal Plan</h1>
+      <div className="NavBar">
+        <button id="aboutme-button" type="button" onClick={AboutMe}>About Me</button>
+      </div> 
+      <h1 style={{ width: '100%', textAlign: 'center' }}>{userName}'s Meal Plan</h1>
       <div className="meal-suggestions">
         <h2 className="meal-suggestions-title">Meal Suggestions</h2>
         <div className="meal-suggestions-scrollable">
@@ -162,7 +169,7 @@ const {user}= useAuth0()
       <GroceryList weeklyMealPlan={futureMeals}  />
       </div>
       <div className="cultural-recipe">
-      <CulturalRecipeOfTheDay />
+        <CulturalRecipeOfTheDay />
       </div>
     </div>
   );
