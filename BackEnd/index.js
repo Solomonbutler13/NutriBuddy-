@@ -33,7 +33,7 @@ app.get('/', (request, response) => {
 // This gets all the user in the data base
 app.get('/users/all', db1.getAllUsers);
 // This gets one user
-app.get('/users/email', db1.getUserByEmail);
+app.post('/users/email', db1.getUserByEmail);
 // This deletes the user from the database
 app.delete('/users/del/:id', db1.deleteUserById);
 // This updates user personal info in database

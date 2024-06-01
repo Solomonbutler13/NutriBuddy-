@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import Avatar from './Avatar';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';

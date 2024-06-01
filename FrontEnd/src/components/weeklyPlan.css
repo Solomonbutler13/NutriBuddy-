@@ -2,9 +2,8 @@
     background-color: #d8bcbc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    max-width: 400px;
-    margin: 20px auto;
+    width: 40%;
+    user-select: none;
   }
   
   .weekly-plan-title {
@@ -48,4 +47,8 @@
   .icon-sun {
     color: #FFA500;
     margin-right: 5px;
+  }
+
+  .meal-item button {
+    background-color: pink;
   }

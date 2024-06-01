@@ -10,6 +10,7 @@ export const useStore = create(persist(set => ({
     age: 0,
     gender: 'Male',
     weight: 180,
+    goalWeight: 165,
     height: 60,
     keto: false,
     vegan: false,
@@ -23,6 +24,7 @@ export const useStore = create(persist(set => ({
     Wheat: false,
     Sesame: false,
     activityLevel: 'Moderate',
+    userId: 1,
     
     setInfo: (info, value) => set({ [info]: value })
 }), {
