@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './groceryList.css'; // Import the CSS file for styling
 
 // Define the GroceryList component
-const GroceryList = ({weeklyMealPlan}) => {
+const GroceryList = ({ weeklyMealPlan }) => {
   // State for managing grocery items and total cost
   const [items, setItems] = useState([]);
   const [totalCost, setTotalCost] = useState(0);
@@ -19,13 +19,13 @@ const GroceryList = ({weeklyMealPlan}) => {
           console.log('meal: ', meal);
           // Make a GET request to fetch ingredients for the current meal ID
           const url = `http://localhost:3000/mealingredients/${meal.recipe_id}`
-          console.log('ingredients url: ' , url);
+          console.log('ingredients url: ', url);
           const response = await fetch(url);
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
           const data = await response.json();
-          console.log('meal ingredients: ', data );
+          console.log('meal ingredients: ', data);
 
           // Assuming the response contains an array of ingredients
           data.forEach(ingredient => {
@@ -68,13 +68,20 @@ const GroceryList = ({weeklyMealPlan}) => {
       <h2>Grocery List</h2>
       {/* List of grocery items */}
       <ul className="grocery-items">
-        {items.map((item, index) => (
-          <li key={index} className="grocery-item">
-            {/* Display each grocery item with quantity and cost */}
-            {item.name} - {item.quantity} {item.unit}
-            <span> - ${item.quantity * parseInt(item.costPerUnit).toFixed(2)}</span>
-          </li>
-        ))}
+        {items.map((item, index) => {
+          console.log('item name length: ', item.name.length);
+          for (let ingredientNumber = 0; ingredientNumber < item.name.length; ingredientNumber++) {
+              console.log(ingredientNumber);
+            return (
+              <li key={index} className="grocery-item">
+                {/* Display each grocery item with quantity and cost */}
+                {item.name[ingredientNumber]} - {item.quantity[ingredientNumber]} {item.unit[ingredientNumber]}
+                <span> - ${item.quantity[ingredientNumber] * parseInt(item.costPerUnit[ingredientNumber]).toFixed(2)}</span>
+              </li>
+
+            )
+          }
+        })}
       </ul>
       {/* Total cost display */}
       <div className="total-cost">
