@@ -142,7 +142,7 @@ const {user}= useAuth0()
 
   return (
     <div className="meal-plan-panel">
-      <h1 style={{ width: '100%', textAlign: 'center' }}>{userName}'s Meal Plan</h1>
+      <h1>{userName}'s Meal Plan</h1>
       <div className="meal-suggestions">
         <h2 className="meal-suggestions-title">Meal Suggestions</h2>
         <div className="meal-suggestions-scrollable">
@@ -157,8 +157,8 @@ const {user}= useAuth0()
         </div>
       </div>
       <div className="weekly-plan-section">
-      <WeeklyPlan userId={userId} weeklyMeals={weeklyMeals} />
-      <GroceryList weeklyMealPlan={weeklyMeals} />
+          <WeeklyPlan userId={userId} weeklyMeals={weeklyMeals} />
+          <GroceryList weeklyMealPlan={weeklyMeals} />
       </div>
       <div className="cultural-recipe">
       <CulturalRecipeOfTheDay />
