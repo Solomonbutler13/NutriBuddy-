@@ -27,6 +27,7 @@ const MealPlanPanel = ({ meals, userName = "User" }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [mealSuggestions, setMealSuggestions] = useState(meals);
+  const [futureMeals, setFutureMeals] = useState([])
 
   const [weeklyMeals, setWeeklyMeals] = useState([
     { day: 'Sunday', meals: [] },
@@ -157,8 +158,8 @@ const {user}= useAuth0()
         </div>
       </div>
       <div className="weekly-plan-section">
-      <WeeklyPlan userId={userId} weeklyMeals={weeklyMeals} />
-      <GroceryList weeklyMealPlan={weeklyMeals} />
+      <WeeklyPlan futureMeals={futureMeals} setFutureMeals={setFutureMeals} userId={userId} weeklyMeals={weeklyMeals} />
+      <GroceryList weeklyMealPlan={futureMeals}  />
       </div>
       <div className="cultural-recipe">
       <CulturalRecipeOfTheDay />

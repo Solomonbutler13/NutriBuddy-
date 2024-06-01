@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import "./weeklyPlan.css";
 
-const WeeklyPlan = ({ userId, weeklyMeals }) => {
+const WeeklyPlan = ({ userId, weeklyMeals, futureMeals, setFutureMeals }) => {
   const [mealsByDay, setMealsByDay] = useState(weeklyMeals);
+  
 
   useEffect(() => {
     setTimeout(() => {
@@ -52,13 +53,17 @@ const WeeklyPlan = ({ userId, weeklyMeals }) => {
       if (!futureResponse.ok) {
         throw new Error("Failed to fetch future meals");
       }
-      const futureMeals = await futureResponse.json();
-      console.log("futuremeals:", futureMeals);
+      const futureMealsData = await futureResponse.json();
+      console.log("futuremeals:", futureMealsData);
+
+      setFutureMeals(futureMealsData);
+
+     
 
       // Combine past and future meals
       const allMeals = [...pastMeals, ...futureMeals];
       setMealsByDay(organizeMealsByDay(allMeals));
-      console.log("state:", organizeMealsByDay(allMeals));
+      console.log("allmeals:", allMeals);
     } catch (error) {
       console.error("Error fetching meals:", error);
     }

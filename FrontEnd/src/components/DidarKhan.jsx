@@ -3,7 +3,6 @@ import didarKhanImage from '../assets/images/Didar-Khan.jpg'; // Import image
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 
-
 const DidarKhan = () => {
     return (
         <div className="team-member-card">
@@ -11,10 +10,10 @@ const DidarKhan = () => {
             <h3 className="name">Didar Khan</h3>
             <div className="social-links">
                 <a href="https://github.com/didarkhan97" target="_blank" rel="noopener noreferrer">
-                <FaGithubSquare className="social-icon" />
+                    <FaGithubSquare className="social-icon" />
                 </a>
                 <a href="https://linkedin.com/in/DK1997" target="_blank" rel="noopener noreferrer">
-                    <FaLinkedin className='social-icon'/>
+                    <FaLinkedin className="social-icon" />
                 </a>
             </div>
             <div className="role">

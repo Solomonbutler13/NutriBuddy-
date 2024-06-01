@@ -3,7 +3,6 @@ import dennisWynnImage from '../assets/images/Dennis-Wynn.jpg'; // Import image
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 
-
 const DennisWynn = () => {
     return (
         <div className="team-member-card">
@@ -11,10 +10,10 @@ const DennisWynn = () => {
             <h3 className="name">Dennis Wynn</h3>
             <div className="social-links">
                 <a href="https://github.com/denniswynn22" target="_blank" rel="noopener noreferrer">
-                <FaGithubSquare className="social-icon" />
+                    <FaGithubSquare className="social-icon" />
                 </a>
                 <a href="https://www.linkedin.com/in/dennis-wynn-bkny22/" target="_blank" rel="noopener noreferrer">
-                    <FaLinkedin className='social-icon'/>
+                    <FaLinkedin className="social-icon" />
                 </a>
             </div>
             <div className="role">

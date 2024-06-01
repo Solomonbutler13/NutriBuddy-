@@ -16,12 +16,16 @@ const GroceryList = ({weeklyMealPlan}) => {
 
         // Loop through each meal in the weeklyMealPlan
         for (let meal of weeklyMealPlan) {
+          console.log('meal: ', meal);
           // Make a GET request to fetch ingredients for the current meal ID
-          const response = await fetch(`http://localhost:3000/mealingredients/${meal.id}`);
+          const url = `http://localhost:3000/mealingredients/${meal.recipe_id}`
+          console.log('ingredients url: ' , url);
+          const response = await fetch(url);
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
           const data = await response.json();
+          console.log('meal ingredients: ', data );
 
           // Assuming the response contains an array of ingredients
           data.forEach(ingredient => {
@@ -68,13 +72,13 @@ const GroceryList = ({weeklyMealPlan}) => {
           <li key={index} className="grocery-item">
             {/* Display each grocery item with quantity and cost */}
             {item.name} - {item.quantity} {item.unit}
-            <span> - ${item.quantity * item.costPerUnit.toFixed(2)}</span>
+            <span> - ${item.quantity * parseInt(item.costPerUnit).toFixed(2)}</span>
           </li>
         ))}
       </ul>
       {/* Total cost display */}
       <div className="total-cost">
-        <strong>Total Cost: ${totalCost.toFixed(2)}</strong>
+        <strong>Total Cost: ${parseInt(totalCost).toFixed(2)}</strong>
       </div>
     </div>
   );
