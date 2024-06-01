@@ -41,6 +41,8 @@
   gap: 5%;
   scrollbar-width: none;
   justify-content: center;
+  max-width: 75vw;
+  overflow-x: auto;
 }
 
 .day-container {
